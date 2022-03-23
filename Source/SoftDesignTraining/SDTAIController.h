@@ -45,7 +45,7 @@ public:
     bool Landing = false;
 
     UPROPERTY(EditAnywhere, Category = AI)
-        UBehaviorTree* behaviorTree;
+    UBehaviorTree* behaviorTree;
 
 protected:
 
@@ -60,14 +60,20 @@ protected:
     void UpdatePlayerInteractionBehavior(const FHitResult& detectionHit, float deltaTime);
     PlayerInteractionBehavior GetCurrentPlayerInteractionBehavior(const FHitResult& hit);
     bool HasLoSOnHit(const FHitResult& hit);
-    void MoveToRandomCollectible();
-    void MoveToPlayer();
-    void MoveToBestFleeLocation();
     void PlayerInteractionLoSUpdate();
     void OnPlayerInteractionNoLosDone();
     void OnMoveToTarget();
 
 public:
+    //behaviour tree tasks interface
+    void MoveToPlayer();
+    void MoveToRandomCollectible();
+    void MoveToBestFleeLocation();
+
+    //behaviour tree service interface
+    bool playerPoweredUp();
+    bool HasLos();
+
     virtual void OnMoveCompleted(FAIRequestID RequestID, const FPathFollowingResult& Result) override;
     void RotateTowards(const FVector& targetLocation);
     void SetActorLocation(const FVector& targetLocation);

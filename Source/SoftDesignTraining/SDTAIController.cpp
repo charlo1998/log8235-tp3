@@ -135,6 +135,36 @@ void ASDTAIController::OnPlayerInteractionNoLosDone()
     }
 }
 
+bool ASDTAIController::playerPoweredUp()
+{
+    return SDTUtils::IsPlayerPoweredUp(GetWorld());
+}
+
+bool ASDTAIController::HasLos()
+{
+    ACharacter* playerCharacter = UGameplayStatics::GetPlayerCharacter(GetWorld(), 0);
+    if (!playerCharacter)
+        return false;
+
+    TArray<TEnumAsByte<EObjectTypeQuery>> TraceObjectTypes;
+    TraceObjectTypes.Add(UEngineTypes::ConvertToObjectType(ECollisionChannel::ECC_WorldStatic));
+    TraceObjectTypes.Add(UEngineTypes::ConvertToObjectType(COLLISION_PLAYER));
+
+    FHitResult losHit;
+    GetWorld()->LineTraceSingleByObjectType(losHit, GetPawn()->GetActorLocation(), playerCharacter->GetActorLocation(), TraceObjectTypes);
+
+    bool hasLosOnPlayer = false;
+
+    if (losHit.GetComponent())
+    {
+        if (losHit.GetComponent()->GetCollisionObjectType() == COLLISION_PLAYER)
+        {
+            return true;
+        }
+    }
+    return false;
+}
+
 void ASDTAIController::MoveToBestFleeLocation()
 {
     float bestLocationScore = 0.f;
