@@ -3,7 +3,6 @@
 #include "FleeLocation.h"
 #include "SoftDesignTraining.h"
 
-
 // Sets default values
 AFleeLocation::AFleeLocation()
 {

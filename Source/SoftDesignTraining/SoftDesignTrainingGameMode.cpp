@@ -17,3 +17,10 @@ ASoftDesignTrainingGameMode::ASoftDesignTrainingGameMode()
 		DefaultPawnClass = PlayerPawnBPClass.Class;
 	}
 }
+
+void ASoftDesignTrainingGameMode::StartPlay()
+{
+    Super::StartPlay();
+
+    GetWorld()->Exec(GetWorld(), TEXT("stat fps"));
+}

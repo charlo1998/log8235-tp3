@@ -2,7 +2,6 @@
 
 #include "SoftDesignTraining.h"
 
-
 IMPLEMENT_PRIMARY_GAME_MODULE(SoftDesignTrainingModuleImpl, SoftDesignTraining, "SoftDesignTraining");
 
 DEFINE_LOG_CATEGORY(LogSoftDesignTraining)

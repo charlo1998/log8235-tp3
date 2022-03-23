@@ -13,54 +13,156 @@ USDTPathFollowingComponent::USDTPathFollowingComponent(const FObjectInitializer&
 
 }
 
-void USDTPathFollowingComponent::FollowPathSegment(float deltaTime)
+void USDTPathFollowingComponent::FollowPathSegment(float DeltaTime)
 {
-    const TArray<FNavPathPoint>& points = Path->GetPathPoints();
-    const FNavPathPoint& segmentStart = points[MoveSegmentStartIndex];
-    if (isJumping) {
+    if (!Path.IsValid() || MovementComp == nullptr)
+    {
+        return;
+    }
 
-        //ASDTAIController* Controller = Cast<ASDTAIController>(Cast<APawn>(GetOwner())->Controller);
-        isJumping= Cast<ASDTAIController>(GetOwner())->Jump(segmentStart, points[MoveSegmentStartIndex - 1]);
-       }
+    const FVector CurrentLocation = MovementComp->GetActorFeetLocation();
+    const FVector CurrentTarget = GetCurrentTargetLocation();
+    const TArray<FNavPathPoint>& points = Path->GetPathPoints();
+
+    const FNavPathPoint& SegmentStart = points[MoveSegmentStartIndex];
+
+    DrawDebugString(GetWorld(), FVector(0.f, 0.f, 10.f), FString::SanitizeFloat(m_JumpProgressRatio), GetOwner()->GetParentActor(), FColor::Red, 0.f, false);
+
+    if (SDTUtils::HasJumpFlag(SegmentStart))
+    {
+        ASDTAIController* controller = Cast<ASDTAIController>(GetOwner());
+        if (controller)
+        {
+            if (controller->InAir)
+            {
+                m_JumpProgressRatio += DeltaTime;
+                FVector JumpOffset = FVector(0.f, 0.f, 0.f);
+
+                FVector nextLocation = FMath::Lerp(SegmentStart.Location, CurrentTarget, m_JumpProgressRatio);
+
+                float jumpHeight = controller->JumpCurve->GetFloatValue(m_JumpProgressRatio) * controller->JumpApexHeight;
+                nextLocation += FVector(0.f, 0.f, jumpHeight) + JumpOffset;
+
+                const int32 LastSegmentStartIndex = points.Num() - 2;
+                const bool bNotFollowingLastSegment = (MoveSegmentStartIndex < LastSegmentStartIndex);
+
+                MovementComp->RequestDirectMove((nextLocation - controller->GetPawn()->GetActorLocation()) * controller->JumpSpeed, bNotFollowingLastSegment);
+
+                DrawDebugSphere(GetWorld(), nextLocation, 10.f, 8, FColor::Red, false, 5.f);
+            }
+            else
+            {
+                if (controller->Landing)
+                {
+                    ACharacter* character = Cast<ACharacter>(controller->GetPawn());
+                    if (character)
+                    {
+                        UCharacterMovementComponent* charMoveComp = Cast<UCharacterMovementComponent>(character->GetMovementComponent());
+                        if (charMoveComp)
+                        {
+                            charMoveComp->SetMovementMode(MOVE_Walking);
+                        }
+                    }
+                }
+
+                const int32 LastSegmentStartIndex = points.Num() - 2;
+                const bool bNotFollowingLastSegment = (MoveSegmentStartIndex < LastSegmentStartIndex);
+                MovementComp->RequestDirectMove((CurrentTarget - controller->GetPawn()->GetActorLocation()), bNotFollowingLastSegment);
+            }
+        }
+        
+        return;
+    }
+
+    // set to false by default, we will set set this back to true if appropriate
+    bIsDecelerating = false;
+
+    const bool bAccelerationBased = MovementComp->UseAccelerationForPathFollowing();
+    if (bAccelerationBased)
+    {
+        CurrentMoveInput = (CurrentTarget - CurrentLocation).GetSafeNormal();
+
+        if (MoveSegmentStartIndex >= DecelerationSegmentIndex)
+        {
+            const FVector PathEnd = Path->GetEndLocation();
+            const float DistToEndSq = FVector::DistSquared(CurrentLocation, PathEnd);
+            const bool bShouldDecelerate = DistToEndSq < FMath::Square(CachedBrakingDistance);
+            if (bShouldDecelerate)
+            {
+                bIsDecelerating = true;
+
+                const float SpeedPct = FMath::Clamp(FMath::Sqrt(DistToEndSq) / CachedBrakingDistance, 0.0f, 1.0f);
+                CurrentMoveInput *= SpeedPct;
+            }
+        }
+
+        PostProcessMove.ExecuteIfBound(this, CurrentMoveInput);
+        MovementComp->RequestPathMove(CurrentMoveInput);
+    }
     else
     {
-        Super::FollowPathSegment(deltaTime);
-        Speed = MovementComp->Velocity.Size();
-        if (Cast<ASDTAIController>(GetOwner())->getReachedTarget())
-        {
-            Speed = 0;
-        }
+        FVector MoveVelocity = (CurrentTarget - CurrentLocation) / DeltaTime;
+
+        const int32 LastSegmentStartIndex = points.Num() - 2;
+        const bool bNotFollowingLastSegment = (MoveSegmentStartIndex < LastSegmentStartIndex);
+
+        PostProcessMove.ExecuteIfBound(this, MoveVelocity);
+        MovementComp->RequestDirectMove(MoveVelocity, bNotFollowingLastSegment);
     }
 }
 
-void USDTPathFollowingComponent::SetMoveSegment(int32 segmentStartIndex)
+void USDTPathFollowingComponent::SetMoveSegment(int32 SegmentStartIndex)
 {
+    Super::SetMoveSegment(SegmentStartIndex);
 
     const TArray<FNavPathPoint>& points = Path->GetPathPoints();
 
-    const FNavPathPoint& segmentStart = points[MoveSegmentStartIndex];
+    const FNavPathPoint& SegmentStart = points[MoveSegmentStartIndex];
 
-    if (segmentStart.Flags == 81668)
+    m_JumpProgressRatio = 0.f;
+
+    if (SDTUtils::HasJumpFlag(SegmentStart) && FNavMeshNodeFlags(SegmentStart.Flags).IsNavLink())
     {
-        isJumping = true;
-        Super::SetMoveSegment(segmentStartIndex);
+        ASDTAIController* controller = Cast<ASDTAIController>(GetOwner());
+        if (controller)
+        {
+            ACharacter* character = Cast<ACharacter>(controller->GetPawn());
+            if (character)
+            {
+                UCharacterMovementComponent* charMoveComp = Cast<UCharacterMovementComponent>(character->GetMovementComponent());
+                if (charMoveComp)
+                {
+                    controller->GetPawn()->bUseControllerRotationYaw = true;
+                    controller->AtJumpSegment = true;
 
-    }
-   else if (isJumping){
-    }
-   else {
-        Super::SetMoveSegment(segmentStartIndex);
+                    MovementComp->StopMovementKeepPathing();
 
+                    charMoveComp->bOrientRotationToMovement = false;
+                    charMoveComp->SetMovementMode(MOVE_Flying);
+                }
+            }
+        }
     }
-    //if (SDTUtils::HasJumpFlag(segmentStart) && FNavMeshNodeFlags(segmentStart.Flags).IsNavLink())
-    //{
-    //    if (GEngine)
-    //        GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Yellow, TEXT("Move Segment Set with jump flag!"));
-    //}
-    //else
-    //{
-    //    if (GEngine)
-    //        GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Red, TEXT("Move Segment Set!"));
-    //}
+    else
+    {
+        ASDTAIController* controller = Cast<ASDTAIController>(GetOwner());
+        if (controller)
+        {
+            ACharacter* character = Cast<ACharacter>(controller->GetPawn());
+            if (character)
+            {
+                UCharacterMovementComponent* charMoveComp = Cast<UCharacterMovementComponent>(character->GetMovementComponent());
+                if (charMoveComp)
+                {
+                    controller->GetPawn()->bUseControllerRotationYaw = false;
+                    controller->AtJumpSegment = false;
+                    controller->Landing = false;
+
+                    charMoveComp->bOrientRotationToMovement = true;
+                    charMoveComp->SetMovementMode(MOVE_Walking);
+                }
+            }
+        }
+    }
 }
 

@@ -4,10 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "SDTBaseAIController.h"
-#include "SDTCollectible.h"
-#include "PhysicsHelpers.h"
 #include "SDTAIController.generated.h"
-
 
 /**
  * 
@@ -47,29 +44,44 @@ public:
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = AI)
     bool Landing = false;
 
-    UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = AI)
-    float AiJumpProgress = 0.0;
-private:
-    float jumpingProgress = 0.0f;
-public:
-    virtual void OnMoveCompleted(FAIRequestID RequestID, const FPathFollowingResult& Result) override;
-    void AIStateInterrupted();
-    virtual bool Jump(FVector start, FVector end);
-    bool getReachedTarget();
+    UPROPERTY(EditAnywhere, Category = AI)
+        UBehaviorTree* behaviorTree;
 
 protected:
+
+    enum PlayerInteractionBehavior
+    {
+        PlayerInteractionBehavior_Collect,
+        PlayerInteractionBehavior_Chase,
+        PlayerInteractionBehavior_Flee
+    };
+
+    void GetHightestPriorityDetectionHit(const TArray<FHitResult>& hits, FHitResult& outDetectionHit);
+    void UpdatePlayerInteractionBehavior(const FHitResult& detectionHit, float deltaTime);
+    PlayerInteractionBehavior GetCurrentPlayerInteractionBehavior(const FHitResult& hit);
+    bool HasLoSOnHit(const FHitResult& hit);
+    void MoveToRandomCollectible();
+    void MoveToPlayer();
+    void MoveToBestFleeLocation();
+    void PlayerInteractionLoSUpdate();
+    void OnPlayerInteractionNoLosDone();
     void OnMoveToTarget();
-    bool GetHightestPriorityDetectionHit(const TArray<FHitResult>& hits, FHitResult& outDetectionHit);
-    void UpdatePlayerInteraction(float deltaTime);
-    FVector FindFleeLocation(APawn* selfPawn, bool& found, FVector sphereLocation);
-    float OffSet = 1700.f;
-    float fleeSphereRadius = 1650.f;
-    int memory = 0;
-    bool IsVisibleAndReachable(APawn* selfPawn, AActor* actor, PhysicsHelpers& physicHelper, UWorld* world) const;
+
+public:
+    virtual void OnMoveCompleted(FAIRequestID RequestID, const FPathFollowingResult& Result) override;
+    void RotateTowards(const FVector& targetLocation);
+    void SetActorLocation(const FVector& targetLocation);
+    void AIStateInterrupted();
 
 private:
     virtual void GoToBestTarget(float deltaTime) override;
-    virtual void ChooseBehavior(float deltaTime) override;
+    virtual void UpdatePlayerInteraction(float deltaTime) override;
     virtual void ShowNavigationPath() override;
-    virtual ASDTCollectible* FindClosestCollectible();
+
+
+protected:
+    FVector m_JumpTarget;
+    FRotator m_ObstacleAvoidanceRotation;
+    FTimerHandle m_PlayerInteractionNoLosTimer;
+    PlayerInteractionBehavior m_PlayerInteractionBehavior;
 };

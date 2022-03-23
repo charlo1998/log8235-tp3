@@ -7,6 +7,15 @@
 
 void USDTAnimNotify_JumpEnd::Notify(USkeletalMeshComponent * MeshComp, UAnimSequenceBase * Animation)
 {
-    //Notify that our NPC has landed
-    Cast<ASDTAIController>(Cast<APawn>(MeshComp->GetOwner())->Controller)->AiJumpProgress = 0.0f;//come back to walk/run/idle animation
+    if (AActor* owner = MeshComp->GetOwner())
+    {
+        if (ASoftDesignTrainingCharacter* character = Cast<ASoftDesignTrainingCharacter>(owner))
+        {
+            if (ASDTAIController* controller = Cast<ASDTAIController>(character->GetController()))
+            {
+                controller->InAir = false;
+                controller->Landing = true;
+            }
+        }
+    }
 }

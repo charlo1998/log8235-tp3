@@ -7,6 +7,14 @@
 
 void USDTAnimNotify_JumpStart::Notify(USkeletalMeshComponent * MeshComp, UAnimSequenceBase * Animation)
 {
-    //Notify that the NPC has launched
-    Cast<ASDTAIController>(Cast<APawn>(MeshComp->GetOwner())->Controller)->AiJumpProgress += 0.1f;//transition to inAir animation
+    if (AActor* owner = MeshComp->GetOwner())
+    {
+        if (ASoftDesignTrainingCharacter* character = Cast<ASoftDesignTrainingCharacter>(owner))
+        {
+            if (ASDTAIController* controller = Cast<ASDTAIController>(character->GetController()))
+            {
+                controller->InAir = true;
+            }
+        }
+    }
 }
