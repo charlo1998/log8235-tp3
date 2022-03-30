@@ -3,6 +3,7 @@
 #include "SDTAIController.h"
 #include "SoftDesignTraining.h"
 #include "SDTCollectible.h"
+#include "GroupManager.h"
 #include "SDTFleeLocation.h"
 #include "SDTPathFollowingComponent.h"
 #include "DrawDebugHelpers.h"
@@ -384,10 +385,29 @@ void ASDTAIController::GetHightestPriorityDetectionHit(const TArray<FHitResult>&
 void ASDTAIController::UpdatePlayerInteractionBehavior(const FHitResult& detectionHit, float deltaTime)
 {
     PlayerInteractionBehavior currentBehavior = GetCurrentPlayerInteractionBehavior(detectionHit);
+    if (m_GroupManager == NULL)
+        FindGroupManager();
 
     if (currentBehavior != m_PlayerInteractionBehavior)
     {
+        if (m_GroupManager && currentBehavior == PlayerInteractionBehavior_Chase)
+            dynamic_cast<AGroupManager*>(m_GroupManager)->AddCharacterToGroup(GetPawn());
+        else if (m_GroupManager && currentBehavior != PlayerInteractionBehavior_Chase)
+            dynamic_cast<AGroupManager*>(m_GroupManager)->RemoveCharacterFromGroup(GetPawn());
+
         m_PlayerInteractionBehavior = currentBehavior;
         AIStateInterrupted();
     }
 }
+
+void ASDTAIController::FindGroupManager()
+{
+    for (TActorIterator<AActor> actor(GetWorld()); actor; ++actor)
+    {
+        if (AGroupManager* groupManager = dynamic_cast<AGroupManager*>(*actor))
+        {
+            m_GroupManager = groupManager;
+        }
+    }
+}
+

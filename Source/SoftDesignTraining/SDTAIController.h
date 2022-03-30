@@ -83,6 +83,7 @@ private:
     virtual void GoToBestTarget(float deltaTime) override;
     virtual void UpdatePlayerInteraction(float deltaTime) override;
     virtual void ShowNavigationPath() override;
+    void FindGroupManager();
 
 
 protected:
@@ -90,4 +91,5 @@ protected:
     FRotator m_ObstacleAvoidanceRotation;
     FTimerHandle m_PlayerInteractionNoLosTimer;
     PlayerInteractionBehavior m_PlayerInteractionBehavior;
+    AActor* m_GroupManager;
 };
