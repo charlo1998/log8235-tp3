@@ -1,8 +1,8 @@
-﻿Log file open, 03/27/22 10:00:59
+﻿Log file open, 03/30/22 09:03:28
 LogInit: Display: Running engine for game: SoftDesignTraining
 LogPlatformFile: Not using cached read wrapper
 LogTaskGraph: Started task graph with 5 named threads and 35 total threads with 3 sets of task threads.
-LogStats: Stats thread started at 1.127260
+LogStats: Stats thread started at 0.984547
 LogD3D11RHI: Loaded GFSDK_Aftermath_Lib.x64.dll
 LogICUInternationalization: ICU TimeZone Detection - Raw Offset: -5:00, Platform Override: ''
 LogPluginManager: Mounting plugin Paper2D
@@ -194,768 +194,482 @@ LogConfig: Setting CVar [[s.FlushStreamingOnExit:1]]
 LogInit: Object subsystem initialized
 LogConfig: Setting CVar [[con.DebugEarlyDefault:1]]
 LogConfig: Setting CVar [[r.setres:1280x720]]
-[2022.03.27-14.01.00:783][  0]LogConfig: Setting CVar [[r.VSync:0]]
-[2022.03.27-14.01.00:783][  0]LogConfig: Setting CVar [[r.RHICmdBypass:0]]
-[2022.03.27-14.01.00:783][  0]LogConfig: Applying CVar settings from Section [/Script/Engine.RendererSettings] File [C:/Users/DNJACK/Desktop/labs/log8235-tp3/Saved/Config/Windows/Engine.ini]
-[2022.03.27-14.01.00:783][  0]LogConfig: Setting CVar [[r.GPUCrashDebugging:0]]
-[2022.03.27-14.01.00:784][  0]LogConfig: Applying CVar settings from Section [/Script/Engine.RendererOverrideSettings] File [C:/Users/DNJACK/Desktop/labs/log8235-tp3/Saved/Config/Windows/Engine.ini]
-[2022.03.27-14.01.00:784][  0]LogConfig: Applying CVar settings from Section [/Script/Engine.StreamingSettings] File [C:/Users/DNJACK/Desktop/labs/log8235-tp3/Saved/Config/Windows/Engine.ini]
-[2022.03.27-14.01.00:784][  0]LogConfig: Setting CVar [[s.MinBulkDataSizeForAsyncLoading:131072]]
-[2022.03.27-14.01.00:784][  0]LogConfig: Setting CVar [[s.AsyncLoadingThreadEnabled:0]]
-[2022.03.27-14.01.00:784][  0]LogConfig: Setting CVar [[s.EventDrivenLoaderEnabled:1]]
-[2022.03.27-14.01.00:784][  0]LogConfig: Setting CVar [[s.WarnIfTimeLimitExceeded:0]]
-[2022.03.27-14.01.00:784][  0]LogConfig: Setting CVar [[s.TimeLimitExceededMultiplier:1.5]]
-[2022.03.27-14.01.00:784][  0]LogConfig: Setting CVar [[s.TimeLimitExceededMinTime:0.005]]
-[2022.03.27-14.01.00:784][  0]LogConfig: Setting CVar [[s.UseBackgroundLevelStreaming:1]]
-[2022.03.27-14.01.00:784][  0]LogConfig: Setting CVar [[s.PriorityAsyncLoadingExtraTime:15.0]]
-[2022.03.27-14.01.00:784][  0]LogConfig: Setting CVar [[s.LevelStreamingActorsUpdateTimeLimit:5.0]]
-[2022.03.27-14.01.00:784][  0]LogConfig: Setting CVar [[s.PriorityLevelStreamingActorsUpdateExtraTime:5.0]]
-[2022.03.27-14.01.00:784][  0]LogConfig: Setting CVar [[s.LevelStreamingComponentsRegistrationGranularity:10]]
-[2022.03.27-14.01.00:784][  0]LogConfig: Setting CVar [[s.UnregisterComponentsTimeLimit:1.0]]
-[2022.03.27-14.01.00:784][  0]LogConfig: Setting CVar [[s.LevelStreamingComponentsUnregistrationGranularity:5]]
-[2022.03.27-14.01.00:784][  0]LogConfig: Setting CVar [[s.FlushStreamingOnExit:1]]
-[2022.03.27-14.01.00:784][  0]LogConfig: Applying CVar settings from Section [/Script/Engine.GarbageCollectionSettings] File [C:/Users/DNJACK/Desktop/labs/log8235-tp3/Saved/Config/Windows/Engine.ini]
-[2022.03.27-14.01.00:784][  0]LogConfig: Setting CVar [[gc.MaxObjectsNotConsideredByGC:1]]
-[2022.03.27-14.01.00:784][  0]LogConfig: Setting CVar [[gc.SizeOfPermanentObjectPool:0]]
-[2022.03.27-14.01.00:784][  0]LogConfig: Setting CVar [[gc.FlushStreamingOnGC:0]]
-[2022.03.27-14.01.00:784][  0]LogConfig: Setting CVar [[gc.NumRetriesBeforeForcingGC:10]]
-[2022.03.27-14.01.00:784][  0]LogConfig: Setting CVar [[gc.AllowParallelGC:1]]
-[2022.03.27-14.01.00:784][  0]LogConfig: Setting CVar [[gc.TimeBetweenPurgingPendingKillObjects:61.1]]
-[2022.03.27-14.01.00:784][  0]LogConfig: Setting CVar [[gc.MaxObjectsInEditor:25165824]]
-[2022.03.27-14.01.00:784][  0]LogConfig: Setting CVar [[gc.IncrementalBeginDestroyEnabled:1]]
-[2022.03.27-14.01.00:784][  0]LogConfig: Setting CVar [[gc.CreateGCClusters:1]]
-[2022.03.27-14.01.00:784][  0]LogConfig: Setting CVar [[gc.MinGCClusterSize:5]]
-[2022.03.27-14.01.00:784][  0]LogConfig: Setting CVar [[gc.ActorClusteringEnabled:0]]
-[2022.03.27-14.01.00:784][  0]LogConfig: Setting CVar [[gc.BlueprintClusteringEnabled:0]]
-[2022.03.27-14.01.00:784][  0]LogConfig: Setting CVar [[gc.UseDisregardForGCOnDedicatedServers:0]]
-[2022.03.27-14.01.00:784][  0]LogConfig: Applying CVar settings from Section [/Script/Engine.NetworkSettings] File [C:/Users/DNJACK/Desktop/labs/log8235-tp3/Saved/Config/Windows/Engine.ini]
-[2022.03.27-14.01.00:784][  0]LogConfig: Applying CVar settings from Section [/Script/UnrealEd.CookerSettings] File [C:/Users/DNJACK/Desktop/labs/log8235-tp3/Saved/Config/Windows/Engine.ini]
-[2022.03.27-14.01.00:789][  0]LogConfig: Applying CVar settings from Section [ViewDistanceQuality@3] File [C:/Users/DNJACK/Desktop/labs/log8235-tp3/Saved/Config/Windows/Scalability.ini]
-[2022.03.27-14.01.00:789][  0]LogConfig: Setting CVar [[r.SkeletalMeshLODBias:0]]
-[2022.03.27-14.01.00:789][  0]LogConfig: Setting CVar [[r.ViewDistanceScale:1.0]]
-[2022.03.27-14.01.00:789][  0]LogConfig: Applying CVar settings from Section [AntiAliasingQuality@3] File [C:/Users/DNJACK/Desktop/labs/log8235-tp3/Saved/Config/Windows/Scalability.ini]
-[2022.03.27-14.01.00:789][  0]LogConfig: Setting CVar [[r.PostProcessAAQuality:4]]
-[2022.03.27-14.01.00:789][  0]LogConfig: Applying CVar settings from Section [ShadowQuality@3] File [C:/Users/DNJACK/Desktop/labs/log8235-tp3/Saved/Config/Windows/Scalability.ini]
-[2022.03.27-14.01.00:789][  0]LogConfig: Setting CVar [[r.LightFunctionQuality:1]]
-[2022.03.27-14.01.00:789][  0]LogConfig: Setting CVar [[r.ShadowQuality:5]]
-[2022.03.27-14.01.00:789][  0]LogConfig: Setting CVar [[r.Shadow.CSM.MaxCascades:10]]
-[2022.03.27-14.01.00:789][  0]LogConfig: Setting CVar [[r.Shadow.MaxResolution:2048]]
-[2022.03.27-14.01.00:789][  0]LogConfig: Setting CVar [[r.Shadow.MaxCSMResolution:2048]]
-[2022.03.27-14.01.00:789][  0]LogConfig: Setting CVar [[r.Shadow.RadiusThreshold:0.01]]
-[2022.03.27-14.01.00:789][  0]LogConfig: Setting CVar [[r.Shadow.DistanceScale:1.0]]
-[2022.03.27-14.01.00:789][  0]LogConfig: Setting CVar [[r.Shadow.CSM.TransitionScale:1.0]]
-[2022.03.27-14.01.00:789][  0]LogConfig: Setting CVar [[r.Shadow.PreShadowResolutionFactor:1.0]]
-[2022.03.27-14.01.00:789][  0]LogConfig: Setting CVar [[r.DistanceFieldShadowing:1]]
-[2022.03.27-14.01.00:789][  0]LogConfig: Setting CVar [[r.DistanceFieldAO:1]]
-[2022.03.27-14.01.00:789][  0]LogConfig: Setting CVar [[r.AOQuality:2]]
-[2022.03.27-14.01.00:789][  0]LogConfig: Setting CVar [[r.VolumetricFog:1]]
-[2022.03.27-14.01.00:789][  0]LogConfig: Setting CVar [[r.VolumetricFog.GridPixelSize:8]]
-[2022.03.27-14.01.00:789][  0]LogConfig: Setting CVar [[r.VolumetricFog.GridSizeZ:128]]
-[2022.03.27-14.01.00:789][  0]LogConfig: Setting CVar [[r.VolumetricFog.HistoryMissSupersampleCount:4]]
-[2022.03.27-14.01.00:789][  0]LogConfig: Setting CVar [[r.LightMaxDrawDistanceScale:1]]
-[2022.03.27-14.01.00:789][  0]LogConfig: Setting CVar [[r.CapsuleShadows:1]]
-[2022.03.27-14.01.00:789][  0]LogConfig: Applying CVar settings from Section [PostProcessQuality@3] File [C:/Users/DNJACK/Desktop/labs/log8235-tp3/Saved/Config/Windows/Scalability.ini]
-[2022.03.27-14.01.00:789][  0]LogConfig: Setting CVar [[r.MotionBlurQuality:4]]
-[2022.03.27-14.01.00:789][  0]LogConfig: Setting CVar [[r.AmbientOcclusionMipLevelFactor:0.4]]
-[2022.03.27-14.01.00:789][  0]LogConfig: Setting CVar [[r.AmbientOcclusionMaxQuality:100]]
-[2022.03.27-14.01.00:790][  0]LogConfig: Setting CVar [[r.AmbientOcclusionLevels:-1]]
-[2022.03.27-14.01.00:790][  0]LogConfig: Setting CVar [[r.AmbientOcclusionRadiusScale:1.0]]
-[2022.03.27-14.01.00:790][  0]LogConfig: Setting CVar [[r.DepthOfFieldQuality:2]]
-[2022.03.27-14.01.00:790][  0]LogConfig: Setting CVar [[r.RenderTargetPoolMin:400]]
-[2022.03.27-14.01.00:790][  0]LogConfig: Setting CVar [[r.LensFlareQuality:2]]
-[2022.03.27-14.01.00:790][  0]LogConfig: Setting CVar [[r.SceneColorFringeQuality:1]]
-[2022.03.27-14.01.00:790][  0]LogConfig: Setting CVar [[r.EyeAdaptationQuality:2]]
-[2022.03.27-14.01.00:790][  0]LogConfig: Setting CVar [[r.BloomQuality:5]]
-[2022.03.27-14.01.00:790][  0]LogConfig: Setting CVar [[r.FastBlurThreshold:100]]
-[2022.03.27-14.01.00:790][  0]LogConfig: Setting CVar [[r.Upscale.Quality:3]]
-[2022.03.27-14.01.00:790][  0]LogConfig: Setting CVar [[r.Tonemapper.GrainQuantization:1]]
-[2022.03.27-14.01.00:790][  0]LogConfig: Setting CVar [[r.LightShaftQuality:1]]
-[2022.03.27-14.01.00:790][  0]LogConfig: Setting CVar [[r.Filter.SizeScale:1]]
-[2022.03.27-14.01.00:790][  0]LogConfig: Setting CVar [[r.Tonemapper.Quality:5]]
-[2022.03.27-14.01.00:790][  0]LogConfig: Setting CVar [[r.DOF.Gather.AccumulatorQuality:1        ; higher gathering accumulator quality]]
-[2022.03.27-14.01.00:790][  0]LogConfig: Setting CVar [[r.DOF.Gather.PostfilterMethod:1          ; Median3x3 postfilering method]]
-[2022.03.27-14.01.00:790][  0]LogConfig: Setting CVar [[r.DOF.Gather.EnableBokehSettings:0       ; no bokeh simulation when gathering]]
-[2022.03.27-14.01.00:790][  0]LogConfig: Setting CVar [[r.DOF.Gather.RingCount:4                 ; medium number of samples when gathering]]
-[2022.03.27-14.01.00:790][  0]LogConfig: Setting CVar [[r.DOF.Scatter.ForegroundCompositing:1    ; additive foreground scattering]]
-[2022.03.27-14.01.00:790][  0]LogConfig: Setting CVar [[r.DOF.Scatter.BackgroundCompositing:2    ; additive background scattering]]
-[2022.03.27-14.01.00:790][  0]LogConfig: Setting CVar [[r.DOF.Scatter.EnableBokehSettings:1      ; bokeh simulation when scattering]]
-[2022.03.27-14.01.00:790][  0]LogConfig: Setting CVar [[r.DOF.Scatter.MaxSpriteRatio:0.1         ; only a maximum of 10% of scattered bokeh]]
-[2022.03.27-14.01.00:790][  0]LogConfig: Setting CVar [[r.DOF.Recombine.Quality:1                ; cheap slight out of focus]]
-[2022.03.27-14.01.00:790][  0]LogConfig: Setting CVar [[r.DOF.Recombine.EnableBokehSettings:0    ; no bokeh simulation on slight out of focus]]
-[2022.03.27-14.01.00:790][  0]LogConfig: Setting CVar [[r.DOF.TemporalAAQuality:1                ; more stable temporal accumulation]]
-[2022.03.27-14.01.00:790][  0]LogConfig: Setting CVar [[r.DOF.Kernel.MaxForegroundRadius:0.025]]
-[2022.03.27-14.01.00:790][  0]LogConfig: Setting CVar [[r.DOF.Kernel.MaxBackgroundRadius:0.025]]
-[2022.03.27-14.01.00:790][  0]LogConfig: Applying CVar settings from Section [TextureQuality@3] File [C:/Users/DNJACK/Desktop/labs/log8235-tp3/Saved/Config/Windows/Scalability.ini]
-[2022.03.27-14.01.00:790][  0]LogConfig: Setting CVar [[r.Streaming.MipBias:0]]
-[2022.03.27-14.01.00:790][  0]LogConfig: Setting CVar [[r.Streaming.AmortizeCPUToGPUCopy:0]]
-[2022.03.27-14.01.00:790][  0]LogConfig: Setting CVar [[r.Streaming.MaxNumTexturesToStreamPerFrame:0]]
-[2022.03.27-14.01.00:790][  0]LogConfig: Setting CVar [[r.Streaming.Boost:1]]
-[2022.03.27-14.01.00:790][  0]LogConfig: Setting CVar [[r.MaxAnisotropy:8]]
-[2022.03.27-14.01.00:790][  0]LogConfig: Setting CVar [[r.VT.MaxAnisotropy:8]]
-[2022.03.27-14.01.00:790][  0]LogConfig: Setting CVar [[r.Streaming.LimitPoolSizeToVRAM:0]]
-[2022.03.27-14.01.00:790][  0]LogConfig: Setting CVar [[r.Streaming.PoolSize:1000]]
-[2022.03.27-14.01.00:790][  0]LogConfig: Setting CVar [[r.Streaming.MaxEffectiveScreenSize:0]]
-[2022.03.27-14.01.00:790][  0]LogConfig: Applying CVar settings from Section [EffectsQuality@3] File [C:/Users/DNJACK/Desktop/labs/log8235-tp3/Saved/Config/Windows/Scalability.ini]
-[2022.03.27-14.01.00:790][  0]LogConfig: Setting CVar [[r.TranslucencyLightingVolumeDim:64]]
-[2022.03.27-14.01.00:790][  0]LogConfig: Setting CVar [[r.RefractionQuality:2]]
-[2022.03.27-14.01.00:790][  0]LogConfig: Setting CVar [[r.SSR.Quality:3]]
-[2022.03.27-14.01.00:790][  0]LogConfig: Setting CVar [[r.SSR.HalfResSceneColor:0]]
-[2022.03.27-14.01.00:790][  0]LogConfig: Setting CVar [[r.SceneColorFormat:4]]
-[2022.03.27-14.01.00:790][  0]LogConfig: Setting CVar [[r.DetailMode:2]]
-[2022.03.27-14.01.00:790][  0]LogConfig: Setting CVar [[r.TranslucencyVolumeBlur:1]]
-[2022.03.27-14.01.00:790][  0]LogConfig: Setting CVar [[r.MaterialQualityLevel:1 ; High quality]]
-[2022.03.27-14.01.00:790][  0]LogConfig: Setting CVar [[r.SSS.Scale:1]]
-[2022.03.27-14.01.00:790][  0]LogConfig: Setting CVar [[r.SSS.SampleSet:2]]
-[2022.03.27-14.01.00:790][  0]LogConfig: Setting CVar [[r.SSS.Quality:1]]
-[2022.03.27-14.01.00:790][  0]LogConfig: Setting CVar [[r.SSS.HalfRes:0]]
-[2022.03.27-14.01.00:790][  0]LogConfig: Setting CVar [[r.SSGI.Quality:3]]
-[2022.03.27-14.01.00:790][  0]LogConfig: Setting CVar [[r.EmitterSpawnRateScale:1.0]]
-[2022.03.27-14.01.00:790][  0]LogConfig: Setting CVar [[r.ParticleLightQuality:2]]
-[2022.03.27-14.01.00:790][  0]LogConfig: Setting CVar [[r.SkyAtmosphere.AerialPerspectiveLUT.FastApplyOnOpaque:1 ; Always have FastSkyLUT 1 in this case to avoid wrong sky]]
-[2022.03.27-14.01.00:790][  0]LogConfig: Setting CVar [[r.SkyAtmosphere.AerialPerspectiveLUT.SampleCountPerSlice:1]]
-[2022.03.27-14.01.00:790][  0]LogConfig: Setting CVar [[r.SkyAtmosphere.AerialPerspectiveLUT.DepthResolution:16.0]]
-[2022.03.27-14.01.00:790][  0]LogConfig: Setting CVar [[r.SkyAtmosphere.FastSkyLUT:1]]
-[2022.03.27-14.01.00:790][  0]LogConfig: Setting CVar [[r.SkyAtmosphere.FastSkyLUT.SampleCountMin:4.0]]
-[2022.03.27-14.01.00:790][  0]LogConfig: Setting CVar [[r.SkyAtmosphere.FastSkyLUT.SampleCountMax:32.0]]
-[2022.03.27-14.01.00:790][  0]LogConfig: Setting CVar [[r.SkyAtmosphere.SampleCountMin:4.0]]
-[2022.03.27-14.01.00:790][  0]LogConfig: Setting CVar [[r.SkyAtmosphere.SampleCountMax:32.0]]
-[2022.03.27-14.01.00:790][  0]LogConfig: Setting CVar [[r.SkyAtmosphere.TransmittanceLUT.UseSmallFormat:0]]
-[2022.03.27-14.01.00:790][  0]LogConfig: Setting CVar [[r.SkyAtmosphere.TransmittanceLUT.SampleCount:10.0]]
-[2022.03.27-14.01.00:790][  0]LogConfig: Setting CVar [[r.SkyAtmosphere.MultiScatteringLUT.SampleCount:15.0]]
-[2022.03.27-14.01.00:790][  0]LogConfig: Applying CVar settings from Section [FoliageQuality@3] File [C:/Users/DNJACK/Desktop/labs/log8235-tp3/Saved/Config/Windows/Scalability.ini]
-[2022.03.27-14.01.00:790][  0]LogConfig: Setting CVar [[foliage.DensityScale:1.0]]
-[2022.03.27-14.01.00:790][  0]LogConfig: Setting CVar [[grass.DensityScale:1.0]]
-[2022.03.27-14.01.00:790][  0]LogConfig: Applying CVar settings from Section [ShadingQuality@3] File [C:/Users/DNJACK/Desktop/labs/log8235-tp3/Saved/Config/Windows/Scalability.ini]
-[2022.03.27-14.01.00:790][  0]LogConfig: Setting CVar [[r.HairStrands.SkyLighting.SampleCount:16]]
-[2022.03.27-14.01.00:790][  0]LogConfig: Setting CVar [[r.HairStrands.SkyLighting.JitterIntegration:0]]
-[2022.03.27-14.01.00:790][  0]LogConfig: Setting CVar [[r.HairStrands.SkyAO.SampleCount:16]]
-[2022.03.27-14.01.00:791][  0]LogConfig: Setting CVar [[r.HairStrands.DeepShadow.SuperSampling:0]]
-[2022.03.27-14.01.00:791][  0]LogConfig: Setting CVar [[r.HairStrands.VisibilityPPLL:0]]
-[2022.03.27-14.01.00:791][  0]LogConfig: Setting CVar [[r.HairStrands.RasterizationScale:0.5]]
-[2022.03.27-14.01.00:791][  0]LogConfig: Setting CVar [[r.HairStrands.VelocityRasterizationScale:1]]
-[2022.03.27-14.01.00:791][  0]LogInit: Selected Device Profile: [Windows]
-[2022.03.27-14.01.00:791][  0]LogInit: Applying CVar settings loaded from the selected device profile: [Windows]
-[2022.03.27-14.01.00:792][  0]LogHAL: Display: Platform has ~ 16 GB [17129615360 / 17179869184 / 16], which maps to Larger [LargestMinGB=32, LargerMinGB=12, DefaultMinGB=8, SmallerMinGB=6, SmallestMinGB=0)
-[2022.03.27-14.01.00:793][  0]LogInit: Going up to parent DeviceProfile []
-[2022.03.27-14.01.00:793][  0]LogConfig: Applying CVar settings from Section [ViewDistanceQuality@3] File [C:/Users/DNJACK/Desktop/labs/log8235-tp3/Saved/Config/Windows/Scalability.ini]
-[2022.03.27-14.01.00:793][  0]LogConfig: Setting CVar [[r.SkeletalMeshLODBias:0]]
-[2022.03.27-14.01.00:793][  0]LogConfig: Setting CVar [[r.ViewDistanceScale:1.0]]
-[2022.03.27-14.01.00:793][  0]LogConfig: Applying CVar settings from Section [AntiAliasingQuality@3] File [C:/Users/DNJACK/Desktop/labs/log8235-tp3/Saved/Config/Windows/Scalability.ini]
-[2022.03.27-14.01.00:793][  0]LogConfig: Setting CVar [[r.PostProcessAAQuality:4]]
-[2022.03.27-14.01.00:793][  0]LogConfig: Applying CVar settings from Section [ShadowQuality@3] File [C:/Users/DNJACK/Desktop/labs/log8235-tp3/Saved/Config/Windows/Scalability.ini]
-[2022.03.27-14.01.00:793][  0]LogConfig: Setting CVar [[r.LightFunctionQuality:1]]
-[2022.03.27-14.01.00:793][  0]LogConfig: Setting CVar [[r.ShadowQuality:5]]
-[2022.03.27-14.01.00:793][  0]LogConfig: Setting CVar [[r.Shadow.CSM.MaxCascades:10]]
-[2022.03.27-14.01.00:793][  0]LogConfig: Setting CVar [[r.Shadow.MaxResolution:2048]]
-[2022.03.27-14.01.00:793][  0]LogConfig: Setting CVar [[r.Shadow.MaxCSMResolution:2048]]
-[2022.03.27-14.01.00:793][  0]LogConfig: Setting CVar [[r.Shadow.RadiusThreshold:0.01]]
-[2022.03.27-14.01.00:793][  0]LogConfig: Setting CVar [[r.Shadow.DistanceScale:1.0]]
-[2022.03.27-14.01.00:793][  0]LogConfig: Setting CVar [[r.Shadow.CSM.TransitionScale:1.0]]
-[2022.03.27-14.01.00:793][  0]LogConfig: Setting CVar [[r.Shadow.PreShadowResolutionFactor:1.0]]
-[2022.03.27-14.01.00:794][  0]LogConfig: Setting CVar [[r.DistanceFieldShadowing:1]]
-[2022.03.27-14.01.00:794][  0]LogConfig: Setting CVar [[r.DistanceFieldAO:1]]
-[2022.03.27-14.01.00:794][  0]LogConfig: Setting CVar [[r.AOQuality:2]]
-[2022.03.27-14.01.00:794][  0]LogConfig: Setting CVar [[r.VolumetricFog:1]]
-[2022.03.27-14.01.00:794][  0]LogConfig: Setting CVar [[r.VolumetricFog.GridPixelSize:8]]
-[2022.03.27-14.01.00:794][  0]LogConfig: Setting CVar [[r.VolumetricFog.GridSizeZ:128]]
-[2022.03.27-14.01.00:794][  0]LogConfig: Setting CVar [[r.VolumetricFog.HistoryMissSupersampleCount:4]]
-[2022.03.27-14.01.00:794][  0]LogConfig: Setting CVar [[r.LightMaxDrawDistanceScale:1]]
-[2022.03.27-14.01.00:794][  0]LogConfig: Setting CVar [[r.CapsuleShadows:1]]
-[2022.03.27-14.01.00:794][  0]LogConfig: Applying CVar settings from Section [PostProcessQuality@3] File [C:/Users/DNJACK/Desktop/labs/log8235-tp3/Saved/Config/Windows/Scalability.ini]
-[2022.03.27-14.01.00:794][  0]LogConfig: Setting CVar [[r.MotionBlurQuality:4]]
-[2022.03.27-14.01.00:794][  0]LogConfig: Setting CVar [[r.AmbientOcclusionMipLevelFactor:0.4]]
-[2022.03.27-14.01.00:794][  0]LogConfig: Setting CVar [[r.AmbientOcclusionMaxQuality:100]]
-[2022.03.27-14.01.00:794][  0]LogConfig: Setting CVar [[r.AmbientOcclusionLevels:-1]]
-[2022.03.27-14.01.00:794][  0]LogConfig: Setting CVar [[r.AmbientOcclusionRadiusScale:1.0]]
-[2022.03.27-14.01.00:794][  0]LogConfig: Setting CVar [[r.DepthOfFieldQuality:2]]
-[2022.03.27-14.01.00:794][  0]LogConfig: Setting CVar [[r.RenderTargetPoolMin:400]]
-[2022.03.27-14.01.00:794][  0]LogConfig: Setting CVar [[r.LensFlareQuality:2]]
-[2022.03.27-14.01.00:794][  0]LogConfig: Setting CVar [[r.SceneColorFringeQuality:1]]
-[2022.03.27-14.01.00:794][  0]LogConfig: Setting CVar [[r.EyeAdaptationQuality:2]]
-[2022.03.27-14.01.00:794][  0]LogConfig: Setting CVar [[r.BloomQuality:5]]
-[2022.03.27-14.01.00:794][  0]LogConfig: Setting CVar [[r.FastBlurThreshold:100]]
-[2022.03.27-14.01.00:794][  0]LogConfig: Setting CVar [[r.Upscale.Quality:3]]
-[2022.03.27-14.01.00:794][  0]LogConfig: Setting CVar [[r.Tonemapper.GrainQuantization:1]]
-[2022.03.27-14.01.00:794][  0]LogConfig: Setting CVar [[r.LightShaftQuality:1]]
-[2022.03.27-14.01.00:794][  0]LogConfig: Setting CVar [[r.Filter.SizeScale:1]]
-[2022.03.27-14.01.00:794][  0]LogConfig: Setting CVar [[r.Tonemapper.Quality:5]]
-[2022.03.27-14.01.00:794][  0]LogConfig: Setting CVar [[r.DOF.Gather.AccumulatorQuality:1        ; higher gathering accumulator quality]]
-[2022.03.27-14.01.00:794][  0]LogConfig: Setting CVar [[r.DOF.Gather.PostfilterMethod:1          ; Median3x3 postfilering method]]
-[2022.03.27-14.01.00:794][  0]LogConfig: Setting CVar [[r.DOF.Gather.EnableBokehSettings:0       ; no bokeh simulation when gathering]]
-[2022.03.27-14.01.00:794][  0]LogConfig: Setting CVar [[r.DOF.Gather.RingCount:4                 ; medium number of samples when gathering]]
-[2022.03.27-14.01.00:794][  0]LogConfig: Setting CVar [[r.DOF.Scatter.ForegroundCompositing:1    ; additive foreground scattering]]
-[2022.03.27-14.01.00:794][  0]LogConfig: Setting CVar [[r.DOF.Scatter.BackgroundCompositing:2    ; additive background scattering]]
-[2022.03.27-14.01.00:794][  0]LogConfig: Setting CVar [[r.DOF.Scatter.EnableBokehSettings:1      ; bokeh simulation when scattering]]
-[2022.03.27-14.01.00:794][  0]LogConfig: Setting CVar [[r.DOF.Scatter.MaxSpriteRatio:0.1         ; only a maximum of 10% of scattered bokeh]]
-[2022.03.27-14.01.00:794][  0]LogConfig: Setting CVar [[r.DOF.Recombine.Quality:1                ; cheap slight out of focus]]
-[2022.03.27-14.01.00:794][  0]LogConfig: Setting CVar [[r.DOF.Recombine.EnableBokehSettings:0    ; no bokeh simulation on slight out of focus]]
-[2022.03.27-14.01.00:794][  0]LogConfig: Setting CVar [[r.DOF.TemporalAAQuality:1                ; more stable temporal accumulation]]
-[2022.03.27-14.01.00:794][  0]LogConfig: Setting CVar [[r.DOF.Kernel.MaxForegroundRadius:0.025]]
-[2022.03.27-14.01.00:794][  0]LogConfig: Setting CVar [[r.DOF.Kernel.MaxBackgroundRadius:0.025]]
-[2022.03.27-14.01.00:794][  0]LogConfig: Applying CVar settings from Section [TextureQuality@3] File [C:/Users/DNJACK/Desktop/labs/log8235-tp3/Saved/Config/Windows/Scalability.ini]
-[2022.03.27-14.01.00:794][  0]LogConfig: Setting CVar [[r.Streaming.MipBias:0]]
-[2022.03.27-14.01.00:794][  0]LogConfig: Setting CVar [[r.Streaming.AmortizeCPUToGPUCopy:0]]
-[2022.03.27-14.01.00:794][  0]LogConfig: Setting CVar [[r.Streaming.MaxNumTexturesToStreamPerFrame:0]]
-[2022.03.27-14.01.00:794][  0]LogConfig: Setting CVar [[r.Streaming.Boost:1]]
-[2022.03.27-14.01.00:794][  0]LogConfig: Setting CVar [[r.MaxAnisotropy:8]]
-[2022.03.27-14.01.00:794][  0]LogConfig: Setting CVar [[r.VT.MaxAnisotropy:8]]
-[2022.03.27-14.01.00:794][  0]LogConfig: Setting CVar [[r.Streaming.LimitPoolSizeToVRAM:0]]
-[2022.03.27-14.01.00:794][  0]LogConfig: Setting CVar [[r.Streaming.PoolSize:1000]]
-[2022.03.27-14.01.00:794][  0]LogConfig: Setting CVar [[r.Streaming.MaxEffectiveScreenSize:0]]
-[2022.03.27-14.01.00:794][  0]LogConfig: Applying CVar settings from Section [EffectsQuality@3] File [C:/Users/DNJACK/Desktop/labs/log8235-tp3/Saved/Config/Windows/Scalability.ini]
-[2022.03.27-14.01.00:794][  0]LogConfig: Setting CVar [[r.TranslucencyLightingVolumeDim:64]]
-[2022.03.27-14.01.00:794][  0]LogConfig: Setting CVar [[r.RefractionQuality:2]]
-[2022.03.27-14.01.00:794][  0]LogConfig: Setting CVar [[r.SSR.Quality:3]]
-[2022.03.27-14.01.00:794][  0]LogConfig: Setting CVar [[r.SSR.HalfResSceneColor:0]]
-[2022.03.27-14.01.00:794][  0]LogConfig: Setting CVar [[r.SceneColorFormat:4]]
-[2022.03.27-14.01.00:794][  0]LogConfig: Setting CVar [[r.DetailMode:2]]
-[2022.03.27-14.01.00:795][  0]LogConfig: Setting CVar [[r.TranslucencyVolumeBlur:1]]
-[2022.03.27-14.01.00:795][  0]LogConfig: Setting CVar [[r.MaterialQualityLevel:1 ; High quality]]
-[2022.03.27-14.01.00:795][  0]LogConfig: Setting CVar [[r.SSS.Scale:1]]
-[2022.03.27-14.01.00:795][  0]LogConfig: Setting CVar [[r.SSS.SampleSet:2]]
-[2022.03.27-14.01.00:795][  0]LogConfig: Setting CVar [[r.SSS.Quality:1]]
-[2022.03.27-14.01.00:795][  0]LogConfig: Setting CVar [[r.SSS.HalfRes:0]]
-[2022.03.27-14.01.00:795][  0]LogConfig: Setting CVar [[r.SSGI.Quality:3]]
-[2022.03.27-14.01.00:795][  0]LogConfig: Setting CVar [[r.EmitterSpawnRateScale:1.0]]
-[2022.03.27-14.01.00:795][  0]LogConfig: Setting CVar [[r.ParticleLightQuality:2]]
-[2022.03.27-14.01.00:795][  0]LogConfig: Setting CVar [[r.SkyAtmosphere.AerialPerspectiveLUT.FastApplyOnOpaque:1 ; Always have FastSkyLUT 1 in this case to avoid wrong sky]]
-[2022.03.27-14.01.00:795][  0]LogConfig: Setting CVar [[r.SkyAtmosphere.AerialPerspectiveLUT.SampleCountPerSlice:1]]
-[2022.03.27-14.01.00:795][  0]LogConfig: Setting CVar [[r.SkyAtmosphere.AerialPerspectiveLUT.DepthResolution:16.0]]
-[2022.03.27-14.01.00:795][  0]LogConfig: Setting CVar [[r.SkyAtmosphere.FastSkyLUT:1]]
-[2022.03.27-14.01.00:795][  0]LogConfig: Setting CVar [[r.SkyAtmosphere.FastSkyLUT.SampleCountMin:4.0]]
-[2022.03.27-14.01.00:795][  0]LogConfig: Setting CVar [[r.SkyAtmosphere.FastSkyLUT.SampleCountMax:32.0]]
-[2022.03.27-14.01.00:795][  0]LogConfig: Setting CVar [[r.SkyAtmosphere.SampleCountMin:4.0]]
-[2022.03.27-14.01.00:795][  0]LogConfig: Setting CVar [[r.SkyAtmosphere.SampleCountMax:32.0]]
-[2022.03.27-14.01.00:795][  0]LogConfig: Setting CVar [[r.SkyAtmosphere.TransmittanceLUT.UseSmallFormat:0]]
-[2022.03.27-14.01.00:795][  0]LogConfig: Setting CVar [[r.SkyAtmosphere.TransmittanceLUT.SampleCount:10.0]]
-[2022.03.27-14.01.00:795][  0]LogConfig: Setting CVar [[r.SkyAtmosphere.MultiScatteringLUT.SampleCount:15.0]]
-[2022.03.27-14.01.00:795][  0]LogConfig: Applying CVar settings from Section [FoliageQuality@3] File [C:/Users/DNJACK/Desktop/labs/log8235-tp3/Saved/Config/Windows/Scalability.ini]
-[2022.03.27-14.01.00:795][  0]LogConfig: Setting CVar [[foliage.DensityScale:1.0]]
-[2022.03.27-14.01.00:795][  0]LogConfig: Setting CVar [[grass.DensityScale:1.0]]
-[2022.03.27-14.01.00:795][  0]LogConfig: Applying CVar settings from Section [ShadingQuality@3] File [C:/Users/DNJACK/Desktop/labs/log8235-tp3/Saved/Config/Windows/Scalability.ini]
-[2022.03.27-14.01.00:795][  0]LogConfig: Setting CVar [[r.HairStrands.SkyLighting.SampleCount:16]]
-[2022.03.27-14.01.00:795][  0]LogConfig: Setting CVar [[r.HairStrands.SkyLighting.JitterIntegration:0]]
-[2022.03.27-14.01.00:795][  0]LogConfig: Setting CVar [[r.HairStrands.SkyAO.SampleCount:16]]
-[2022.03.27-14.01.00:795][  0]LogConfig: Setting CVar [[r.HairStrands.DeepShadow.SuperSampling:0]]
-[2022.03.27-14.01.00:795][  0]LogConfig: Setting CVar [[r.HairStrands.VisibilityPPLL:0]]
-[2022.03.27-14.01.00:795][  0]LogConfig: Setting CVar [[r.HairStrands.RasterizationScale:0.5]]
-[2022.03.27-14.01.00:795][  0]LogConfig: Setting CVar [[r.HairStrands.VelocityRasterizationScale:1]]
-[2022.03.27-14.01.00:795][  0]LogConfig: Applying CVar settings from Section [Startup] File [../../../Engine/Config/ConsoleVariables.ini]
-[2022.03.27-14.01.00:796][  0]LogConfig: Setting CVar [[net.UseAdaptiveNetUpdateFrequency:0]]
-[2022.03.27-14.01.00:796][  0]LogConfig: Setting CVar [[p.chaos.AllowCreatePhysxBodies:1]]
-[2022.03.27-14.01.00:796][  0]LogConfig: Setting CVar [[fx.SkipVectorVMBackendOptimizations:1]]
-[2022.03.27-14.01.00:796][  0]LogConfig: Applying CVar settings from Section [ConsoleVariables] File [C:/Users/DNJACK/Desktop/labs/log8235-tp3/Saved/Config/Windows/Engine.ini]
-[2022.03.27-14.01.00:797][  0]LogInit: Computer: DESKTOP-J4TRBP8
-[2022.03.27-14.01.00:797][  0]LogInit: User: DNJACK
-[2022.03.27-14.01.00:797][  0]LogInit: CPU Page size=4096, Cores=6
-[2022.03.27-14.01.00:797][  0]LogInit: High frequency timer resolution =10.000000 MHz
-[2022.03.27-14.01.00:797][  0]LogMemory: Memory total: Physical=16.0GB (16GB approx)
-[2022.03.27-14.01.00:797][  0]LogMemory: Platform Memory Stats for Windows
-[2022.03.27-14.01.00:797][  0]LogMemory: Process Physical Memory: 118.96 MB used, 118.96 MB peak
-[2022.03.27-14.01.00:797][  0]LogMemory: Process Virtual Memory: 107.18 MB used, 107.18 MB peak
-[2022.03.27-14.01.00:797][  0]LogMemory: Physical Memory: 5204.24 MB used,  11131.83 MB free, 16336.07 MB total
-[2022.03.27-14.01.00:797][  0]LogMemory: Virtual Memory: 5175.61 MB used,  134212552.00 MB free, 134217728.00 MB total
-[2022.03.27-14.01.00:803][  0]LogWindows: WindowsPlatformFeatures enabled
-[2022.03.27-14.01.01:094][  0]LogInit: Physics initialised using underlying interface: PhysX
-[2022.03.27-14.01.01:099][  0]LogInit: Using OS detected language (en-US).
-[2022.03.27-14.01.01:099][  0]LogInit: Using OS detected locale (en-CA).
-[2022.03.27-14.01.01:125][  0]LogTextLocalizationManager: No specific localization for 'en-US' exists, so the 'en' localization will be used.
-[2022.03.27-14.01.01:533][  0]LogInit: Setting process to per monitor DPI aware
-[2022.03.27-14.01.01:631][  0]LogSlate: New Slate User Created.  User Index 0, Is Virtual User: 0
-[2022.03.27-14.01.01:631][  0]LogSlate: Slate User Registered.  User Index 0, Is Virtual User: 0
-[2022.03.27-14.01.04:459][  0]LogHMD: Failed to initialize OpenVR with code 110
-[2022.03.27-14.01.04:459][  0]LogD3D11RHI: D3D11 min allowed feature level: 11_0
-[2022.03.27-14.01.04:459][  0]LogD3D11RHI: D3D11 max allowed feature level: 11_0
-[2022.03.27-14.01.04:459][  0]LogD3D11RHI: D3D11 adapters:
-[2022.03.27-14.01.04:566][  0]LogD3D11RHI:    0. 'NVIDIA GeForce GTX 1080' (Feature Level 11_0)
-[2022.03.27-14.01.04:566][  0]LogD3D11RHI:       8079/0/8168 MB DedicatedVideo/DedicatedSystem/SharedSystem, Outputs:1, VendorId:0x10de
-[2022.03.27-14.01.04:572][  0]LogD3D11RHI:    1. 'Microsoft Basic Render Driver' (Feature Level 11_0)
-[2022.03.27-14.01.04:572][  0]LogD3D11RHI:       0/0/8168 MB DedicatedVideo/DedicatedSystem/SharedSystem, Outputs:0, VendorId:0x1414
-[2022.03.27-14.01.04:572][  0]LogD3D11RHI: Chosen D3D11 Adapter: 0
-[2022.03.27-14.01.04:580][  0]LogD3D11RHI: Creating new Direct3DDevice
-[2022.03.27-14.01.04:581][  0]LogD3D11RHI:     GPU DeviceId: 0x1b80 (for the marketing name, search the web for "GPU Device Id")
-[2022.03.27-14.01.04:581][  0]LogWindows: EnumDisplayDevices:
-[2022.03.27-14.01.04:581][  0]LogWindows:    0. 'NVIDIA GeForce GTX 1080' (P:1 D:1)
-[2022.03.27-14.01.04:581][  0]LogWindows:    1. 'NVIDIA GeForce GTX 1080' (P:0 D:0)
-[2022.03.27-14.01.04:581][  0]LogWindows:    2. 'NVIDIA GeForce GTX 1080' (P:0 D:0)
-[2022.03.27-14.01.04:582][  0]LogWindows:    3. 'NVIDIA GeForce GTX 1080' (P:0 D:0)
-[2022.03.27-14.01.04:582][  0]LogWindows: DebugString: FoundDriverCount:4 
-[2022.03.27-14.01.04:582][  0]LogD3D11RHI:     Adapter Name: NVIDIA GeForce GTX 1080
-[2022.03.27-14.01.04:582][  0]LogD3D11RHI:   Driver Version: 472.12 (internal:30.0.14.7212, unified:472.12)
-[2022.03.27-14.01.04:582][  0]LogD3D11RHI:      Driver Date: 9-13-2021
-[2022.03.27-14.01.04:582][  0]LogRHI: Texture pool is 5655 MB (70% of 8079 MB)
-[2022.03.27-14.01.04:661][  0]LogD3D11RHI: RHI has support for 64 bit atomics
-[2022.03.27-14.01.04:662][  0]LogD3D11RHI: Async texture creation enabled
-[2022.03.27-14.01.04:662][  0]LogD3D11RHI: Array index from any shader is supported
-[2022.03.27-14.01.04:699][  0]LogD3D11RHI: GPU Timing Frequency: 1000.000000 (Debug: 2 1)
-[2022.03.27-14.01.05:088][  0]LogTargetPlatformManager: Display: Loaded TargetPlatform 'AllDesktop'
-[2022.03.27-14.01.05:116][  0]LogTargetPlatformManager: Display: Loaded TargetPlatform 'Android'
-[2022.03.27-14.01.05:116][  0]LogTargetPlatformManager: Display: Loaded TargetPlatform 'Android_ASTC'
-[2022.03.27-14.01.05:116][  0]LogTargetPlatformManager: Display: Loaded TargetPlatform 'Android_DXT'
-[2022.03.27-14.01.05:116][  0]LogTargetPlatformManager: Display: Loaded TargetPlatform 'Android_ETC2'
-[2022.03.27-14.01.05:116][  0]LogTargetPlatformManager: Display: Loaded TargetPlatform 'AndroidClient'
-[2022.03.27-14.01.05:116][  0]LogTargetPlatformManager: Display: Loaded TargetPlatform 'Android_ASTCClient'
-[2022.03.27-14.01.05:116][  0]LogTargetPlatformManager: Display: Loaded TargetPlatform 'Android_DXTClient'
-[2022.03.27-14.01.05:116][  0]LogTargetPlatformManager: Display: Loaded TargetPlatform 'Android_ETC2Client'
-[2022.03.27-14.01.05:116][  0]LogTargetPlatformManager: Display: Loaded TargetPlatform 'Android_Multi'
-[2022.03.27-14.01.05:116][  0]LogTargetPlatformManager: Display: Loaded TargetPlatform 'Android_MultiClient'
-[2022.03.27-14.01.05:153][  0]LogTargetPlatformManager: Display: Loaded TargetPlatform 'IOSClient'
-[2022.03.27-14.01.05:153][  0]LogTargetPlatformManager: Display: Loaded TargetPlatform 'IOS'
-[2022.03.27-14.01.05:170][  0]LogTargetPlatformManager: Display: Loaded TargetPlatform 'Linux'
-[2022.03.27-14.01.05:182][  0]LogTargetPlatformManager: Display: Loaded TargetPlatform 'LinuxNoEditor'
-[2022.03.27-14.01.05:196][  0]LogTargetPlatformManager: Display: Loaded TargetPlatform 'LinuxClient'
-[2022.03.27-14.01.05:210][  0]LogTargetPlatformManager: Display: Loaded TargetPlatform 'LinuxServer'
-[2022.03.27-14.01.05:224][  0]LogTargetPlatformManager: Display: Loaded TargetPlatform 'LinuxAArch64NoEditor'
-[2022.03.27-14.01.05:237][  0]LogTargetPlatformManager: Display: Loaded TargetPlatform 'LinuxAArch64Client'
-[2022.03.27-14.01.05:251][  0]LogTargetPlatformManager: Display: Loaded TargetPlatform 'LinuxAArch64Server'
-[2022.03.27-14.01.05:289][  0]LogTargetPlatformManager: Display: Loaded TargetPlatform 'Lumin'
-[2022.03.27-14.01.05:289][  0]LogTargetPlatformManager: Display: Loaded TargetPlatform 'LuminClient'
-[2022.03.27-14.01.05:312][  0]LogTargetPlatformManager: Display: Loaded TargetPlatform 'TVOSClient'
-[2022.03.27-14.01.05:312][  0]LogTargetPlatformManager: Display: Loaded TargetPlatform 'TVOS'
-[2022.03.27-14.01.05:326][  0]LogTargetPlatformManager: Display: Loaded TargetPlatform 'WindowsNoEditor'
-[2022.03.27-14.01.05:340][  0]LogTargetPlatformManager: Display: Loaded TargetPlatform 'Windows'
-[2022.03.27-14.01.05:353][  0]LogTargetPlatformManager: Display: Loaded TargetPlatform 'WindowsClient'
-[2022.03.27-14.01.05:366][  0]LogTargetPlatformManager: Display: Loaded TargetPlatform 'WindowsServer'
-[2022.03.27-14.01.05:366][  0]LogTargetPlatformManager: Display: Building Assets For Windows
-[2022.03.27-14.01.05:419][  0]LogAudioDebug: Display: Lib vorbis DLL was dynamically loaded.
-[2022.03.27-14.01.05:568][  0]LogShaderCompilers: Guid format shader working directory is -8 characters bigger than the processId version (../../../../../../Users/DNJACK/Desktop/labs/log8235-tp3/Intermediate/Shaders/WorkingDirectory/3752/).
-[2022.03.27-14.01.05:569][  0]LogShaderCompilers: Cleaned the shader compiler working directory 'C:/Users/DNJACK/AppData/Local/Temp/UnrealShaderWorkingDir/8D360EEA408A95DFA29D5CA8F7363B14/'.
-[2022.03.27-14.01.05:572][  0]LogXGEController: Cleaning working directory: C:/Users/DNJACK/AppData/Local/Temp/UnrealXGEWorkingDir/
-[2022.03.27-14.01.05:572][  0]LogXGEController: Cannot use XGE Controller as Incredibuild is not installed on this machine.
-[2022.03.27-14.01.05:572][  0]LogShaderCompilers: Cannot use XGE Shader Compiler as Incredibuild is not installed on this machine.
-[2022.03.27-14.01.05:572][  0]LogShaderCompilers: Display: Using Local Shader Compiler.
-[2022.03.27-14.01.08:570][  0]LogDerivedDataCache: Display: Max Cache Size: 512 MB
-[2022.03.27-14.01.08:848][  0]LogDerivedDataCache: Loaded boot cache 0.28s 78MB C:/Users/DNJACK/AppData/Local/UnrealEngine/4.25/DerivedDataCache/Boot.ddc.
-[2022.03.27-14.01.08:848][  0]LogDerivedDataCache: Display: Loaded Boot cache: C:/Users/DNJACK/AppData/Local/UnrealEngine/4.25/DerivedDataCache/Boot.ddc
-[2022.03.27-14.01.08:848][  0]LogDerivedDataCache: FDerivedDataBackendGraph:  Pak pak cache file ../../../../../../Users/DNJACK/Desktop/labs/log8235-tp3/DerivedDataCache/DDC.ddp not found, will not use a pak cache.
-[2022.03.27-14.01.08:848][  0]LogDerivedDataCache: Unable to find inner node Pak for hierarchical cache Hierarchy.
-[2022.03.27-14.01.08:848][  0]LogDerivedDataCache: FDerivedDataBackendGraph:  CompressedPak pak cache file ../../../../../../Users/DNJACK/Desktop/labs/log8235-tp3/DerivedDataCache/Compressed.ddp not found, will not use a pak cache.
-[2022.03.27-14.01.08:848][  0]LogDerivedDataCache: Unable to find inner node CompressedPak for hierarchical cache Hierarchy.
-[2022.03.27-14.01.08:876][  0]LogDerivedDataCache: Display: Pak cache opened for reading ../../../Engine/DerivedDataCache/Compressed.ddp.
-[2022.03.27-14.01.08:876][  0]LogDerivedDataCache: FDerivedDataBackendGraph:  EnterprisePak pak cache file ../../../Enterprise/DerivedDataCache/Compressed.ddp not found, will not use a pak cache.
-[2022.03.27-14.01.08:876][  0]LogDerivedDataCache: Unable to find inner node EnterprisePak for hierarchical cache Hierarchy.
-[2022.03.27-14.01.08:878][  0]LogDerivedDataCache: Using Local data cache path C:/Users/DNJACK/AppData/Local/UnrealEngine/Common/DerivedDataCache: Writable
-[2022.03.27-14.01.08:879][  0]LogDerivedDataCache: Shared data cache path not found in *engine.ini, will not use an Shared cache.
-[2022.03.27-14.01.08:879][  0]LogDerivedDataCache: Unable to find inner node Shared for hierarchical cache Hierarchy.
-[2022.03.27-14.01.08:955][  0]LogSlate: Using FreeType 2.10.0
-[2022.03.27-14.01.08:974][  0]LogSlate: SlateFontServices - WITH_FREETYPE: 1, WITH_HARFBUZZ: 1
-[2022.03.27-14.01.09:019][  0]LogAssetRegistry: FAssetRegistry took 0.0057 seconds to start up
-[2022.03.27-14.01.09:443][  0]LogInit: Selected Device Profile: [Windows]
-[2022.03.27-14.01.09:757][  0]LogMeshReduction: Using QuadricMeshReduction for automatic static mesh reduction
-[2022.03.27-14.01.09:757][  0]LogMeshReduction: Using SimplygonMeshReduction for automatic skeletal mesh reduction
-[2022.03.27-14.01.09:757][  0]LogMeshReduction: Using ProxyLODMeshReduction for automatic mesh merging
-[2022.03.27-14.01.09:757][  0]LogMeshReduction: No distributed automatic mesh merging module available
-[2022.03.27-14.01.09:757][  0]LogMeshMerging: No distributed automatic mesh merging module available
-[2022.03.27-14.01.09:824][  0]LogNetVersion: SoftDesignTraining 1.0.0, NetCL: 13144385, EngineNetVer: 14, GameNetVer: 0 (Checksum: 3414102749)
-[2022.03.27-14.01.11:270][  0]LogAISub: UAISubsystem::UAISubsystem AISubsystem (000001C1CC8F57C0), frame # 0
-[2022.03.27-14.01.11:270][  0]LogAISub: UAISubsystem::UAISubsystem AIPerceptionSystem (000001C1CC7EEAC0), frame # 0
-[2022.03.27-14.01.11:275][  0]LogAISub: UAISubsystem::UAISubsystem EnvQueryManager (000001C1CC835C00), frame # 0
-[2022.03.27-14.01.11:368][  0]LogPackageLocalizationCache: Processed 19 localized package path(s) for 1 prioritized culture(s) in 0.053520 seconds
-[2022.03.27-14.01.11:374][  0]LogUObjectArray: 15917 objects as part of root set at end of initial load.
-[2022.03.27-14.01.11:374][  0]LogUObjectAllocator: 3965568 out of 0 bytes used by permanent object pool.
-[2022.03.27-14.01.11:374][  0]LogUObjectArray: CloseDisregardForGC: 0/0 objects in disregard for GC pool
-[2022.03.27-14.01.12:478][  0]LogTcpMessaging: Initializing TcpMessaging bridge
-[2022.03.27-14.01.12:487][  0]LogUdpMessaging: Initializing bridge on interface 0.0.0.0:0 to multicast group 230.0.0.1:6666.
-[2022.03.27-14.01.13:183][  0]SourceControl: Source control is disabled
-[2022.03.27-14.01.13:183][  0]SourceControl: Source control is disabled
-[2022.03.27-14.01.13:200][  0]SourceControl: Source control is disabled
-[2022.03.27-14.01.13:207][  0]SourceControl: Source control is disabled
-[2022.03.27-14.01.13:223][  0]SourceControl: Source control is disabled
-[2022.03.27-14.01.13:754][  0]LogAndroidPermission: UAndroidPermissionCallbackProxy::GetInstance
-[2022.03.27-14.01.13:785][  0]LogAudioCaptureCore: Display: No Audio Capture implementations found. Audio input will be silent.
-[2022.03.27-14.01.13:785][  0]LogAudioCaptureCore: Display: No Audio Capture implementations found. Audio input will be silent.
-[2022.03.27-14.01.13:888][  0]LogOcInput: OculusInput pre-init called
-[2022.03.27-14.01.13:907][  0]LogWindows: Failed to load 'OVRPlugin.dll' (GetLastError=126)
-[2022.03.27-14.01.13:907][  0]LogWindows: File 'OVRPlugin.dll' does not exist
-[2022.03.27-14.01.14:063][  0]LogEngine: Initializing Engine...
-[2022.03.27-14.01.14:065][  0]LogHMD: Failed to initialize OpenVR with code 110
-[2022.03.27-14.01.14:065][  0]LogMagicLeap: Warning: VR disabled because ZI is not enabled.  To enable, in the editor, Edit -> Project Settings -> Plugins -> Magic Leap Plugin -> Enable Zero Iteration
-[2022.03.27-14.01.14:068][  0]LogStats: UGameplayTagsManager::InitializeManager -  0.001 s
-[2022.03.27-14.01.14:404][  0]LogUObjectGlobals: Warning: Failed to find object 'Class /Script/SoftDesignTraining.SDT_WorldSettings'
-[2022.03.27-14.01.14:404][  0]LogEngine: Error: Failed to load '/Script/SoftDesignTraining.SDT_WorldSettings', falling back to 'WorldSettings'
-[2022.03.27-14.01.14:407][  0]LogInit: Initializing FReadOnlyCVARCache
-[2022.03.27-14.01.14:449][  0]LogAIModule: Creating AISystem for world Untitled
-[2022.03.27-14.01.14:449][  0]LogAISub: UAISubsystem::UAISubsystem EnvQueryManager (000001C1D1D5A600), frame # 0
-[2022.03.27-14.01.14:449][  0]LogAISub: UAISubsystem::UAISubsystem AIPerceptionSystem (000001C1D2D4BB00), frame # 0
-[2022.03.27-14.01.14:463][  0]LogAudioMixer: Display: Audio Mixer Platform Settings:
-[2022.03.27-14.01.14:463][  0]LogAudioMixer: Display: 	Sample Rate:						  48000
-[2022.03.27-14.01.14:463][  0]LogAudioMixer: Display: 	Callback Buffer Frame Size Requested: 1024
-[2022.03.27-14.01.14:463][  0]LogAudioMixer: Display: 	Callback Buffer Frame Size To Use:	  1024
-[2022.03.27-14.01.14:463][  0]LogAudioMixer: Display: 	Number of buffers to queue:			  2
-[2022.03.27-14.01.14:463][  0]LogAudioMixer: Display: 	Max Channels (voices):				  32
-[2022.03.27-14.01.14:463][  0]LogAudioMixer: Display: 	Number of Async Source Workers:		  0
-[2022.03.27-14.01.14:463][  0]LogAudio: Display: AudioDevice MaxSources: 32
-[2022.03.27-14.01.14:465][  0]LogAudio: Display: Using built-in audio occlusion.
-[2022.03.27-14.01.14:465][  0]LogAudioMixer: Display: Initializing audio mixer.
-[2022.03.27-14.01.14:487][  0]LogAudioMixer: Display: 0: FrontLeft
-[2022.03.27-14.01.14:487][  0]LogAudioMixer: Display: 1: FrontRight
-[2022.03.27-14.01.14:530][  0]LogAudioMixer: Display: Using Audio Device Speakers (High Definition Audio Device)
-[2022.03.27-14.01.14:532][  0]LogAudioMixer: Display: Initializing Sound Submixes...
-[2022.03.27-14.01.14:553][  0]LogAudioMixer: Display: Creating Master Submix 'MasterSubmixDefault'
-[2022.03.27-14.01.14:553][  0]LogAudioMixer: Display: Creating Master Submix 'MasterReverbSubmixDefault'
-[2022.03.27-14.01.14:554][  0]LogAudioMixer: Display: Creating Master Submix 'MasterEQSubmixDefault'
-[2022.03.27-14.01.14:555][  0]LogInit: FAudioDevice initialized.
-[2022.03.27-14.01.14:557][  0]LogNetVersion: Set ProjectVersion to 1.0.0.0. Version Checksum will be recalculated on next use.
-[2022.03.27-14.01.14:636][  0]LogDerivedDataCache: Saved boot cache 0.08s 78MB C:/Users/DNJACK/AppData/Local/UnrealEngine/4.25/DerivedDataCache/Boot.ddc.
-[2022.03.27-14.01.14:638][  0]LogInit: Texture streaming: Enabled
-[2022.03.27-14.01.14:663][  0]LogEngineSessionManager: EngineSessionManager initialized
-[2022.03.27-14.01.14:663][  0]LogEditorSessionSummary: Verbose: Initializing EditorSessionSummaryWriter for editor session tracking
-[2022.03.27-14.01.14:665][  0]LogEditorSessionSummary: EditorSessionSummaryWriter initialized
-[2022.03.27-14.01.14:850][  0]LogInit: Transaction tracking system initialized
-[2022.03.27-14.01.14:911][  0]BlueprintLog: New page: Editor Load
-[2022.03.27-14.01.15:115][  0]LocalizationService: Localization service is disabled
-[2022.03.27-14.01.15:994][  0]LogCook: Display: Max memory allowance for cook 16384mb min free memory 0mb
-[2022.03.27-14.01.15:995][  0]LogCook: Display: Mobile HDR setting 1
-[2022.03.27-14.01.16:329][  0]LogFileCache: Scanning file cache for directory 'C:/Users/DNJACK/Desktop/labs/log8235-tp3/Content/' took 0.01s
-[2022.03.27-14.01.16:590][  0]SourceControl: Source control is disabled
-[2022.03.27-14.01.16:590][  0]LogUnrealEdMisc: Loading editor; pre map load, took 23.184
-[2022.03.27-14.01.16:591][  0]Cmd: MAP LOAD FILE="../../../../../../Users/DNJACK/Desktop/labs/log8235-tp3/Content/TopDown/Maps/TopDownExampleMap.umap" TEMPLATE=0 SHOWPROGRESS=1 FEATURELEVEL=3
-[2022.03.27-14.01.16:593][  0]LightingResults: New page: Lighting Build
-[2022.03.27-14.01.16:600][  0]LogWorld: UWorld::CleanupWorld for Untitled, bSessionEnded=true, bCleanupResources=true
-[2022.03.27-14.01.16:601][  0]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
-[2022.03.27-14.01.16:602][  0]MapCheck: New page: Map Check
-[2022.03.27-14.01.16:602][  0]LightingResults: New page: Lighting Build
-[2022.03.27-14.01.16:624][  0]LogAISub: UAISubsystem::~UAISubsystem EnvQueryManager (000001C1D1D5A600), frame # 0
-[2022.03.27-14.01.16:624][  0]LogAISub: UAISubsystem::~UAISubsystem AIPerceptionSystem (000001C1D2D4BB00), frame # 0
-[2022.03.27-14.01.16:626][  0]LogUObjectHash: Compacting FUObjectHashTables data took   0.82ms
-[2022.03.27-14.01.17:489][  0]LogAIModule: Creating AISystem for world TopDownExampleMap
-[2022.03.27-14.01.17:489][  0]LogAISub: UAISubsystem::UAISubsystem EnvQueryManager (000001C1BDF95A00), frame # 0
-[2022.03.27-14.01.17:489][  0]LogAISub: UAISubsystem::UAISubsystem AIPerceptionSystem (000001C1C2F2ED40), frame # 0
-[2022.03.27-14.01.17:536][  0]LogMaterial: Display: Material /Game/StarterContent/Materials/M_Tech_Hex_Tile.M_Tech_Hex_Tile needed to have new flag set bUsedWithSkeletalMesh !
-[2022.03.27-14.01.17:538][  0]LogMaterial: Display: Missing cached shader map for material M_Tech_Hex_Tile, compiling. 
-[2022.03.27-14.01.17:629][  0]MapCheck: Warning: M_Tech_Hex_Tile Material /Game/StarterContent/Materials/M_Tech_Hex_Tile.M_Tech_Hex_Tile was missing the usage flag bUsedWithSkeletalMesh. If the material asset is not re-saved, it may not render correctly when run outside the editor. Fix
-[2022.03.27-14.01.17:727][  0]LogShaderCompilers: Display: Worker (1/9): shaders left to compile 48
-[2022.03.27-14.01.17:727][  0]LogShaderCompilers: Display: Worker (2/9): shaders left to compile 42
-[2022.03.27-14.01.17:727][  0]LogShaderCompilers: Display: Worker (3/9): shaders left to compile 36
-[2022.03.27-14.01.17:727][  0]LogShaderCompilers: Display: Worker (4/9): shaders left to compile 30
-[2022.03.27-14.01.17:727][  0]LogShaderCompilers: Display: Worker (5/9): shaders left to compile 24
-[2022.03.27-14.01.17:728][  0]LogShaderCompilers: Display: Worker (6/9): shaders left to compile 18
-[2022.03.27-14.01.17:728][  0]LogShaderCompilers: Display: Worker (7/9): shaders left to compile 12
-[2022.03.27-14.01.17:728][  0]LogShaderCompilers: Display: Worker (8/9): shaders left to compile 6
-[2022.03.27-14.01.17:728][  0]LogEditorServer: Finished looking for orphan Actors (0.000 secs)
-[2022.03.27-14.01.17:737][  0]LogNavigationDataBuild: Display:    Building NavData:  Name Default class /Script/NavigationSystem.RecastNavMesh agent radius 35.0.
-[2022.03.27-14.01.17:767][  0]LogUObjectHash: Compacting FUObjectHashTables data took   0.96ms
-[2022.03.27-14.01.17:767][  0]Cmd: MAP CHECKDEP NOCLEARLOG
-[2022.03.27-14.01.17:768][  0]MapCheck: Map check complete: 0 Error(s), 1 Warning(s), took 0.499ms to complete.
-[2022.03.27-14.01.17:783][  0]LogFileHelpers: Loading map 'TopDownExampleMap' took 1.192
-[2022.03.27-14.01.17:827][  0]LogUnrealEdMisc: Total Editor Startup Time, took 24.420
-[2022.03.27-14.01.17:998][  0]LogSlate: Updating window title bar state: overlay mode, drag disabled, window buttons hidden, title bar hidden
-[2022.03.27-14.01.18:007][  0]LogSlate: Updating window title bar state: overlay mode, drag disabled, window buttons hidden, title bar hidden
-[2022.03.27-14.01.18:016][  0]LogSlate: Updating window title bar state: overlay mode, drag disabled, window buttons hidden, title bar hidden
-[2022.03.27-14.01.18:025][  0]LogSlate: Updating window title bar state: overlay mode, drag disabled, window buttons hidden, title bar hidden
-[2022.03.27-14.01.18:047][  0]LogCollectionManager: Loaded 0 collections in 0.002768 seconds
-[2022.03.27-14.01.18:092][  0]LogFileCache: Scanning file cache for directory 'C:/Users/DNJACK/Desktop/labs/log8235-tp3/Saved/Collections/' took 0.00s
-[2022.03.27-14.01.18:093][  0]LogFileCache: Scanning file cache for directory 'C:/Users/DNJACK/Desktop/labs/log8235-tp3/Content/Developers/DNJACK/Collections/' took 0.00s
-[2022.03.27-14.01.18:093][  0]LogFileCache: Scanning file cache for directory 'C:/Users/DNJACK/Desktop/labs/log8235-tp3/Content/Collections/' took 0.00s
-[2022.03.27-14.01.18:093][  0]LogContentBrowser: Native class hierarchy populated in 0.0166 seconds. Added 3444 classes and 823 folders.
-[2022.03.27-14.01.18:109][  0]LogContentBrowser: Native class hierarchy updated for 'WidgetCarousel' in 0.0006 seconds. Added 0 classes and 0 folders.
-[2022.03.27-14.01.18:705][  0]LogContentBrowser: Native class hierarchy updated for 'AddContentDialog' in 0.0007 seconds. Added 0 classes and 0 folders.
-[2022.03.27-14.01.18:714][  0]LogContentBrowser: Native class hierarchy updated for 'SceneOutliner' in 0.0008 seconds. Added 2 classes and 0 folders.
-[2022.03.27-14.01.18:829][  0]LogSlate: Took 0.006904 seconds to synchronously load lazily loaded font '../../../Engine/Content/Slate/Fonts/Roboto-Regular.ttf' (155K)
-[2022.03.27-14.01.18:840][  0]LogSlate: Took 0.008175 seconds to synchronously load lazily loaded font '../../../Engine/Content/Slate/Fonts/Roboto-Bold.ttf' (160K)
-[2022.03.27-14.01.18:859][  0]LogSlate: Took 0.009434 seconds to synchronously load lazily loaded font '../../../Engine/Content/Editor/Slate/Fonts/FontAwesome.ttf' (139K)
-[2022.03.27-14.01.19:033][  0]LogRenderer: Reallocating scene render targets to support 2388x1304 Format 10 NumSamples 1 (Frame:1).
-[2022.03.27-14.01.19:556][  0]LogContentBrowser: Native class hierarchy updated for 'HierarchicalLODOutliner' in 0.0008 seconds. Added 0 classes and 0 folders.
-[2022.03.27-14.01.19:557][  0]LogLoad: (Engine Initialization) Total time: 26.15 seconds
-[2022.03.27-14.01.19:557][  0]LogLoad: (Engine Initialization) Total Blueprint compile time: 0.00 seconds
-[2022.03.27-14.01.19:624][  0]LogContentStreaming: Texture pool size now 1000 MB
-[2022.03.27-14.01.19:760][  1]LogAssetRegistry: Asset discovery search completed in 10.7420 seconds
-[2022.03.27-14.01.19:768][  1]LogCollectionManager: Fixed up redirectors for 0 collections in 0.000003 seconds (updated 0 objects)
-[2022.03.27-14.01.20:611][ 33]LogSlate: Took 0.009308 seconds to synchronously load lazily loaded font '../../../Engine/Content/Slate/Fonts/Roboto-Light.ttf' (167K)
-[2022.03.27-14.02.06:394][  3]LogAssetEditorSubsystem: Opening Asset editor for BehaviorTree /Game/Blueprint/AiController.AiController
-[2022.03.27-14.02.06:556][  3]LogSlate: Took 0.005826 seconds to synchronously load lazily loaded font '../../../Engine/Content/Slate/Fonts/Roboto-BoldCondensed.ttf' (158K)
-[2022.03.27-14.02.58:609][851]Running C:/Program Files/Epic Games/UE_4.25/Engine/Binaries/DotNET/UnrealBuildTool.exe  -projectfiles -project="C:/Users/DNJACK/Desktop/labs/log8235-tp3/SoftDesignTraining.uproject" -game -rocket -progress
-[2022.03.27-14.02.58:915][851]Discovering modules, targets and source code for project...
-[2022.03.27-14.03.00:930][851]Binding IntelliSense data...
-[2022.03.27-14.03.07:604][851]Binding IntelliSense data... 100%
-[2022.03.27-14.03.07:604][851]Writing project files...
-[2022.03.27-14.03.11:931][851]Writing project files... 100%
-[2022.03.27-14.05.12:722][901]LogAssetEditorSubsystem: Opening Asset editor for Class /Script/SoftDesignTraining.BTService_TryGetPoweredUp
-[2022.03.27-14.05.13:415][901]LogVSAccessor: Warning: Couldn't goto line number '1' in 'C:/Users/DNJACK/Desktop/labs/log8235-tp3/Source/SoftDesignTraining/BTService_TryGetPoweredUp.h'
-[2022.03.27-14.05.13:609][901]LogVSAccessor: Warning: Couldn't goto line number '1' in 'C:/Users/DNJACK/Desktop/labs/log8235-tp3/Source/SoftDesignTraining/BTService_TryGetPoweredUp.cpp'
-[2022.03.27-14.10.31:183][109]LogSlate: WidgetSwitcher ('None') active index changed to -1
-[2022.03.27-14.10.31:184][109]LogSlate: WidgetSwitcher ('None') active index changed to 0
-[2022.03.27-14.11.32:373][644]LogSlate: WidgetSwitcher ('None') active index changed to 1
-[2022.03.27-14.13.04:825][597]Running C:/Program Files/Epic Games/UE_4.25/Engine/Binaries/DotNET/UnrealBuildTool.exe  -projectfiles -project="C:/Users/DNJACK/Desktop/labs/log8235-tp3/SoftDesignTraining.uproject" -game -rocket -progress
-[2022.03.27-14.13.05:131][597]Discovering modules, targets and source code for project...
-[2022.03.27-14.13.06:542][597]Binding IntelliSense data...
-[2022.03.27-14.13.08:364][597]Binding IntelliSense data... 100%
-[2022.03.27-14.13.08:364][597]Writing project files...
-[2022.03.27-14.13.12:203][597]Writing project files... 100%
-[2022.03.27-14.13.12:424][597]Candidate modules for hot reload:
-[2022.03.27-14.13.12:424][597]  SoftDesignTraining
-[2022.03.27-14.13.12:424][597]Launching UnrealBuildTool... [C:/Program Files/Epic Games/UE_4.25/Engine/Binaries/DotNET/UnrealBuildTool.exe  -ModuleWithSuffix=SoftDesignTraining,1532 SoftDesignTrainingEditor Win64 Development -Project="C:/Users/DNJACK/Desktop/labs/log8235-tp3/SoftDesignTraining.uproject" "C:/Users/DNJACK/Desktop/labs/log8235-tp3/SoftDesignTraining.uproject"  -IgnoreJunk]
-[2022.03.27-14.13.44:272][597]CompilerResultsLog: New page: Compilation - Mar. 27, 2022, 6:13:44 a.m.
-[2022.03.27-14.13.44:273][597]CompilerResultsLog: Using 'git status' to determine working set for adaptive non-unity build (C:\Users\DNJACK\Desktop\labs\log8235-tp3).
-[2022.03.27-14.13.44:273][597]CompilerResultsLog: Creating makefile for SoftDesignTrainingEditor (no existing makefile)
-[2022.03.27-14.13.44:273][597]CompilerResultsLog: Parsing headers for SoftDesignTrainingEditor
-[2022.03.27-14.13.44:273][597]CompilerResultsLog:   Running UnrealHeaderTool "C:\Users\DNJACK\Desktop\labs\log8235-tp3\SoftDesignTraining.uproject" "C:\Users\DNJACK\Desktop\labs\log8235-tp3\Intermediate\Build\Win64\SoftDesignTrainingEditor\Development\SoftDesignTrainingEditor.uhtmanifest" -LogCmds="loginit warning, logexit warning, logdatabase error" -Unattended -WarningsAsErrors -abslog="C:\Users\DNJACK\AppData\Local\UnrealBuildTool\Log_UHT.txt" -installed
-[2022.03.27-14.13.44:273][597]CompilerResultsLog: Reflection code generated for SoftDesignTrainingEditor in 17.717761 seconds
-[2022.03.27-14.13.44:273][597]CompilerResultsLog: Building SoftDesignTrainingEditor...
-[2022.03.27-14.13.44:273][597]CompilerResultsLog: Using Visual Studio 2019 14.29.30138 toolchain (C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133) and Windows 10.0.18362.0 SDK (C:\Program Files (x86)\Windows Kits\10).
-[2022.03.27-14.13.44:273][597]CompilerResultsLog: Building 6 actions with 12 processes...
-[2022.03.27-14.13.44:273][597]CompilerResultsLog:   [1/6] SoftDesignTraining.init.gen.cpp
-[2022.03.27-14.13.44:273][597]CompilerResultsLog:   [2/6] UBTTask_IsTargetSeen.cpp
-[2022.03.27-14.13.44:273][597]CompilerResultsLog:   [3/6] UBTTask_IsTargetSeen.gen.cpp
-[2022.03.27-14.13.44:273][597]CompilerResultsLog:   [4/6] UE4Editor-SoftDesignTraining-1532.lib
-[2022.03.27-14.13.44:273][597]CompilerResultsLog:      Creating library C:\Users\DNJACK\Desktop\labs\log8235-tp3\Intermediate\Build\Win64\UE4Editor\Development\SoftDesignTraining\UE4Editor-SoftDesignTraining-1532.lib and object C:\Users\DNJACK\Desktop\labs\log8235-tp3\Intermediate\Build\Win64\UE4Editor\Development\SoftDesignTraining\UE4Editor-SoftDesignTraining-1532.exp
-[2022.03.27-14.13.44:273][597]CompilerResultsLog:   [5/6] UE4Editor-SoftDesignTraining-1532.dll
-[2022.03.27-14.13.44:273][597]CompilerResultsLog:      Creating library C:\Users\DNJACK\Desktop\labs\log8235-tp3\Intermediate\Build\Win64\UE4Editor\Development\SoftDesignTraining\UE4Editor-SoftDesignTraining-1532.suppressed.lib and object C:\Users\DNJACK\Desktop\labs\log8235-tp3\Intermediate\Build\Win64\UE4Editor\Development\SoftDesignTraining\UE4Editor-SoftDesignTraining-1532.suppressed.exp
-[2022.03.27-14.13.44:273][597]CompilerResultsLog:   [6/6] SoftDesignTrainingEditor.target
-[2022.03.27-14.13.44:273][597]CompilerResultsLog: Total time in Parallel executor: 11.78 seconds
-[2022.03.27-14.13.44:273][597]CompilerResultsLog: Total execution time: 31.75 seconds
-[2022.03.27-14.13.44:273][597]LogMainFrame: MainFrame: Module compiling took 31.857 seconds
-[2022.03.27-14.13.44:319][597]LogClass: Could not find existing class UBTTask_IsTargetSeen in package /Script/SoftDesignTraining for HotReload, assuming new class
-[2022.03.27-14.13.44:332][597]LogContentBrowser: Native class hierarchy updated for 'SoftDesignTraining' in 0.0005 seconds. Added 18 classes and 2 folders.
-[2022.03.27-14.13.44:333][597]Display: HotReload successful (1 functions remapped  0 scriptstructs remapped)
-[2022.03.27-14.13.44:395][597]LogContentBrowser: Native class hierarchy populated in 0.0111 seconds. Added 3445 classes and 823 folders.
-[2022.03.27-14.13.44:396][597]Display: HotReload took 32.0s.
-[2022.03.27-14.13.44:408][597]Warning: HotReload operation took 32.0s.
-[2022.03.27-14.13.44:983][597]LogVSAccessor: Warning: Couldn't open file 'C:/Users/DNJACK/Desktop/labs/log8235-tp3/Source/SoftDesignTraining/UBTTask_IsTargetSeen.cpp'.
-[2022.03.27-14.13.44:987][597]LogSlate: Window 'Add C++ Class' being destroyed
-[2022.03.27-14.13.45:004][597]LogHotReload: New module detected: UE4Editor-SoftDesignTraining-1532.dll
-[2022.03.27-14.13.45:074][598]LogHotReload: Starting Hot-Reload from IDE
-[2022.03.27-14.13.45:102][598]LogContentBrowser: Native class hierarchy updated for 'SoftDesignTraining' in 0.0005 seconds. Added 18 classes and 2 folders.
-[2022.03.27-14.13.45:103][598]Display: HotReload successful (0 functions remapped  0 scriptstructs remapped)
-[2022.03.27-14.13.45:123][598]LogContentBrowser: Native class hierarchy populated in 0.0107 seconds. Added 3445 classes and 823 folders.
-[2022.03.27-14.13.45:126][598]Display: HotReload took  0.1s.
-[2022.03.27-14.25.43:034][232]LogSlate: WidgetSwitcher ('None') active index changed to -1
-[2022.03.27-14.25.43:034][232]LogSlate: WidgetSwitcher ('None') active index changed to 0
-[2022.03.27-14.25.47:677][661]LogSlate: Warning: Slate: Had to block on waiting for a draw buffer
-[2022.03.27-14.25.53:660][248]LogSlate: WidgetSwitcher ('None') active index changed to 1
-[2022.03.27-14.26.08:591][  7]Running C:/Program Files/Epic Games/UE_4.25/Engine/Binaries/DotNET/UnrealBuildTool.exe  -projectfiles -project="C:/Users/DNJACK/Desktop/labs/log8235-tp3/SoftDesignTraining.uproject" -game -rocket -progress
-[2022.03.27-14.26.08:899][  7]Discovering modules, targets and source code for project...
-[2022.03.27-14.26.10:317][  7]Binding IntelliSense data...
-[2022.03.27-14.26.12:152][  7]Binding IntelliSense data... 100%
-[2022.03.27-14.26.12:152][  7]Writing project files...
-[2022.03.27-14.26.15:887][  7]Writing project files... 100%
-[2022.03.27-14.26.16:002][  7]Candidate modules for hot reload:
-[2022.03.27-14.26.16:002][  7]  SoftDesignTraining
-[2022.03.27-14.26.16:002][  7]Launching UnrealBuildTool... [C:/Program Files/Epic Games/UE_4.25/Engine/Binaries/DotNET/UnrealBuildTool.exe  -ModuleWithSuffix=SoftDesignTraining,3156 SoftDesignTrainingEditor Win64 Development -Project="C:/Users/DNJACK/Desktop/labs/log8235-tp3/SoftDesignTraining.uproject" "C:/Users/DNJACK/Desktop/labs/log8235-tp3/SoftDesignTraining.uproject"  -IgnoreJunk]
-[2022.03.27-14.26.26:437][  7]CompilerResultsLog: New page: Compilation - Mar. 27, 2022, 6:26:26 a.m.
-[2022.03.27-14.26.26:437][  7]CompilerResultsLog: Using 'git status' to determine working set for adaptive non-unity build (C:\Users\DNJACK\Desktop\labs\log8235-tp3).
-[2022.03.27-14.26.26:437][  7]CompilerResultsLog: Creating makefile for SoftDesignTrainingEditor (no existing makefile)
-[2022.03.27-14.26.26:437][  7]CompilerResultsLog: Parsing headers for SoftDesignTrainingEditor
-[2022.03.27-14.26.26:437][  7]CompilerResultsLog:   Running UnrealHeaderTool "C:\Users\DNJACK\Desktop\labs\log8235-tp3\SoftDesignTraining.uproject" "C:\Users\DNJACK\Desktop\labs\log8235-tp3\Intermediate\Build\Win64\SoftDesignTrainingEditor\Development\SoftDesignTrainingEditor.uhtmanifest" -LogCmds="loginit warning, logexit warning, logdatabase error" -Unattended -WarningsAsErrors -abslog="C:\Users\DNJACK\AppData\Local\UnrealBuildTool\Log_UHT.txt" -installed
-[2022.03.27-14.26.26:437][  7]CompilerResultsLog: Reflection code generated for SoftDesignTrainingEditor in 5.5717353 seconds
-[2022.03.27-14.26.26:437][  7]CompilerResultsLog: Building SoftDesignTrainingEditor...
-[2022.03.27-14.26.26:437][  7]CompilerResultsLog: Using Visual Studio 2019 14.29.30138 toolchain (C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133) and Windows 10.0.18362.0 SDK (C:\Program Files (x86)\Windows Kits\10).
-[2022.03.27-14.26.26:437][  7]CompilerResultsLog: Building 6 actions with 12 processes...
-[2022.03.27-14.26.26:437][  7]CompilerResultsLog:   [1/6] SoftDesignTraining.init.gen.cpp
-[2022.03.27-14.26.26:437][  7]CompilerResultsLog:   [2/6] UBTTask_IsTargetPoweredUp.gen.cpp
-[2022.03.27-14.26.26:437][  7]CompilerResultsLog:   [3/6] UBTTask_IsTargetPoweredUp.cpp
-[2022.03.27-14.26.26:437][  7]CompilerResultsLog:   [4/6] UE4Editor-SoftDesignTraining-3156.lib
-[2022.03.27-14.26.26:437][  7]CompilerResultsLog:      Creating library C:\Users\DNJACK\Desktop\labs\log8235-tp3\Intermediate\Build\Win64\UE4Editor\Development\SoftDesignTraining\UE4Editor-SoftDesignTraining-3156.lib and object C:\Users\DNJACK\Desktop\labs\log8235-tp3\Intermediate\Build\Win64\UE4Editor\Development\SoftDesignTraining\UE4Editor-SoftDesignTraining-3156.exp
-[2022.03.27-14.26.26:437][  7]CompilerResultsLog:   [5/6] UE4Editor-SoftDesignTraining-3156.dll
-[2022.03.27-14.26.26:437][  7]CompilerResultsLog:      Creating library C:\Users\DNJACK\Desktop\labs\log8235-tp3\Intermediate\Build\Win64\UE4Editor\Development\SoftDesignTraining\UE4Editor-SoftDesignTraining-3156.suppressed.lib and object C:\Users\DNJACK\Desktop\labs\log8235-tp3\Intermediate\Build\Win64\UE4Editor\Development\SoftDesignTraining\UE4Editor-SoftDesignTraining-3156.suppressed.exp
-[2022.03.27-14.26.26:437][  7]CompilerResultsLog:   [6/6] SoftDesignTrainingEditor.target
-[2022.03.27-14.26.26:437][  7]CompilerResultsLog: Total time in Parallel executor: 2.79 seconds
-[2022.03.27-14.26.26:437][  7]CompilerResultsLog: Total execution time: 10.32 seconds
-[2022.03.27-14.26.26:437][  7]LogMainFrame: MainFrame: Module compiling took 10.440 seconds
-[2022.03.27-14.26.26:484][  7]LogClass: Could not find existing class UBTTask_IsTargetPoweredUp in package /Script/SoftDesignTraining for HotReload, assuming new class
-[2022.03.27-14.26.26:498][  7]LogContentBrowser: Native class hierarchy updated for 'SoftDesignTraining' in 0.0007 seconds. Added 19 classes and 2 folders.
-[2022.03.27-14.26.26:500][  7]Display: HotReload successful (1 functions remapped  0 scriptstructs remapped)
-[2022.03.27-14.26.26:555][  7]LogContentBrowser: Native class hierarchy populated in 0.0110 seconds. Added 3446 classes and 823 folders.
-[2022.03.27-14.26.26:556][  7]Display: HotReload took 10.6s.
-[2022.03.27-14.26.26:556][  7]Warning: HotReload operation took 10.6s.
-[2022.03.27-14.26.26:743][  7]LogVSAccessor: Warning: Couldn't goto line number '1' in 'C:/Users/DNJACK/Desktop/labs/log8235-tp3/Source/SoftDesignTraining/UBTTask_IsTargetPoweredUp.h'
-[2022.03.27-14.26.26:865][  7]LogVSAccessor: Warning: Couldn't goto line number '1' in 'C:/Users/DNJACK/Desktop/labs/log8235-tp3/Source/SoftDesignTraining/UBTTask_IsTargetPoweredUp.cpp'
-[2022.03.27-14.26.26:869][  7]LogSlate: Window 'Add C++ Class' being destroyed
-[2022.03.27-14.26.26:882][  7]LogHotReload: New module detected: UE4Editor-SoftDesignTraining-3156.dll
-[2022.03.27-14.26.26:944][  8]LogHotReload: Starting Hot-Reload from IDE
-[2022.03.27-14.26.27:067][  8]LogContentBrowser: Native class hierarchy updated for 'SoftDesignTraining' in 0.0005 seconds. Added 19 classes and 2 folders.
-[2022.03.27-14.26.27:068][  8]Display: HotReload successful (0 functions remapped  0 scriptstructs remapped)
-[2022.03.27-14.26.27:088][  8]LogContentBrowser: Native class hierarchy populated in 0.0109 seconds. Added 3446 classes and 823 folders.
-[2022.03.27-14.26.27:092][  8]Display: HotReload took  0.1s.
-[2022.03.27-14.36.39:253][555]LogUObjectHash: Compacting FUObjectHashTables data took   1.69ms
-[2022.03.27-14.36.39:273][555]LogFileHelpers: Editor autosave (incl. sublevels) for '/Game/TopDown/Maps/TopDownExampleMap' took 0.038
-[2022.03.27-14.36.39:275][555]OBJ SavePackage: Generating thumbnails for [0] asset(s) in package [/Game/Blueprint/AiController] ([1] browsable assets)...
-[2022.03.27-14.36.39:275][555]OBJ SavePackage: Finished generating thumbnails for package [/Game/Blueprint/AiController]
-[2022.03.27-14.36.39:293][555]LogSavePackage: Moving '../../../../../../Users/DNJACK/Desktop/labs/log8235-tp3/Saved/AiController_Auto134128C274EDDB166ED8465938B7A0AE0.tmp' to '../../../../../../Users/DNJACK/Desktop/labs/log8235-tp3/Saved/Autosaves/Game/Blueprint/AiController_Auto1.uasset'
-[2022.03.27-14.36.39:297][555]LogFileHelpers: Auto-saving content packages took 0.023
-[2022.03.27-14.38.48:946][936]LogSlate: WidgetSwitcher ('None') active index changed to -1
-[2022.03.27-14.38.48:946][936]LogSlate: WidgetSwitcher ('None') active index changed to 0
-[2022.03.27-14.38.51:715][232]LogSlate: Warning: Slate: Had to block on waiting for a draw buffer
-[2022.03.27-14.39.04:123][392]LogSlate: WidgetSwitcher ('None') active index changed to 1
-[2022.03.27-14.39.24:666][680]Running C:/Program Files/Epic Games/UE_4.25/Engine/Binaries/DotNET/UnrealBuildTool.exe  -projectfiles -project="C:/Users/DNJACK/Desktop/labs/log8235-tp3/SoftDesignTraining.uproject" -game -rocket -progress
-[2022.03.27-14.39.25:082][680]Discovering modules, targets and source code for project...
-[2022.03.27-14.39.27:301][680]Binding IntelliSense data...
-[2022.03.27-14.39.30:239][680]Binding IntelliSense data... 100%
-[2022.03.27-14.39.30:239][680]Writing project files...
-[2022.03.27-14.39.34:977][680]Writing project files... 100%
-[2022.03.27-14.39.35:099][680]Candidate modules for hot reload:
-[2022.03.27-14.39.35:099][680]  SoftDesignTraining
-[2022.03.27-14.39.35:099][680]Launching UnrealBuildTool... [C:/Program Files/Epic Games/UE_4.25/Engine/Binaries/DotNET/UnrealBuildTool.exe  -ModuleWithSuffix=SoftDesignTraining,1369 SoftDesignTrainingEditor Win64 Development -Project="C:/Users/DNJACK/Desktop/labs/log8235-tp3/SoftDesignTraining.uproject" "C:/Users/DNJACK/Desktop/labs/log8235-tp3/SoftDesignTraining.uproject"  -IgnoreJunk]
-[2022.03.27-14.39.59:547][680]CompilerResultsLog: New page: Compilation - Mar. 27, 2022, 6:39:59 a.m.
-[2022.03.27-14.39.59:547][680]CompilerResultsLog: Using 'git status' to determine working set for adaptive non-unity build (C:\Users\DNJACK\Desktop\labs\log8235-tp3).
-[2022.03.27-14.39.59:547][680]CompilerResultsLog: Creating makefile for SoftDesignTrainingEditor (no existing makefile)
-[2022.03.27-14.39.59:547][680]CompilerResultsLog: Parsing headers for SoftDesignTrainingEditor
-[2022.03.27-14.39.59:547][680]CompilerResultsLog:   Running UnrealHeaderTool "C:\Users\DNJACK\Desktop\labs\log8235-tp3\SoftDesignTraining.uproject" "C:\Users\DNJACK\Desktop\labs\log8235-tp3\Intermediate\Build\Win64\SoftDesignTrainingEditor\Development\SoftDesignTrainingEditor.uhtmanifest" -LogCmds="loginit warning, logexit warning, logdatabase error" -Unattended -WarningsAsErrors -abslog="C:\Users\DNJACK\AppData\Local\UnrealBuildTool\Log_UHT.txt" -installed
-[2022.03.27-14.39.59:547][680]CompilerResultsLog: Reflection code generated for SoftDesignTrainingEditor in 7.4666521 seconds
-[2022.03.27-14.39.59:547][680]CompilerResultsLog: Building SoftDesignTrainingEditor...
-[2022.03.27-14.39.59:547][680]CompilerResultsLog: Using Visual Studio 2019 14.29.30138 toolchain (C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133) and Windows 10.0.18362.0 SDK (C:\Program Files (x86)\Windows Kits\10).
-[2022.03.27-14.39.59:547][680]CompilerResultsLog: Building 10 actions with 12 processes...
-[2022.03.27-14.39.59:547][680]CompilerResultsLog:   [1/10] SoftDesignTraining.init.gen.cpp
-[2022.03.27-14.39.59:547][680]CompilerResultsLog:   [2/10] UBTTask_MoveFlee.cpp
-[2022.03.27-14.39.59:547][680]CompilerResultsLog:   [3/10] UBTTask_IsTargetSeen.gen.cpp
-[2022.03.27-14.39.59:547][680]CompilerResultsLog:   [4/10] UBTTask_MoveFlee.gen.cpp
-[2022.03.27-14.39.59:547][680]CompilerResultsLog:   [5/10] UBTTask_IsTargetPoweredUp.gen.cpp
-[2022.03.27-14.39.59:547][680]CompilerResultsLog:   [6/10] UBTTask_IsTargetSeen.cpp
-[2022.03.27-14.39.59:547][680]CompilerResultsLog:   [7/10] UBTTask_IsTargetPoweredUp.cpp
-[2022.03.27-14.39.59:547][680]CompilerResultsLog:   [8/10] UE4Editor-SoftDesignTraining-1369.lib
-[2022.03.27-14.39.59:547][680]CompilerResultsLog:      Creating library C:\Users\DNJACK\Desktop\labs\log8235-tp3\Intermediate\Build\Win64\UE4Editor\Development\SoftDesignTraining\UE4Editor-SoftDesignTraining-1369.lib and object C:\Users\DNJACK\Desktop\labs\log8235-tp3\Intermediate\Build\Win64\UE4Editor\Development\SoftDesignTraining\UE4Editor-SoftDesignTraining-1369.exp
-[2022.03.27-14.39.59:547][680]CompilerResultsLog:   [9/10] UE4Editor-SoftDesignTraining-1369.dll
-[2022.03.27-14.39.59:547][680]CompilerResultsLog:      Creating library C:\Users\DNJACK\Desktop\labs\log8235-tp3\Intermediate\Build\Win64\UE4Editor\Development\SoftDesignTraining\UE4Editor-SoftDesignTraining-1369.suppressed.lib and object C:\Users\DNJACK\Desktop\labs\log8235-tp3\Intermediate\Build\Win64\UE4Editor\Development\SoftDesignTraining\UE4Editor-SoftDesignTraining-1369.suppressed.exp
-[2022.03.27-14.39.59:547][680]CompilerResultsLog:   [10/10] SoftDesignTrainingEditor.target
-[2022.03.27-14.39.59:547][680]CompilerResultsLog: Total time in Parallel executor: 14.80 seconds
-[2022.03.27-14.39.59:547][680]CompilerResultsLog: Total execution time: 24.31 seconds
-[2022.03.27-14.39.59:547][680]LogMainFrame: MainFrame: Module compiling took 24.452 seconds
-[2022.03.27-14.39.59:604][680]LogClass: Could not find existing class UBTTask_MoveFlee in package /Script/SoftDesignTraining for HotReload, assuming new class
-[2022.03.27-14.39.59:616][680]LogContentBrowser: Native class hierarchy updated for 'SoftDesignTraining' in 0.0005 seconds. Added 20 classes and 2 folders.
-[2022.03.27-14.39.59:617][680]Display: HotReload successful (1 functions remapped  0 scriptstructs remapped)
-[2022.03.27-14.39.59:669][680]LogContentBrowser: Native class hierarchy populated in 0.0109 seconds. Added 3447 classes and 823 folders.
-[2022.03.27-14.39.59:669][680]Display: HotReload took 24.6s.
-[2022.03.27-14.39.59:682][680]Warning: HotReload operation took 24.6s.
-[2022.03.27-14.39.59:942][680]LogVSAccessor: Warning: Couldn't goto line number '1' in 'C:/Users/DNJACK/Desktop/labs/log8235-tp3/Source/SoftDesignTraining/UBTTask_MoveFlee.h'
-[2022.03.27-14.39.59:946][680]LogVSAccessor: Warning: Couldn't open file 'C:/Users/DNJACK/Desktop/labs/log8235-tp3/Source/SoftDesignTraining/UBTTask_MoveFlee.cpp'.
-[2022.03.27-14.39.59:954][680]LogSlate: Window 'Add C++ Class' being destroyed
-[2022.03.27-14.39.59:974][680]LogHotReload: New module detected: UE4Editor-SoftDesignTraining-1369.dll
-[2022.03.27-14.40.00:038][681]LogHotReload: Starting Hot-Reload from IDE
-[2022.03.27-14.40.00:153][681]LogContentBrowser: Native class hierarchy updated for 'SoftDesignTraining' in 0.0005 seconds. Added 20 classes and 2 folders.
-[2022.03.27-14.40.00:154][681]Display: HotReload successful (0 functions remapped  0 scriptstructs remapped)
-[2022.03.27-14.40.00:174][681]LogContentBrowser: Native class hierarchy populated in 0.0112 seconds. Added 3447 classes and 823 folders.
-[2022.03.27-14.40.00:178][681]Display: HotReload took  0.1s.
-[2022.03.27-14.40.49:360][536]LogSlate: Window 'AiController' being destroyed
-[2022.03.27-14.40.49:364][536]LogSlate: Window 'AiController' being destroyed
-[2022.03.27-14.40.53:305][994]LogSlate: WidgetSwitcher ('None') active index changed to -1
-[2022.03.27-14.40.53:305][994]LogSlate: WidgetSwitcher ('None') active index changed to 0
-[2022.03.27-14.40.54:741][144]LogSlate: Warning: Slate: Had to block on waiting for a draw buffer
-[2022.03.27-14.41.08:662][772]LogSlate: WidgetSwitcher ('None') active index changed to 1
-[2022.03.27-14.41.43:570][953]Running C:/Program Files/Epic Games/UE_4.25/Engine/Binaries/DotNET/UnrealBuildTool.exe  -projectfiles -project="C:/Users/DNJACK/Desktop/labs/log8235-tp3/SoftDesignTraining.uproject" -game -rocket -progress
-[2022.03.27-14.41.43:878][953]Discovering modules, targets and source code for project...
-[2022.03.27-14.41.45:292][953]Binding IntelliSense data...
-[2022.03.27-14.41.47:217][953]Binding IntelliSense data... 100%
-[2022.03.27-14.41.47:217][953]Writing project files...
-[2022.03.27-14.41.50:952][953]Writing project files... 100%
-[2022.03.27-14.41.51:106][953]Candidate modules for hot reload:
-[2022.03.27-14.41.51:106][953]  SoftDesignTraining
-[2022.03.27-14.41.51:106][953]Launching UnrealBuildTool... [C:/Program Files/Epic Games/UE_4.25/Engine/Binaries/DotNET/UnrealBuildTool.exe  -ModuleWithSuffix=SoftDesignTraining,4506 SoftDesignTrainingEditor Win64 Development -Project="C:/Users/DNJACK/Desktop/labs/log8235-tp3/SoftDesignTraining.uproject" "C:/Users/DNJACK/Desktop/labs/log8235-tp3/SoftDesignTraining.uproject"  -IgnoreJunk]
-[2022.03.27-14.42.00:919][953]CompilerResultsLog: New page: Compilation - Mar. 27, 2022, 6:42:00 a.m.
-[2022.03.27-14.42.00:919][953]CompilerResultsLog: Using 'git status' to determine working set for adaptive non-unity build (C:\Users\DNJACK\Desktop\labs\log8235-tp3).
-[2022.03.27-14.42.00:919][953]CompilerResultsLog: Creating makefile for SoftDesignTrainingEditor (no existing makefile)
-[2022.03.27-14.42.00:919][953]CompilerResultsLog: Parsing headers for SoftDesignTrainingEditor
-[2022.03.27-14.42.00:919][953]CompilerResultsLog:   Running UnrealHeaderTool "C:\Users\DNJACK\Desktop\labs\log8235-tp3\SoftDesignTraining.uproject" "C:\Users\DNJACK\Desktop\labs\log8235-tp3\Intermediate\Build\Win64\SoftDesignTrainingEditor\Development\SoftDesignTrainingEditor.uhtmanifest" -LogCmds="loginit warning, logexit warning, logdatabase error" -Unattended -WarningsAsErrors -abslog="C:\Users\DNJACK\AppData\Local\UnrealBuildTool\Log_UHT.txt" -installed
-[2022.03.27-14.42.00:919][953]CompilerResultsLog: Reflection code generated for SoftDesignTrainingEditor in 5.600777 seconds
-[2022.03.27-14.42.00:919][953]CompilerResultsLog: Building SoftDesignTrainingEditor...
-[2022.03.27-14.42.00:919][953]CompilerResultsLog: Using Visual Studio 2019 14.29.30138 toolchain (C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133) and Windows 10.0.18362.0 SDK (C:\Program Files (x86)\Windows Kits\10).
-[2022.03.27-14.42.00:919][953]CompilerResultsLog: Building 6 actions with 12 processes...
-[2022.03.27-14.42.00:919][953]CompilerResultsLog:   [1/6] SoftDesignTraining.init.gen.cpp
-[2022.03.27-14.42.00:919][953]CompilerResultsLog:   [2/6] UBTTask_MoveFollow.cpp
-[2022.03.27-14.42.00:919][953]CompilerResultsLog:   [3/6] UBTTask_MoveFollow.gen.cpp
-[2022.03.27-14.42.00:919][953]CompilerResultsLog:   [4/6] UE4Editor-SoftDesignTraining-4506.lib
-[2022.03.27-14.42.00:919][953]CompilerResultsLog:      Creating library C:\Users\DNJACK\Desktop\labs\log8235-tp3\Intermediate\Build\Win64\UE4Editor\Development\SoftDesignTraining\UE4Editor-SoftDesignTraining-4506.lib and object C:\Users\DNJACK\Desktop\labs\log8235-tp3\Intermediate\Build\Win64\UE4Editor\Development\SoftDesignTraining\UE4Editor-SoftDesignTraining-4506.exp
-[2022.03.27-14.42.00:919][953]CompilerResultsLog:   [5/6] UE4Editor-SoftDesignTraining-4506.dll
-[2022.03.27-14.42.00:919][953]CompilerResultsLog:      Creating library C:\Users\DNJACK\Desktop\labs\log8235-tp3\Intermediate\Build\Win64\UE4Editor\Development\SoftDesignTraining\UE4Editor-SoftDesignTraining-4506.suppressed.lib and object C:\Users\DNJACK\Desktop\labs\log8235-tp3\Intermediate\Build\Win64\UE4Editor\Development\SoftDesignTraining\UE4Editor-SoftDesignTraining-4506.suppressed.exp
-[2022.03.27-14.42.00:919][953]CompilerResultsLog:   [6/6] SoftDesignTrainingEditor.target
-[2022.03.27-14.42.00:919][953]CompilerResultsLog: Total time in Parallel executor: 2.21 seconds
-[2022.03.27-14.42.00:919][953]CompilerResultsLog: Total execution time: 9.73 seconds
-[2022.03.27-14.42.00:919][953]LogMainFrame: MainFrame: Module compiling took 9.816 seconds
-[2022.03.27-14.42.00:951][953]LogClass: Could not find existing class UBTTask_MoveFollow in package /Script/SoftDesignTraining for HotReload, assuming new class
-[2022.03.27-14.42.00:964][953]LogContentBrowser: Native class hierarchy updated for 'SoftDesignTraining' in 0.0006 seconds. Added 21 classes and 2 folders.
-[2022.03.27-14.42.00:966][953]Display: HotReload successful (1 functions remapped  0 scriptstructs remapped)
-[2022.03.27-14.42.01:020][953]LogContentBrowser: Native class hierarchy populated in 0.0110 seconds. Added 3448 classes and 823 folders.
-[2022.03.27-14.42.01:020][953]Display: HotReload took 10.0s.
-[2022.03.27-14.42.01:027][953]Warning: HotReload operation took 10.0s.
-[2022.03.27-14.42.01:430][953]LogVSAccessor: Warning: Couldn't goto line number '1' in 'C:/Users/DNJACK/Desktop/labs/log8235-tp3/Source/SoftDesignTraining/UBTTask_MoveFollow.cpp'
-[2022.03.27-14.42.01:433][953]LogSlate: Window 'Add C++ Class' being destroyed
-[2022.03.27-14.42.01:445][953]LogHotReload: New module detected: UE4Editor-SoftDesignTraining-4506.dll
-[2022.03.27-14.42.01:511][954]LogHotReload: Starting Hot-Reload from IDE
-[2022.03.27-14.42.01:599][954]LogContentBrowser: Native class hierarchy updated for 'SoftDesignTraining' in 0.0005 seconds. Added 21 classes and 2 folders.
-[2022.03.27-14.42.01:600][954]Display: HotReload successful (0 functions remapped  0 scriptstructs remapped)
-[2022.03.27-14.42.01:621][954]LogContentBrowser: Native class hierarchy populated in 0.0129 seconds. Added 3448 classes and 823 folders.
-[2022.03.27-14.42.01:624][954]Display: HotReload took  0.1s.
-[2022.03.27-14.42.07:569][166]LogSlate: WidgetSwitcher ('None') active index changed to -1
-[2022.03.27-14.42.07:569][166]LogSlate: WidgetSwitcher ('None') active index changed to 0
-[2022.03.27-14.42.09:988][425]LogSlate: Warning: Slate: Had to block on waiting for a draw buffer
-[2022.03.27-14.42.16:036][ 93]LogSlate: WidgetSwitcher ('None') active index changed to 1
-[2022.03.27-14.42.29:353][677]Running C:/Program Files/Epic Games/UE_4.25/Engine/Binaries/DotNET/UnrealBuildTool.exe  -projectfiles -project="C:/Users/DNJACK/Desktop/labs/log8235-tp3/SoftDesignTraining.uproject" -game -rocket -progress
-[2022.03.27-14.42.29:671][677]Discovering modules, targets and source code for project...
-[2022.03.27-14.42.31:185][677]Binding IntelliSense data...
-[2022.03.27-14.42.33:014][677]Binding IntelliSense data... 100%
-[2022.03.27-14.42.33:014][677]Writing project files...
-[2022.03.27-14.42.36:753][677]Writing project files... 100%
-[2022.03.27-14.42.36:863][677]Candidate modules for hot reload:
-[2022.03.27-14.42.36:863][677]  SoftDesignTraining
-[2022.03.27-14.42.36:863][677]Launching UnrealBuildTool... [C:/Program Files/Epic Games/UE_4.25/Engine/Binaries/DotNET/UnrealBuildTool.exe  -ModuleWithSuffix=SoftDesignTraining,8046 SoftDesignTrainingEditor Win64 Development -Project="C:/Users/DNJACK/Desktop/labs/log8235-tp3/SoftDesignTraining.uproject" "C:/Users/DNJACK/Desktop/labs/log8235-tp3/SoftDesignTraining.uproject"  -IgnoreJunk]
-[2022.03.27-14.42.46:745][677]CompilerResultsLog: New page: Compilation - Mar. 27, 2022, 6:42:46 a.m.
-[2022.03.27-14.42.46:745][677]CompilerResultsLog: Using 'git status' to determine working set for adaptive non-unity build (C:\Users\DNJACK\Desktop\labs\log8235-tp3).
-[2022.03.27-14.42.46:745][677]CompilerResultsLog: Creating makefile for SoftDesignTrainingEditor (no existing makefile)
-[2022.03.27-14.42.46:745][677]CompilerResultsLog: Parsing headers for SoftDesignTrainingEditor
-[2022.03.27-14.42.46:745][677]CompilerResultsLog:   Running UnrealHeaderTool "C:\Users\DNJACK\Desktop\labs\log8235-tp3\SoftDesignTraining.uproject" "C:\Users\DNJACK\Desktop\labs\log8235-tp3\Intermediate\Build\Win64\SoftDesignTrainingEditor\Development\SoftDesignTrainingEditor.uhtmanifest" -LogCmds="loginit warning, logexit warning, logdatabase error" -Unattended -WarningsAsErrors -abslog="C:\Users\DNJACK\AppData\Local\UnrealBuildTool\Log_UHT.txt" -installed
-[2022.03.27-14.42.46:745][677]CompilerResultsLog: Reflection code generated for SoftDesignTrainingEditor in 5.6324876 seconds
-[2022.03.27-14.42.46:745][677]CompilerResultsLog: Building SoftDesignTrainingEditor...
-[2022.03.27-14.42.46:745][677]CompilerResultsLog: Using Visual Studio 2019 14.29.30138 toolchain (C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133) and Windows 10.0.18362.0 SDK (C:\Program Files (x86)\Windows Kits\10).
-[2022.03.27-14.42.46:745][677]CompilerResultsLog: Building 6 actions with 12 processes...
-[2022.03.27-14.42.46:745][677]CompilerResultsLog:   [1/6] SoftDesignTraining.init.gen.cpp
-[2022.03.27-14.42.46:745][677]CompilerResultsLog:   [2/6] UBTTask_MoveCollect.cpp
-[2022.03.27-14.42.46:745][677]CompilerResultsLog:   [3/6] UBTTask_MoveCollect.gen.cpp
-[2022.03.27-14.42.46:745][677]CompilerResultsLog:   [4/6] UE4Editor-SoftDesignTraining-8046.lib
-[2022.03.27-14.42.46:745][677]CompilerResultsLog:      Creating library C:\Users\DNJACK\Desktop\labs\log8235-tp3\Intermediate\Build\Win64\UE4Editor\Development\SoftDesignTraining\UE4Editor-SoftDesignTraining-8046.lib and object C:\Users\DNJACK\Desktop\labs\log8235-tp3\Intermediate\Build\Win64\UE4Editor\Development\SoftDesignTraining\UE4Editor-SoftDesignTraining-8046.exp
-[2022.03.27-14.42.46:745][677]CompilerResultsLog:   [5/6] UE4Editor-SoftDesignTraining-8046.dll
-[2022.03.27-14.42.46:745][677]CompilerResultsLog:      Creating library C:\Users\DNJACK\Desktop\labs\log8235-tp3\Intermediate\Build\Win64\UE4Editor\Development\SoftDesignTraining\UE4Editor-SoftDesignTraining-8046.suppressed.lib and object C:\Users\DNJACK\Desktop\labs\log8235-tp3\Intermediate\Build\Win64\UE4Editor\Development\SoftDesignTraining\UE4Editor-SoftDesignTraining-8046.suppressed.exp
-[2022.03.27-14.42.46:745][677]CompilerResultsLog:   [6/6] SoftDesignTrainingEditor.target
-[2022.03.27-14.42.46:745][677]CompilerResultsLog: Total time in Parallel executor: 2.22 seconds
-[2022.03.27-14.42.46:745][677]CompilerResultsLog: Total execution time: 9.80 seconds
-[2022.03.27-14.42.46:745][677]LogMainFrame: MainFrame: Module compiling took 9.885 seconds
-[2022.03.27-14.42.46:784][677]LogClass: Could not find existing class UBTTask_MoveCollect in package /Script/SoftDesignTraining for HotReload, assuming new class
-[2022.03.27-14.42.46:796][677]LogContentBrowser: Native class hierarchy updated for 'SoftDesignTraining' in 0.0005 seconds. Added 22 classes and 2 folders.
-[2022.03.27-14.42.46:797][677]Display: HotReload successful (1 functions remapped  0 scriptstructs remapped)
-[2022.03.27-14.42.46:846][677]LogContentBrowser: Native class hierarchy populated in 0.0109 seconds. Added 3449 classes and 823 folders.
-[2022.03.27-14.42.46:846][677]Display: HotReload took 10.0s.
-[2022.03.27-14.42.46:858][677]Warning: HotReload operation took 10.0s.
-[2022.03.27-14.42.47:056][677]LogVSAccessor: Warning: Couldn't goto line number '1' in 'C:/Users/DNJACK/Desktop/labs/log8235-tp3/Source/SoftDesignTraining/UBTTask_MoveCollect.h'
-[2022.03.27-14.42.47:059][677]LogVSAccessor: Warning: Couldn't open file 'C:/Users/DNJACK/Desktop/labs/log8235-tp3/Source/SoftDesignTraining/UBTTask_MoveCollect.cpp'.
-[2022.03.27-14.42.47:066][677]LogSlate: Window 'Add C++ Class' being destroyed
-[2022.03.27-14.42.47:133][678]LogHotReload: New module detected: UE4Editor-SoftDesignTraining-8046.dll
-[2022.03.27-14.42.47:176][679]LogHotReload: Starting Hot-Reload from IDE
-[2022.03.27-14.42.47:296][679]LogContentBrowser: Native class hierarchy updated for 'SoftDesignTraining' in 0.0005 seconds. Added 22 classes and 2 folders.
-[2022.03.27-14.42.47:297][679]Display: HotReload successful (0 functions remapped  0 scriptstructs remapped)
-[2022.03.27-14.42.47:316][679]LogContentBrowser: Native class hierarchy populated in 0.0108 seconds. Added 3449 classes and 823 folders.
-[2022.03.27-14.42.47:319][679]Display: HotReload took  0.1s.
-[2022.03.27-14.42.57:101][299]LogAssetEditorSubsystem: Opening Asset editor for BehaviorTree /Game/Blueprint/AiController.AiController
-[2022.03.27-14.45.22:192][ 42]Cmd: OBJ SAVEPACKAGE PACKAGE="/Game/Blueprint/AiController" FILE="../../../../../../Users/DNJACK/Desktop/labs/log8235-tp3/Content/Blueprint/AiController.uasset" SILENT=true
-[2022.03.27-14.45.22:204][ 42]LogSavePackage: Moving '../../../../../../Users/DNJACK/Desktop/labs/log8235-tp3/Saved/AiController487980584FCC6FC540B8CEBFE5616271.tmp' to '../../../../../../Users/DNJACK/Desktop/labs/log8235-tp3/Content/Blueprint/AiController.uasset'
-[2022.03.27-14.45.22:219][ 42]AssetCheck: New page: Asset Save: AiController
-[2022.03.27-14.45.22:219][ 42]LogContentValidation: Display: Validating BehaviorTree /Game/Blueprint/AiController.AiController
-[2022.03.27-14.45.46:412][892]LogSlate: Window 'AiController' being destroyed
-[2022.03.27-14.45.46:416][892]LogSlate: Window 'AiController' being destroyed
-[2022.03.27-15.15.27:771][722]Candidate modules for hot reload:
-[2022.03.27-15.15.27:771][722]  SoftDesignTraining
-[2022.03.27-15.15.27:771][722]Launching UnrealBuildTool... [C:/Program Files/Epic Games/UE_4.25/Engine/Binaries/DotNET/UnrealBuildTool.exe  -ModuleWithSuffix=SoftDesignTraining,1934 SoftDesignTrainingEditor Win64 Development -Project="C:/Users/DNJACK/Desktop/labs/log8235-tp3/SoftDesignTraining.uproject" "C:/Users/DNJACK/Desktop/labs/log8235-tp3/SoftDesignTraining.uproject"  -IgnoreJunk]
-[2022.03.27-15.15.27:780][722]Warning: Starting HotReload took  0.0s.
-[2022.03.27-15.15.57:400][119]CompilerResultsLog: New page: Compilation - Mar. 27, 2022, 7:15:57 a.m.
-[2022.03.27-15.15.57:400][119]CompilerResultsLog: Using 'git status' to determine working set for adaptive non-unity build (C:\Users\DNJACK\Desktop\labs\log8235-tp3).
-[2022.03.27-15.15.57:400][119]CompilerResultsLog: Parsing headers for SoftDesignTrainingEditor
-[2022.03.27-15.15.57:400][119]CompilerResultsLog:   Running UnrealHeaderTool "C:\Users\DNJACK\Desktop\labs\log8235-tp3\SoftDesignTraining.uproject" "C:\Users\DNJACK\Desktop\labs\log8235-tp3\Intermediate\Build\Win64\SoftDesignTrainingEditor\Development\SoftDesignTrainingEditor.uhtmanifest" -LogCmds="loginit warning, logexit warning, logdatabase error" -Unattended -WarningsAsErrors -abslog="C:\Users\DNJACK\AppData\Local\UnrealBuildTool\Log_UHT.txt" -installed
-[2022.03.27-15.15.57:400][119]CompilerResultsLog: Reflection code generated for SoftDesignTrainingEditor in 8.0844124 seconds
-[2022.03.27-15.15.57:400][119]CompilerResultsLog: Building SoftDesignTrainingEditor...
-[2022.03.27-15.15.57:400][119]CompilerResultsLog: Using Visual Studio 2019 14.29.30138 toolchain (C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133) and Windows 10.0.18362.0 SDK (C:\Program Files (x86)\Windows Kits\10).
-[2022.03.27-15.15.57:400][119]CompilerResultsLog: Building 9 actions with 12 processes...
-[2022.03.27-15.15.57:400][119]CompilerResultsLog:   [1/9] UBTTask_MoveCollect.cpp
-[2022.03.27-15.15.57:400][119]CompilerResultsLog:   [2/9] UBTTask_MoveFollow.cpp
-[2022.03.27-15.15.57:400][119]CompilerResultsLog:   [3/9] UBTTask_MoveFlee.gen.cpp
-[2022.03.27-15.15.57:400][119]CompilerResultsLog:   [4/9] UBTTask_MoveFollow.gen.cpp
-[2022.03.27-15.15.57:400][119]CompilerResultsLog:   [5/9] UBTTask_MoveFlee.cpp
-[2022.03.27-15.15.57:400][119]CompilerResultsLog:   [6/9] UBTTask_MoveCollect.gen.cpp
-[2022.03.27-15.15.57:400][119]CompilerResultsLog:   [7/9] UE4Editor-SoftDesignTraining-1934.lib
-[2022.03.27-15.15.57:400][119]CompilerResultsLog:      Creating library C:\Users\DNJACK\Desktop\labs\log8235-tp3\Intermediate\Build\Win64\UE4Editor\Development\SoftDesignTraining\UE4Editor-SoftDesignTraining-1934.lib and object C:\Users\DNJACK\Desktop\labs\log8235-tp3\Intermediate\Build\Win64\UE4Editor\Development\SoftDesignTraining\UE4Editor-SoftDesignTraining-1934.exp
-[2022.03.27-15.15.57:400][119]CompilerResultsLog:   [8/9] UE4Editor-SoftDesignTraining-1934.dll
-[2022.03.27-15.15.57:400][119]CompilerResultsLog:      Creating library C:\Users\DNJACK\Desktop\labs\log8235-tp3\Intermediate\Build\Win64\UE4Editor\Development\SoftDesignTraining\UE4Editor-SoftDesignTraining-1934.suppressed.lib and object C:\Users\DNJACK\Desktop\labs\log8235-tp3\Intermediate\Build\Win64\UE4Editor\Development\SoftDesignTraining\UE4Editor-SoftDesignTraining-1934.suppressed.exp
-[2022.03.27-15.15.57:400][119]CompilerResultsLog:   [9/9] SoftDesignTrainingEditor.target
-[2022.03.27-15.15.57:400][119]CompilerResultsLog: Total time in Parallel executor: 20.37 seconds
-[2022.03.27-15.15.57:400][119]CompilerResultsLog: Total execution time: 29.40 seconds
-[2022.03.27-15.15.57:400][119]LogMainFrame: MainFrame: Module compiling took 29.632 seconds
-[2022.03.27-15.15.57:551][119]LogContentBrowser: Native class hierarchy updated for 'SoftDesignTraining' in 0.0005 seconds. Added 22 classes and 2 folders.
-[2022.03.27-15.15.57:553][119]Display: HotReload successful (1 functions remapped  0 scriptstructs remapped)
-[2022.03.27-15.15.57:618][119]LogContentBrowser: Native class hierarchy populated in 0.0120 seconds. Added 3449 classes and 823 folders.
-[2022.03.27-15.15.57:618][119]Display: HotReload took 29.9s.
+[2022.03.30-13.03.29:500][  0]LogConfig: Setting CVar [[r.VSync:0]]
+[2022.03.30-13.03.29:500][  0]LogConfig: Setting CVar [[r.RHICmdBypass:0]]
+[2022.03.30-13.03.29:501][  0]LogConfig: Applying CVar settings from Section [/Script/Engine.RendererSettings] File [C:/Users/DNJACK/Desktop/labs/log8235-tp3/Saved/Config/Windows/Engine.ini]
+[2022.03.30-13.03.29:501][  0]LogConfig: Setting CVar [[r.GPUCrashDebugging:0]]
+[2022.03.30-13.03.29:501][  0]LogConfig: Applying CVar settings from Section [/Script/Engine.RendererOverrideSettings] File [C:/Users/DNJACK/Desktop/labs/log8235-tp3/Saved/Config/Windows/Engine.ini]
+[2022.03.30-13.03.29:501][  0]LogConfig: Applying CVar settings from Section [/Script/Engine.StreamingSettings] File [C:/Users/DNJACK/Desktop/labs/log8235-tp3/Saved/Config/Windows/Engine.ini]
+[2022.03.30-13.03.29:501][  0]LogConfig: Setting CVar [[s.MinBulkDataSizeForAsyncLoading:131072]]
+[2022.03.30-13.03.29:501][  0]LogConfig: Setting CVar [[s.AsyncLoadingThreadEnabled:0]]
+[2022.03.30-13.03.29:501][  0]LogConfig: Setting CVar [[s.EventDrivenLoaderEnabled:1]]
+[2022.03.30-13.03.29:501][  0]LogConfig: Setting CVar [[s.WarnIfTimeLimitExceeded:0]]
+[2022.03.30-13.03.29:501][  0]LogConfig: Setting CVar [[s.TimeLimitExceededMultiplier:1.5]]
+[2022.03.30-13.03.29:501][  0]LogConfig: Setting CVar [[s.TimeLimitExceededMinTime:0.005]]
+[2022.03.30-13.03.29:501][  0]LogConfig: Setting CVar [[s.UseBackgroundLevelStreaming:1]]
+[2022.03.30-13.03.29:501][  0]LogConfig: Setting CVar [[s.PriorityAsyncLoadingExtraTime:15.0]]
+[2022.03.30-13.03.29:501][  0]LogConfig: Setting CVar [[s.LevelStreamingActorsUpdateTimeLimit:5.0]]
+[2022.03.30-13.03.29:501][  0]LogConfig: Setting CVar [[s.PriorityLevelStreamingActorsUpdateExtraTime:5.0]]
+[2022.03.30-13.03.29:501][  0]LogConfig: Setting CVar [[s.LevelStreamingComponentsRegistrationGranularity:10]]
+[2022.03.30-13.03.29:501][  0]LogConfig: Setting CVar [[s.UnregisterComponentsTimeLimit:1.0]]
+[2022.03.30-13.03.29:501][  0]LogConfig: Setting CVar [[s.LevelStreamingComponentsUnregistrationGranularity:5]]
+[2022.03.30-13.03.29:501][  0]LogConfig: Setting CVar [[s.FlushStreamingOnExit:1]]
+[2022.03.30-13.03.29:501][  0]LogConfig: Applying CVar settings from Section [/Script/Engine.GarbageCollectionSettings] File [C:/Users/DNJACK/Desktop/labs/log8235-tp3/Saved/Config/Windows/Engine.ini]
+[2022.03.30-13.03.29:501][  0]LogConfig: Setting CVar [[gc.MaxObjectsNotConsideredByGC:1]]
+[2022.03.30-13.03.29:501][  0]LogConfig: Setting CVar [[gc.SizeOfPermanentObjectPool:0]]
+[2022.03.30-13.03.29:501][  0]LogConfig: Setting CVar [[gc.FlushStreamingOnGC:0]]
+[2022.03.30-13.03.29:501][  0]LogConfig: Setting CVar [[gc.NumRetriesBeforeForcingGC:10]]
+[2022.03.30-13.03.29:501][  0]LogConfig: Setting CVar [[gc.AllowParallelGC:1]]
+[2022.03.30-13.03.29:501][  0]LogConfig: Setting CVar [[gc.TimeBetweenPurgingPendingKillObjects:61.1]]
+[2022.03.30-13.03.29:501][  0]LogConfig: Setting CVar [[gc.MaxObjectsInEditor:25165824]]
+[2022.03.30-13.03.29:501][  0]LogConfig: Setting CVar [[gc.IncrementalBeginDestroyEnabled:1]]
+[2022.03.30-13.03.29:502][  0]LogConfig: Setting CVar [[gc.CreateGCClusters:1]]
+[2022.03.30-13.03.29:502][  0]LogConfig: Setting CVar [[gc.MinGCClusterSize:5]]
+[2022.03.30-13.03.29:502][  0]LogConfig: Setting CVar [[gc.ActorClusteringEnabled:0]]
+[2022.03.30-13.03.29:502][  0]LogConfig: Setting CVar [[gc.BlueprintClusteringEnabled:0]]
+[2022.03.30-13.03.29:502][  0]LogConfig: Setting CVar [[gc.UseDisregardForGCOnDedicatedServers:0]]
+[2022.03.30-13.03.29:502][  0]LogConfig: Applying CVar settings from Section [/Script/Engine.NetworkSettings] File [C:/Users/DNJACK/Desktop/labs/log8235-tp3/Saved/Config/Windows/Engine.ini]
+[2022.03.30-13.03.29:502][  0]LogConfig: Applying CVar settings from Section [/Script/UnrealEd.CookerSettings] File [C:/Users/DNJACK/Desktop/labs/log8235-tp3/Saved/Config/Windows/Engine.ini]
+[2022.03.30-13.03.29:506][  0]LogConfig: Applying CVar settings from Section [ViewDistanceQuality@3] File [C:/Users/DNJACK/Desktop/labs/log8235-tp3/Saved/Config/Windows/Scalability.ini]
+[2022.03.30-13.03.29:506][  0]LogConfig: Setting CVar [[r.SkeletalMeshLODBias:0]]
+[2022.03.30-13.03.29:506][  0]LogConfig: Setting CVar [[r.ViewDistanceScale:1.0]]
+[2022.03.30-13.03.29:506][  0]LogConfig: Applying CVar settings from Section [AntiAliasingQuality@3] File [C:/Users/DNJACK/Desktop/labs/log8235-tp3/Saved/Config/Windows/Scalability.ini]
+[2022.03.30-13.03.29:506][  0]LogConfig: Setting CVar [[r.PostProcessAAQuality:4]]
+[2022.03.30-13.03.29:506][  0]LogConfig: Applying CVar settings from Section [ShadowQuality@3] File [C:/Users/DNJACK/Desktop/labs/log8235-tp3/Saved/Config/Windows/Scalability.ini]
+[2022.03.30-13.03.29:506][  0]LogConfig: Setting CVar [[r.LightFunctionQuality:1]]
+[2022.03.30-13.03.29:506][  0]LogConfig: Setting CVar [[r.ShadowQuality:5]]
+[2022.03.30-13.03.29:506][  0]LogConfig: Setting CVar [[r.Shadow.CSM.MaxCascades:10]]
+[2022.03.30-13.03.29:506][  0]LogConfig: Setting CVar [[r.Shadow.MaxResolution:2048]]
+[2022.03.30-13.03.29:506][  0]LogConfig: Setting CVar [[r.Shadow.MaxCSMResolution:2048]]
+[2022.03.30-13.03.29:506][  0]LogConfig: Setting CVar [[r.Shadow.RadiusThreshold:0.01]]
+[2022.03.30-13.03.29:506][  0]LogConfig: Setting CVar [[r.Shadow.DistanceScale:1.0]]
+[2022.03.30-13.03.29:506][  0]LogConfig: Setting CVar [[r.Shadow.CSM.TransitionScale:1.0]]
+[2022.03.30-13.03.29:506][  0]LogConfig: Setting CVar [[r.Shadow.PreShadowResolutionFactor:1.0]]
+[2022.03.30-13.03.29:506][  0]LogConfig: Setting CVar [[r.DistanceFieldShadowing:1]]
+[2022.03.30-13.03.29:506][  0]LogConfig: Setting CVar [[r.DistanceFieldAO:1]]
+[2022.03.30-13.03.29:506][  0]LogConfig: Setting CVar [[r.AOQuality:2]]
+[2022.03.30-13.03.29:506][  0]LogConfig: Setting CVar [[r.VolumetricFog:1]]
+[2022.03.30-13.03.29:506][  0]LogConfig: Setting CVar [[r.VolumetricFog.GridPixelSize:8]]
+[2022.03.30-13.03.29:506][  0]LogConfig: Setting CVar [[r.VolumetricFog.GridSizeZ:128]]
+[2022.03.30-13.03.29:506][  0]LogConfig: Setting CVar [[r.VolumetricFog.HistoryMissSupersampleCount:4]]
+[2022.03.30-13.03.29:506][  0]LogConfig: Setting CVar [[r.LightMaxDrawDistanceScale:1]]
+[2022.03.30-13.03.29:506][  0]LogConfig: Setting CVar [[r.CapsuleShadows:1]]
+[2022.03.30-13.03.29:506][  0]LogConfig: Applying CVar settings from Section [PostProcessQuality@3] File [C:/Users/DNJACK/Desktop/labs/log8235-tp3/Saved/Config/Windows/Scalability.ini]
+[2022.03.30-13.03.29:507][  0]LogConfig: Setting CVar [[r.MotionBlurQuality:4]]
+[2022.03.30-13.03.29:507][  0]LogConfig: Setting CVar [[r.AmbientOcclusionMipLevelFactor:0.4]]
+[2022.03.30-13.03.29:507][  0]LogConfig: Setting CVar [[r.AmbientOcclusionMaxQuality:100]]
+[2022.03.30-13.03.29:507][  0]LogConfig: Setting CVar [[r.AmbientOcclusionLevels:-1]]
+[2022.03.30-13.03.29:507][  0]LogConfig: Setting CVar [[r.AmbientOcclusionRadiusScale:1.0]]
+[2022.03.30-13.03.29:507][  0]LogConfig: Setting CVar [[r.DepthOfFieldQuality:2]]
+[2022.03.30-13.03.29:507][  0]LogConfig: Setting CVar [[r.RenderTargetPoolMin:400]]
+[2022.03.30-13.03.29:507][  0]LogConfig: Setting CVar [[r.LensFlareQuality:2]]
+[2022.03.30-13.03.29:507][  0]LogConfig: Setting CVar [[r.SceneColorFringeQuality:1]]
+[2022.03.30-13.03.29:507][  0]LogConfig: Setting CVar [[r.EyeAdaptationQuality:2]]
+[2022.03.30-13.03.29:507][  0]LogConfig: Setting CVar [[r.BloomQuality:5]]
+[2022.03.30-13.03.29:507][  0]LogConfig: Setting CVar [[r.FastBlurThreshold:100]]
+[2022.03.30-13.03.29:507][  0]LogConfig: Setting CVar [[r.Upscale.Quality:3]]
+[2022.03.30-13.03.29:507][  0]LogConfig: Setting CVar [[r.Tonemapper.GrainQuantization:1]]
+[2022.03.30-13.03.29:507][  0]LogConfig: Setting CVar [[r.LightShaftQuality:1]]
+[2022.03.30-13.03.29:507][  0]LogConfig: Setting CVar [[r.Filter.SizeScale:1]]
+[2022.03.30-13.03.29:507][  0]LogConfig: Setting CVar [[r.Tonemapper.Quality:5]]
+[2022.03.30-13.03.29:507][  0]LogConfig: Setting CVar [[r.DOF.Gather.AccumulatorQuality:1        ; higher gathering accumulator quality]]
+[2022.03.30-13.03.29:507][  0]LogConfig: Setting CVar [[r.DOF.Gather.PostfilterMethod:1          ; Median3x3 postfilering method]]
+[2022.03.30-13.03.29:507][  0]LogConfig: Setting CVar [[r.DOF.Gather.EnableBokehSettings:0       ; no bokeh simulation when gathering]]
+[2022.03.30-13.03.29:507][  0]LogConfig: Setting CVar [[r.DOF.Gather.RingCount:4                 ; medium number of samples when gathering]]
+[2022.03.30-13.03.29:507][  0]LogConfig: Setting CVar [[r.DOF.Scatter.ForegroundCompositing:1    ; additive foreground scattering]]
+[2022.03.30-13.03.29:507][  0]LogConfig: Setting CVar [[r.DOF.Scatter.BackgroundCompositing:2    ; additive background scattering]]
+[2022.03.30-13.03.29:507][  0]LogConfig: Setting CVar [[r.DOF.Scatter.EnableBokehSettings:1      ; bokeh simulation when scattering]]
+[2022.03.30-13.03.29:507][  0]LogConfig: Setting CVar [[r.DOF.Scatter.MaxSpriteRatio:0.1         ; only a maximum of 10% of scattered bokeh]]
+[2022.03.30-13.03.29:507][  0]LogConfig: Setting CVar [[r.DOF.Recombine.Quality:1                ; cheap slight out of focus]]
+[2022.03.30-13.03.29:507][  0]LogConfig: Setting CVar [[r.DOF.Recombine.EnableBokehSettings:0    ; no bokeh simulation on slight out of focus]]
+[2022.03.30-13.03.29:507][  0]LogConfig: Setting CVar [[r.DOF.TemporalAAQuality:1                ; more stable temporal accumulation]]
+[2022.03.30-13.03.29:507][  0]LogConfig: Setting CVar [[r.DOF.Kernel.MaxForegroundRadius:0.025]]
+[2022.03.30-13.03.29:507][  0]LogConfig: Setting CVar [[r.DOF.Kernel.MaxBackgroundRadius:0.025]]
+[2022.03.30-13.03.29:507][  0]LogConfig: Applying CVar settings from Section [TextureQuality@3] File [C:/Users/DNJACK/Desktop/labs/log8235-tp3/Saved/Config/Windows/Scalability.ini]
+[2022.03.30-13.03.29:507][  0]LogConfig: Setting CVar [[r.Streaming.MipBias:0]]
+[2022.03.30-13.03.29:507][  0]LogConfig: Setting CVar [[r.Streaming.AmortizeCPUToGPUCopy:0]]
+[2022.03.30-13.03.29:507][  0]LogConfig: Setting CVar [[r.Streaming.MaxNumTexturesToStreamPerFrame:0]]
+[2022.03.30-13.03.29:507][  0]LogConfig: Setting CVar [[r.Streaming.Boost:1]]
+[2022.03.30-13.03.29:507][  0]LogConfig: Setting CVar [[r.MaxAnisotropy:8]]
+[2022.03.30-13.03.29:507][  0]LogConfig: Setting CVar [[r.VT.MaxAnisotropy:8]]
+[2022.03.30-13.03.29:507][  0]LogConfig: Setting CVar [[r.Streaming.LimitPoolSizeToVRAM:0]]
+[2022.03.30-13.03.29:507][  0]LogConfig: Setting CVar [[r.Streaming.PoolSize:1000]]
+[2022.03.30-13.03.29:507][  0]LogConfig: Setting CVar [[r.Streaming.MaxEffectiveScreenSize:0]]
+[2022.03.30-13.03.29:507][  0]LogConfig: Applying CVar settings from Section [EffectsQuality@3] File [C:/Users/DNJACK/Desktop/labs/log8235-tp3/Saved/Config/Windows/Scalability.ini]
+[2022.03.30-13.03.29:507][  0]LogConfig: Setting CVar [[r.TranslucencyLightingVolumeDim:64]]
+[2022.03.30-13.03.29:507][  0]LogConfig: Setting CVar [[r.RefractionQuality:2]]
+[2022.03.30-13.03.29:507][  0]LogConfig: Setting CVar [[r.SSR.Quality:3]]
+[2022.03.30-13.03.29:507][  0]LogConfig: Setting CVar [[r.SSR.HalfResSceneColor:0]]
+[2022.03.30-13.03.29:507][  0]LogConfig: Setting CVar [[r.SceneColorFormat:4]]
+[2022.03.30-13.03.29:507][  0]LogConfig: Setting CVar [[r.DetailMode:2]]
+[2022.03.30-13.03.29:507][  0]LogConfig: Setting CVar [[r.TranslucencyVolumeBlur:1]]
+[2022.03.30-13.03.29:507][  0]LogConfig: Setting CVar [[r.MaterialQualityLevel:1 ; High quality]]
+[2022.03.30-13.03.29:507][  0]LogConfig: Setting CVar [[r.SSS.Scale:1]]
+[2022.03.30-13.03.29:507][  0]LogConfig: Setting CVar [[r.SSS.SampleSet:2]]
+[2022.03.30-13.03.29:507][  0]LogConfig: Setting CVar [[r.SSS.Quality:1]]
+[2022.03.30-13.03.29:507][  0]LogConfig: Setting CVar [[r.SSS.HalfRes:0]]
+[2022.03.30-13.03.29:507][  0]LogConfig: Setting CVar [[r.SSGI.Quality:3]]
+[2022.03.30-13.03.29:507][  0]LogConfig: Setting CVar [[r.EmitterSpawnRateScale:1.0]]
+[2022.03.30-13.03.29:507][  0]LogConfig: Setting CVar [[r.ParticleLightQuality:2]]
+[2022.03.30-13.03.29:507][  0]LogConfig: Setting CVar [[r.SkyAtmosphere.AerialPerspectiveLUT.FastApplyOnOpaque:1 ; Always have FastSkyLUT 1 in this case to avoid wrong sky]]
+[2022.03.30-13.03.29:507][  0]LogConfig: Setting CVar [[r.SkyAtmosphere.AerialPerspectiveLUT.SampleCountPerSlice:1]]
+[2022.03.30-13.03.29:507][  0]LogConfig: Setting CVar [[r.SkyAtmosphere.AerialPerspectiveLUT.DepthResolution:16.0]]
+[2022.03.30-13.03.29:507][  0]LogConfig: Setting CVar [[r.SkyAtmosphere.FastSkyLUT:1]]
+[2022.03.30-13.03.29:507][  0]LogConfig: Setting CVar [[r.SkyAtmosphere.FastSkyLUT.SampleCountMin:4.0]]
+[2022.03.30-13.03.29:507][  0]LogConfig: Setting CVar [[r.SkyAtmosphere.FastSkyLUT.SampleCountMax:32.0]]
+[2022.03.30-13.03.29:507][  0]LogConfig: Setting CVar [[r.SkyAtmosphere.SampleCountMin:4.0]]
+[2022.03.30-13.03.29:507][  0]LogConfig: Setting CVar [[r.SkyAtmosphere.SampleCountMax:32.0]]
+[2022.03.30-13.03.29:507][  0]LogConfig: Setting CVar [[r.SkyAtmosphere.TransmittanceLUT.UseSmallFormat:0]]
+[2022.03.30-13.03.29:507][  0]LogConfig: Setting CVar [[r.SkyAtmosphere.TransmittanceLUT.SampleCount:10.0]]
+[2022.03.30-13.03.29:507][  0]LogConfig: Setting CVar [[r.SkyAtmosphere.MultiScatteringLUT.SampleCount:15.0]]
+[2022.03.30-13.03.29:507][  0]LogConfig: Applying CVar settings from Section [FoliageQuality@3] File [C:/Users/DNJACK/Desktop/labs/log8235-tp3/Saved/Config/Windows/Scalability.ini]
+[2022.03.30-13.03.29:507][  0]LogConfig: Setting CVar [[foliage.DensityScale:1.0]]
+[2022.03.30-13.03.29:507][  0]LogConfig: Setting CVar [[grass.DensityScale:1.0]]
+[2022.03.30-13.03.29:507][  0]LogConfig: Applying CVar settings from Section [ShadingQuality@3] File [C:/Users/DNJACK/Desktop/labs/log8235-tp3/Saved/Config/Windows/Scalability.ini]
+[2022.03.30-13.03.29:507][  0]LogConfig: Setting CVar [[r.HairStrands.SkyLighting.SampleCount:16]]
+[2022.03.30-13.03.29:508][  0]LogConfig: Setting CVar [[r.HairStrands.SkyLighting.JitterIntegration:0]]
+[2022.03.30-13.03.29:508][  0]LogConfig: Setting CVar [[r.HairStrands.SkyAO.SampleCount:16]]
+[2022.03.30-13.03.29:508][  0]LogConfig: Setting CVar [[r.HairStrands.DeepShadow.SuperSampling:0]]
+[2022.03.30-13.03.29:508][  0]LogConfig: Setting CVar [[r.HairStrands.VisibilityPPLL:0]]
+[2022.03.30-13.03.29:508][  0]LogConfig: Setting CVar [[r.HairStrands.RasterizationScale:0.5]]
+[2022.03.30-13.03.29:508][  0]LogConfig: Setting CVar [[r.HairStrands.VelocityRasterizationScale:1]]
+[2022.03.30-13.03.29:508][  0]LogInit: Selected Device Profile: [Windows]
+[2022.03.30-13.03.29:508][  0]LogInit: Applying CVar settings loaded from the selected device profile: [Windows]
+[2022.03.30-13.03.29:509][  0]LogHAL: Display: Platform has ~ 16 GB [17129615360 / 17179869184 / 16], which maps to Larger [LargestMinGB=32, LargerMinGB=12, DefaultMinGB=8, SmallerMinGB=6, SmallestMinGB=0)
+[2022.03.30-13.03.29:510][  0]LogInit: Going up to parent DeviceProfile []
+[2022.03.30-13.03.29:510][  0]LogConfig: Applying CVar settings from Section [ViewDistanceQuality@3] File [C:/Users/DNJACK/Desktop/labs/log8235-tp3/Saved/Config/Windows/Scalability.ini]
+[2022.03.30-13.03.29:510][  0]LogConfig: Setting CVar [[r.SkeletalMeshLODBias:0]]
+[2022.03.30-13.03.29:510][  0]LogConfig: Setting CVar [[r.ViewDistanceScale:1.0]]
+[2022.03.30-13.03.29:510][  0]LogConfig: Applying CVar settings from Section [AntiAliasingQuality@3] File [C:/Users/DNJACK/Desktop/labs/log8235-tp3/Saved/Config/Windows/Scalability.ini]
+[2022.03.30-13.03.29:510][  0]LogConfig: Setting CVar [[r.PostProcessAAQuality:4]]
+[2022.03.30-13.03.29:510][  0]LogConfig: Applying CVar settings from Section [ShadowQuality@3] File [C:/Users/DNJACK/Desktop/labs/log8235-tp3/Saved/Config/Windows/Scalability.ini]
+[2022.03.30-13.03.29:510][  0]LogConfig: Setting CVar [[r.LightFunctionQuality:1]]
+[2022.03.30-13.03.29:510][  0]LogConfig: Setting CVar [[r.ShadowQuality:5]]
+[2022.03.30-13.03.29:510][  0]LogConfig: Setting CVar [[r.Shadow.CSM.MaxCascades:10]]
+[2022.03.30-13.03.29:510][  0]LogConfig: Setting CVar [[r.Shadow.MaxResolution:2048]]
+[2022.03.30-13.03.29:510][  0]LogConfig: Setting CVar [[r.Shadow.MaxCSMResolution:2048]]
+[2022.03.30-13.03.29:510][  0]LogConfig: Setting CVar [[r.Shadow.RadiusThreshold:0.01]]
+[2022.03.30-13.03.29:510][  0]LogConfig: Setting CVar [[r.Shadow.DistanceScale:1.0]]
+[2022.03.30-13.03.29:510][  0]LogConfig: Setting CVar [[r.Shadow.CSM.TransitionScale:1.0]]
+[2022.03.30-13.03.29:510][  0]LogConfig: Setting CVar [[r.Shadow.PreShadowResolutionFactor:1.0]]
+[2022.03.30-13.03.29:510][  0]LogConfig: Setting CVar [[r.DistanceFieldShadowing:1]]
+[2022.03.30-13.03.29:510][  0]LogConfig: Setting CVar [[r.DistanceFieldAO:1]]
+[2022.03.30-13.03.29:510][  0]LogConfig: Setting CVar [[r.AOQuality:2]]
+[2022.03.30-13.03.29:510][  0]LogConfig: Setting CVar [[r.VolumetricFog:1]]
+[2022.03.30-13.03.29:510][  0]LogConfig: Setting CVar [[r.VolumetricFog.GridPixelSize:8]]
+[2022.03.30-13.03.29:510][  0]LogConfig: Setting CVar [[r.VolumetricFog.GridSizeZ:128]]
+[2022.03.30-13.03.29:510][  0]LogConfig: Setting CVar [[r.VolumetricFog.HistoryMissSupersampleCount:4]]
+[2022.03.30-13.03.29:510][  0]LogConfig: Setting CVar [[r.LightMaxDrawDistanceScale:1]]
+[2022.03.30-13.03.29:511][  0]LogConfig: Setting CVar [[r.CapsuleShadows:1]]
+[2022.03.30-13.03.29:511][  0]LogConfig: Applying CVar settings from Section [PostProcessQuality@3] File [C:/Users/DNJACK/Desktop/labs/log8235-tp3/Saved/Config/Windows/Scalability.ini]
+[2022.03.30-13.03.29:511][  0]LogConfig: Setting CVar [[r.MotionBlurQuality:4]]
+[2022.03.30-13.03.29:511][  0]LogConfig: Setting CVar [[r.AmbientOcclusionMipLevelFactor:0.4]]
+[2022.03.30-13.03.29:511][  0]LogConfig: Setting CVar [[r.AmbientOcclusionMaxQuality:100]]
+[2022.03.30-13.03.29:511][  0]LogConfig: Setting CVar [[r.AmbientOcclusionLevels:-1]]
+[2022.03.30-13.03.29:511][  0]LogConfig: Setting CVar [[r.AmbientOcclusionRadiusScale:1.0]]
+[2022.03.30-13.03.29:511][  0]LogConfig: Setting CVar [[r.DepthOfFieldQuality:2]]
+[2022.03.30-13.03.29:511][  0]LogConfig: Setting CVar [[r.RenderTargetPoolMin:400]]
+[2022.03.30-13.03.29:511][  0]LogConfig: Setting CVar [[r.LensFlareQuality:2]]
+[2022.03.30-13.03.29:511][  0]LogConfig: Setting CVar [[r.SceneColorFringeQuality:1]]
+[2022.03.30-13.03.29:511][  0]LogConfig: Setting CVar [[r.EyeAdaptationQuality:2]]
+[2022.03.30-13.03.29:511][  0]LogConfig: Setting CVar [[r.BloomQuality:5]]
+[2022.03.30-13.03.29:511][  0]LogConfig: Setting CVar [[r.FastBlurThreshold:100]]
+[2022.03.30-13.03.29:511][  0]LogConfig: Setting CVar [[r.Upscale.Quality:3]]
+[2022.03.30-13.03.29:511][  0]LogConfig: Setting CVar [[r.Tonemapper.GrainQuantization:1]]
+[2022.03.30-13.03.29:511][  0]LogConfig: Setting CVar [[r.LightShaftQuality:1]]
+[2022.03.30-13.03.29:511][  0]LogConfig: Setting CVar [[r.Filter.SizeScale:1]]
+[2022.03.30-13.03.29:511][  0]LogConfig: Setting CVar [[r.Tonemapper.Quality:5]]
+[2022.03.30-13.03.29:511][  0]LogConfig: Setting CVar [[r.DOF.Gather.AccumulatorQuality:1        ; higher gathering accumulator quality]]
+[2022.03.30-13.03.29:511][  0]LogConfig: Setting CVar [[r.DOF.Gather.PostfilterMethod:1          ; Median3x3 postfilering method]]
+[2022.03.30-13.03.29:511][  0]LogConfig: Setting CVar [[r.DOF.Gather.EnableBokehSettings:0       ; no bokeh simulation when gathering]]
+[2022.03.30-13.03.29:511][  0]LogConfig: Setting CVar [[r.DOF.Gather.RingCount:4                 ; medium number of samples when gathering]]
+[2022.03.30-13.03.29:511][  0]LogConfig: Setting CVar [[r.DOF.Scatter.ForegroundCompositing:1    ; additive foreground scattering]]
+[2022.03.30-13.03.29:511][  0]LogConfig: Setting CVar [[r.DOF.Scatter.BackgroundCompositing:2    ; additive background scattering]]
+[2022.03.30-13.03.29:511][  0]LogConfig: Setting CVar [[r.DOF.Scatter.EnableBokehSettings:1      ; bokeh simulation when scattering]]
+[2022.03.30-13.03.29:511][  0]LogConfig: Setting CVar [[r.DOF.Scatter.MaxSpriteRatio:0.1         ; only a maximum of 10% of scattered bokeh]]
+[2022.03.30-13.03.29:511][  0]LogConfig: Setting CVar [[r.DOF.Recombine.Quality:1                ; cheap slight out of focus]]
+[2022.03.30-13.03.29:511][  0]LogConfig: Setting CVar [[r.DOF.Recombine.EnableBokehSettings:0    ; no bokeh simulation on slight out of focus]]
+[2022.03.30-13.03.29:511][  0]LogConfig: Setting CVar [[r.DOF.TemporalAAQuality:1                ; more stable temporal accumulation]]
+[2022.03.30-13.03.29:511][  0]LogConfig: Setting CVar [[r.DOF.Kernel.MaxForegroundRadius:0.025]]
+[2022.03.30-13.03.29:511][  0]LogConfig: Setting CVar [[r.DOF.Kernel.MaxBackgroundRadius:0.025]]
+[2022.03.30-13.03.29:511][  0]LogConfig: Applying CVar settings from Section [TextureQuality@3] File [C:/Users/DNJACK/Desktop/labs/log8235-tp3/Saved/Config/Windows/Scalability.ini]
+[2022.03.30-13.03.29:511][  0]LogConfig: Setting CVar [[r.Streaming.MipBias:0]]
+[2022.03.30-13.03.29:511][  0]LogConfig: Setting CVar [[r.Streaming.AmortizeCPUToGPUCopy:0]]
+[2022.03.30-13.03.29:511][  0]LogConfig: Setting CVar [[r.Streaming.MaxNumTexturesToStreamPerFrame:0]]
+[2022.03.30-13.03.29:511][  0]LogConfig: Setting CVar [[r.Streaming.Boost:1]]
+[2022.03.30-13.03.29:511][  0]LogConfig: Setting CVar [[r.MaxAnisotropy:8]]
+[2022.03.30-13.03.29:511][  0]LogConfig: Setting CVar [[r.VT.MaxAnisotropy:8]]
+[2022.03.30-13.03.29:511][  0]LogConfig: Setting CVar [[r.Streaming.LimitPoolSizeToVRAM:0]]
+[2022.03.30-13.03.29:511][  0]LogConfig: Setting CVar [[r.Streaming.PoolSize:1000]]
+[2022.03.30-13.03.29:511][  0]LogConfig: Setting CVar [[r.Streaming.MaxEffectiveScreenSize:0]]
+[2022.03.30-13.03.29:511][  0]LogConfig: Applying CVar settings from Section [EffectsQuality@3] File [C:/Users/DNJACK/Desktop/labs/log8235-tp3/Saved/Config/Windows/Scalability.ini]
+[2022.03.30-13.03.29:511][  0]LogConfig: Setting CVar [[r.TranslucencyLightingVolumeDim:64]]
+[2022.03.30-13.03.29:511][  0]LogConfig: Setting CVar [[r.RefractionQuality:2]]
+[2022.03.30-13.03.29:511][  0]LogConfig: Setting CVar [[r.SSR.Quality:3]]
+[2022.03.30-13.03.29:511][  0]LogConfig: Setting CVar [[r.SSR.HalfResSceneColor:0]]
+[2022.03.30-13.03.29:511][  0]LogConfig: Setting CVar [[r.SceneColorFormat:4]]
+[2022.03.30-13.03.29:511][  0]LogConfig: Setting CVar [[r.DetailMode:2]]
+[2022.03.30-13.03.29:511][  0]LogConfig: Setting CVar [[r.TranslucencyVolumeBlur:1]]
+[2022.03.30-13.03.29:511][  0]LogConfig: Setting CVar [[r.MaterialQualityLevel:1 ; High quality]]
+[2022.03.30-13.03.29:511][  0]LogConfig: Setting CVar [[r.SSS.Scale:1]]
+[2022.03.30-13.03.29:511][  0]LogConfig: Setting CVar [[r.SSS.SampleSet:2]]
+[2022.03.30-13.03.29:511][  0]LogConfig: Setting CVar [[r.SSS.Quality:1]]
+[2022.03.30-13.03.29:511][  0]LogConfig: Setting CVar [[r.SSS.HalfRes:0]]
+[2022.03.30-13.03.29:511][  0]LogConfig: Setting CVar [[r.SSGI.Quality:3]]
+[2022.03.30-13.03.29:511][  0]LogConfig: Setting CVar [[r.EmitterSpawnRateScale:1.0]]
+[2022.03.30-13.03.29:511][  0]LogConfig: Setting CVar [[r.ParticleLightQuality:2]]
+[2022.03.30-13.03.29:511][  0]LogConfig: Setting CVar [[r.SkyAtmosphere.AerialPerspectiveLUT.FastApplyOnOpaque:1 ; Always have FastSkyLUT 1 in this case to avoid wrong sky]]
+[2022.03.30-13.03.29:511][  0]LogConfig: Setting CVar [[r.SkyAtmosphere.AerialPerspectiveLUT.SampleCountPerSlice:1]]
+[2022.03.30-13.03.29:511][  0]LogConfig: Setting CVar [[r.SkyAtmosphere.AerialPerspectiveLUT.DepthResolution:16.0]]
+[2022.03.30-13.03.29:511][  0]LogConfig: Setting CVar [[r.SkyAtmosphere.FastSkyLUT:1]]
+[2022.03.30-13.03.29:511][  0]LogConfig: Setting CVar [[r.SkyAtmosphere.FastSkyLUT.SampleCountMin:4.0]]
+[2022.03.30-13.03.29:511][  0]LogConfig: Setting CVar [[r.SkyAtmosphere.FastSkyLUT.SampleCountMax:32.0]]
+[2022.03.30-13.03.29:511][  0]LogConfig: Setting CVar [[r.SkyAtmosphere.SampleCountMin:4.0]]
+[2022.03.30-13.03.29:511][  0]LogConfig: Setting CVar [[r.SkyAtmosphere.SampleCountMax:32.0]]
+[2022.03.30-13.03.29:511][  0]LogConfig: Setting CVar [[r.SkyAtmosphere.TransmittanceLUT.UseSmallFormat:0]]
+[2022.03.30-13.03.29:511][  0]LogConfig: Setting CVar [[r.SkyAtmosphere.TransmittanceLUT.SampleCount:10.0]]
+[2022.03.30-13.03.29:511][  0]LogConfig: Setting CVar [[r.SkyAtmosphere.MultiScatteringLUT.SampleCount:15.0]]
+[2022.03.30-13.03.29:511][  0]LogConfig: Applying CVar settings from Section [FoliageQuality@3] File [C:/Users/DNJACK/Desktop/labs/log8235-tp3/Saved/Config/Windows/Scalability.ini]
+[2022.03.30-13.03.29:511][  0]LogConfig: Setting CVar [[foliage.DensityScale:1.0]]
+[2022.03.30-13.03.29:511][  0]LogConfig: Setting CVar [[grass.DensityScale:1.0]]
+[2022.03.30-13.03.29:512][  0]LogConfig: Applying CVar settings from Section [ShadingQuality@3] File [C:/Users/DNJACK/Desktop/labs/log8235-tp3/Saved/Config/Windows/Scalability.ini]
+[2022.03.30-13.03.29:512][  0]LogConfig: Setting CVar [[r.HairStrands.SkyLighting.SampleCount:16]]
+[2022.03.30-13.03.29:512][  0]LogConfig: Setting CVar [[r.HairStrands.SkyLighting.JitterIntegration:0]]
+[2022.03.30-13.03.29:512][  0]LogConfig: Setting CVar [[r.HairStrands.SkyAO.SampleCount:16]]
+[2022.03.30-13.03.29:512][  0]LogConfig: Setting CVar [[r.HairStrands.DeepShadow.SuperSampling:0]]
+[2022.03.30-13.03.29:512][  0]LogConfig: Setting CVar [[r.HairStrands.VisibilityPPLL:0]]
+[2022.03.30-13.03.29:512][  0]LogConfig: Setting CVar [[r.HairStrands.RasterizationScale:0.5]]
+[2022.03.30-13.03.29:512][  0]LogConfig: Setting CVar [[r.HairStrands.VelocityRasterizationScale:1]]
+[2022.03.30-13.03.29:512][  0]LogConfig: Applying CVar settings from Section [Startup] File [../../../Engine/Config/ConsoleVariables.ini]
+[2022.03.30-13.03.29:516][  0]LogConfig: Setting CVar [[net.UseAdaptiveNetUpdateFrequency:0]]
+[2022.03.30-13.03.29:516][  0]LogConfig: Setting CVar [[p.chaos.AllowCreatePhysxBodies:1]]
+[2022.03.30-13.03.29:516][  0]LogConfig: Setting CVar [[fx.SkipVectorVMBackendOptimizations:1]]
+[2022.03.30-13.03.29:516][  0]LogConfig: Applying CVar settings from Section [ConsoleVariables] File [C:/Users/DNJACK/Desktop/labs/log8235-tp3/Saved/Config/Windows/Engine.ini]
+[2022.03.30-13.03.29:517][  0]LogInit: Computer: DESKTOP-J4TRBP8
+[2022.03.30-13.03.29:517][  0]LogInit: User: DNJACK
+[2022.03.30-13.03.29:517][  0]LogInit: CPU Page size=4096, Cores=6
+[2022.03.30-13.03.29:518][  0]LogInit: High frequency timer resolution =10.000000 MHz
+[2022.03.30-13.03.29:518][  0]LogMemory: Memory total: Physical=16.0GB (16GB approx)
+[2022.03.30-13.03.29:518][  0]LogMemory: Platform Memory Stats for Windows
+[2022.03.30-13.03.29:518][  0]LogMemory: Process Physical Memory: 115.43 MB used, 115.43 MB peak
+[2022.03.30-13.03.29:518][  0]LogMemory: Process Virtual Memory: 107.11 MB used, 107.11 MB peak
+[2022.03.30-13.03.29:518][  0]LogMemory: Physical Memory: 5694.44 MB used,  10641.63 MB free, 16336.07 MB total
+[2022.03.30-13.03.29:518][  0]LogMemory: Virtual Memory: 5175.05 MB used,  134212552.00 MB free, 134217728.00 MB total
+[2022.03.30-13.03.29:523][  0]LogWindows: WindowsPlatformFeatures enabled
+[2022.03.30-13.03.29:792][  0]LogInit: Physics initialised using underlying interface: PhysX
+[2022.03.30-13.03.29:796][  0]LogInit: Using OS detected language (en-US).
+[2022.03.30-13.03.29:796][  0]LogInit: Using OS detected locale (en-CA).
+[2022.03.30-13.03.29:821][  0]LogTextLocalizationManager: No specific localization for 'en-US' exists, so the 'en' localization will be used.
+[2022.03.30-13.03.30:154][  0]LogInit: Setting process to per monitor DPI aware
+[2022.03.30-13.03.30:255][  0]LogSlate: New Slate User Created.  User Index 0, Is Virtual User: 0
+[2022.03.30-13.03.30:255][  0]LogSlate: Slate User Registered.  User Index 0, Is Virtual User: 0
+[2022.03.30-13.03.32:791][  0]LogHMD: Failed to initialize OpenVR with code 110
+[2022.03.30-13.03.32:791][  0]LogD3D11RHI: D3D11 min allowed feature level: 11_0
+[2022.03.30-13.03.32:791][  0]LogD3D11RHI: D3D11 max allowed feature level: 11_0
+[2022.03.30-13.03.32:791][  0]LogD3D11RHI: D3D11 adapters:
+[2022.03.30-13.03.32:883][  0]LogD3D11RHI:    0. 'NVIDIA GeForce GTX 1080' (Feature Level 11_0)
+[2022.03.30-13.03.32:883][  0]LogD3D11RHI:       8079/0/8168 MB DedicatedVideo/DedicatedSystem/SharedSystem, Outputs:1, VendorId:0x10de
+[2022.03.30-13.03.32:885][  0]LogD3D11RHI:    1. 'Microsoft Basic Render Driver' (Feature Level 11_0)
+[2022.03.30-13.03.32:885][  0]LogD3D11RHI:       0/0/8168 MB DedicatedVideo/DedicatedSystem/SharedSystem, Outputs:0, VendorId:0x1414
+[2022.03.30-13.03.32:885][  0]LogD3D11RHI: Chosen D3D11 Adapter: 0
+[2022.03.30-13.03.32:893][  0]LogD3D11RHI: Creating new Direct3DDevice
+[2022.03.30-13.03.32:893][  0]LogD3D11RHI:     GPU DeviceId: 0x1b80 (for the marketing name, search the web for "GPU Device Id")
+[2022.03.30-13.03.32:894][  0]LogWindows: EnumDisplayDevices:
+[2022.03.30-13.03.32:894][  0]LogWindows:    0. 'NVIDIA GeForce GTX 1080' (P:1 D:1)
+[2022.03.30-13.03.32:894][  0]LogWindows:    1. 'NVIDIA GeForce GTX 1080' (P:0 D:0)
+[2022.03.30-13.03.32:894][  0]LogWindows:    2. 'NVIDIA GeForce GTX 1080' (P:0 D:0)
+[2022.03.30-13.03.32:894][  0]LogWindows:    3. 'NVIDIA GeForce GTX 1080' (P:0 D:0)
+[2022.03.30-13.03.32:894][  0]LogWindows: DebugString: FoundDriverCount:4 
+[2022.03.30-13.03.32:894][  0]LogD3D11RHI:     Adapter Name: NVIDIA GeForce GTX 1080
+[2022.03.30-13.03.32:894][  0]LogD3D11RHI:   Driver Version: 472.12 (internal:30.0.14.7212, unified:472.12)
+[2022.03.30-13.03.32:894][  0]LogD3D11RHI:      Driver Date: 9-13-2021
+[2022.03.30-13.03.32:894][  0]LogRHI: Texture pool is 5655 MB (70% of 8079 MB)
+[2022.03.30-13.03.32:963][  0]LogD3D11RHI: RHI has support for 64 bit atomics
+[2022.03.30-13.03.32:964][  0]LogD3D11RHI: Async texture creation enabled
+[2022.03.30-13.03.32:965][  0]LogD3D11RHI: Array index from any shader is supported
+[2022.03.30-13.03.33:001][  0]LogD3D11RHI: GPU Timing Frequency: 1000.000000 (Debug: 2 1)
+[2022.03.30-13.03.33:597][  0]LogTargetPlatformManager: Display: Loaded TargetPlatform 'AllDesktop'
+[2022.03.30-13.03.33:622][  0]LogTargetPlatformManager: Display: Loaded TargetPlatform 'Android'
+[2022.03.30-13.03.33:622][  0]LogTargetPlatformManager: Display: Loaded TargetPlatform 'Android_ASTC'
+[2022.03.30-13.03.33:622][  0]LogTargetPlatformManager: Display: Loaded TargetPlatform 'Android_DXT'
+[2022.03.30-13.03.33:622][  0]LogTargetPlatformManager: Display: Loaded TargetPlatform 'Android_ETC2'
+[2022.03.30-13.03.33:622][  0]LogTargetPlatformManager: Display: Loaded TargetPlatform 'AndroidClient'
+[2022.03.30-13.03.33:622][  0]LogTargetPlatformManager: Display: Loaded TargetPlatform 'Android_ASTCClient'
+[2022.03.30-13.03.33:622][  0]LogTargetPlatformManager: Display: Loaded TargetPlatform 'Android_DXTClient'
+[2022.03.30-13.03.33:622][  0]LogTargetPlatformManager: Display: Loaded TargetPlatform 'Android_ETC2Client'
+[2022.03.30-13.03.33:622][  0]LogTargetPlatformManager: Display: Loaded TargetPlatform 'Android_Multi'
+[2022.03.30-13.03.33:622][  0]LogTargetPlatformManager: Display: Loaded TargetPlatform 'Android_MultiClient'
+[2022.03.30-13.03.33:665][  0]LogTargetPlatformManager: Display: Loaded TargetPlatform 'IOSClient'
+[2022.03.30-13.03.33:665][  0]LogTargetPlatformManager: Display: Loaded TargetPlatform 'IOS'
+[2022.03.30-13.03.33:686][  0]LogTargetPlatformManager: Display: Loaded TargetPlatform 'Linux'
+[2022.03.30-13.03.33:697][  0]LogTargetPlatformManager: Display: Loaded TargetPlatform 'LinuxNoEditor'
+[2022.03.30-13.03.33:711][  0]LogTargetPlatformManager: Display: Loaded TargetPlatform 'LinuxClient'
+[2022.03.30-13.03.33:723][  0]LogTargetPlatformManager: Display: Loaded TargetPlatform 'LinuxServer'
+[2022.03.30-13.03.33:736][  0]LogTargetPlatformManager: Display: Loaded TargetPlatform 'LinuxAArch64NoEditor'
+[2022.03.30-13.03.33:749][  0]LogTargetPlatformManager: Display: Loaded TargetPlatform 'LinuxAArch64Client'
+[2022.03.30-13.03.33:765][  0]LogTargetPlatformManager: Display: Loaded TargetPlatform 'LinuxAArch64Server'
+[2022.03.30-13.03.33:815][  0]LogTargetPlatformManager: Display: Loaded TargetPlatform 'Lumin'
+[2022.03.30-13.03.33:815][  0]LogTargetPlatformManager: Display: Loaded TargetPlatform 'LuminClient'
+[2022.03.30-13.03.33:835][  0]LogTargetPlatformManager: Display: Loaded TargetPlatform 'TVOSClient'
+[2022.03.30-13.03.33:835][  0]LogTargetPlatformManager: Display: Loaded TargetPlatform 'TVOS'
+[2022.03.30-13.03.33:847][  0]LogTargetPlatformManager: Display: Loaded TargetPlatform 'WindowsNoEditor'
+[2022.03.30-13.03.33:859][  0]LogTargetPlatformManager: Display: Loaded TargetPlatform 'Windows'
+[2022.03.30-13.03.33:871][  0]LogTargetPlatformManager: Display: Loaded TargetPlatform 'WindowsClient'
+[2022.03.30-13.03.33:883][  0]LogTargetPlatformManager: Display: Loaded TargetPlatform 'WindowsServer'
+[2022.03.30-13.03.33:883][  0]LogTargetPlatformManager: Display: Building Assets For Windows
+[2022.03.30-13.03.33:935][  0]LogAudioDebug: Display: Lib vorbis DLL was dynamically loaded.
+[2022.03.30-13.03.34:079][  0]LogShaderCompilers: Guid format shader working directory is -9 characters bigger than the processId version (../../../../../../Users/DNJACK/Desktop/labs/log8235-tp3/Intermediate/Shaders/WorkingDirectory/16620/).
+[2022.03.30-13.03.34:079][  0]LogShaderCompilers: Cleaned the shader compiler working directory 'C:/Users/DNJACK/AppData/Local/Temp/UnrealShaderWorkingDir/01C2C1BE41B9F1D9C6E97B848F50FE5E/'.
+[2022.03.30-13.03.34:081][  0]LogXGEController: Cleaning working directory: C:/Users/DNJACK/AppData/Local/Temp/UnrealXGEWorkingDir/
+[2022.03.30-13.03.34:081][  0]LogXGEController: Cannot use XGE Controller as Incredibuild is not installed on this machine.
+[2022.03.30-13.03.34:081][  0]LogShaderCompilers: Cannot use XGE Shader Compiler as Incredibuild is not installed on this machine.
+[2022.03.30-13.03.34:081][  0]LogShaderCompilers: Display: Using Local Shader Compiler.
+[2022.03.30-13.03.38:741][  0]LogDerivedDataCache: Display: Max Cache Size: 512 MB
+[2022.03.30-13.03.39:000][  0]LogDerivedDataCache: Loaded boot cache 0.26s 78MB C:/Users/DNJACK/AppData/Local/UnrealEngine/4.25/DerivedDataCache/Boot.ddc.
+[2022.03.30-13.03.39:000][  0]LogDerivedDataCache: Display: Loaded Boot cache: C:/Users/DNJACK/AppData/Local/UnrealEngine/4.25/DerivedDataCache/Boot.ddc
+[2022.03.30-13.03.39:000][  0]LogDerivedDataCache: FDerivedDataBackendGraph:  Pak pak cache file ../../../../../../Users/DNJACK/Desktop/labs/log8235-tp3/DerivedDataCache/DDC.ddp not found, will not use a pak cache.
+[2022.03.30-13.03.39:000][  0]LogDerivedDataCache: Unable to find inner node Pak for hierarchical cache Hierarchy.
+[2022.03.30-13.03.39:000][  0]LogDerivedDataCache: FDerivedDataBackendGraph:  CompressedPak pak cache file ../../../../../../Users/DNJACK/Desktop/labs/log8235-tp3/DerivedDataCache/Compressed.ddp not found, will not use a pak cache.
+[2022.03.30-13.03.39:000][  0]LogDerivedDataCache: Unable to find inner node CompressedPak for hierarchical cache Hierarchy.
+[2022.03.30-13.03.39:028][  0]LogDerivedDataCache: Display: Pak cache opened for reading ../../../Engine/DerivedDataCache/Compressed.ddp.
+[2022.03.30-13.03.39:028][  0]LogDerivedDataCache: FDerivedDataBackendGraph:  EnterprisePak pak cache file ../../../Enterprise/DerivedDataCache/Compressed.ddp not found, will not use a pak cache.
+[2022.03.30-13.03.39:028][  0]LogDerivedDataCache: Unable to find inner node EnterprisePak for hierarchical cache Hierarchy.
+[2022.03.30-13.03.39:030][  0]LogDerivedDataCache: Using Local data cache path C:/Users/DNJACK/AppData/Local/UnrealEngine/Common/DerivedDataCache: Writable
+[2022.03.30-13.03.39:030][  0]LogDerivedDataCache: Shared data cache path not found in *engine.ini, will not use an Shared cache.
+[2022.03.30-13.03.39:030][  0]LogDerivedDataCache: Unable to find inner node Shared for hierarchical cache Hierarchy.
+[2022.03.30-13.03.39:095][  0]LogSlate: Using FreeType 2.10.0
+[2022.03.30-13.03.39:115][  0]LogSlate: SlateFontServices - WITH_FREETYPE: 1, WITH_HARFBUZZ: 1
+[2022.03.30-13.03.39:161][  0]LogAssetRegistry: FAssetRegistry took 0.0053 seconds to start up
+[2022.03.30-13.03.39:640][  0]LogInit: Selected Device Profile: [Windows]
+[2022.03.30-13.03.40:012][  0]LogMeshReduction: Using QuadricMeshReduction for automatic static mesh reduction
+[2022.03.30-13.03.40:012][  0]LogMeshReduction: Using SimplygonMeshReduction for automatic skeletal mesh reduction
+[2022.03.30-13.03.40:012][  0]LogMeshReduction: Using ProxyLODMeshReduction for automatic mesh merging
+[2022.03.30-13.03.40:012][  0]LogMeshReduction: No distributed automatic mesh merging module available
+[2022.03.30-13.03.40:013][  0]LogMeshMerging: No distributed automatic mesh merging module available
+[2022.03.30-13.03.40:091][  0]LogNetVersion: SoftDesignTraining 1.0.0, NetCL: 13144385, EngineNetVer: 14, GameNetVer: 0 (Checksum: 3414102749)
+[2022.03.30-13.03.41:747][  0]LogAISub: UAISubsystem::UAISubsystem AISubsystem (00000192E69997C0), frame # 0
+[2022.03.30-13.03.41:747][  0]LogAISub: UAISubsystem::UAISubsystem AIPerceptionSystem (00000192E6832AC0), frame # 0
+[2022.03.30-13.03.41:752][  0]LogAISub: UAISubsystem::UAISubsystem EnvQueryManager (00000192E6889C00), frame # 0
+[2022.03.30-13.03.41:867][  0]LogPackageLocalizationCache: Processed 19 localized package path(s) for 1 prioritized culture(s) in 0.071859 seconds
+[2022.03.30-13.03.41:875][  0]LogUObjectArray: 15917 objects as part of root set at end of initial load.
+[2022.03.30-13.03.41:875][  0]LogUObjectAllocator: 3965568 out of 0 bytes used by permanent object pool.
+[2022.03.30-13.03.41:875][  0]LogUObjectArray: CloseDisregardForGC: 0/0 objects in disregard for GC pool
+[2022.03.30-13.03.43:158][  0]LogTcpMessaging: Initializing TcpMessaging bridge
+[2022.03.30-13.03.43:168][  0]LogUdpMessaging: Initializing bridge on interface 0.0.0.0:0 to multicast group 230.0.0.1:6666.
+[2022.03.30-13.03.43:953][  0]SourceControl: Source control is disabled
+[2022.03.30-13.03.43:953][  0]SourceControl: Source control is disabled
+[2022.03.30-13.03.43:967][  0]SourceControl: Source control is disabled
+[2022.03.30-13.03.43:975][  0]SourceControl: Source control is disabled
+[2022.03.30-13.03.43:990][  0]SourceControl: Source control is disabled
+[2022.03.30-13.03.44:536][  0]LogAndroidPermission: UAndroidPermissionCallbackProxy::GetInstance
+[2022.03.30-13.03.44:569][  0]LogAudioCaptureCore: Display: No Audio Capture implementations found. Audio input will be silent.
+[2022.03.30-13.03.44:569][  0]LogAudioCaptureCore: Display: No Audio Capture implementations found. Audio input will be silent.
+[2022.03.30-13.03.44:689][  0]LogOcInput: OculusInput pre-init called
+[2022.03.30-13.03.44:709][  0]LogWindows: Failed to load 'OVRPlugin.dll' (GetLastError=126)
+[2022.03.30-13.03.44:709][  0]LogWindows: File 'OVRPlugin.dll' does not exist
+[2022.03.30-13.03.44:877][  0]LogEngine: Initializing Engine...
+[2022.03.30-13.03.44:879][  0]LogHMD: Failed to initialize OpenVR with code 110
+[2022.03.30-13.03.44:880][  0]LogMagicLeap: Warning: VR disabled because ZI is not enabled.  To enable, in the editor, Edit -> Project Settings -> Plugins -> Magic Leap Plugin -> Enable Zero Iteration
+[2022.03.30-13.03.44:883][  0]LogStats: UGameplayTagsManager::InitializeManager -  0.001 s
+[2022.03.30-13.03.45:202][  0]LogUObjectGlobals: Warning: Failed to find object 'Class /Script/SoftDesignTraining.SDT_WorldSettings'
+[2022.03.30-13.03.45:202][  0]LogEngine: Error: Failed to load '/Script/SoftDesignTraining.SDT_WorldSettings', falling back to 'WorldSettings'
+[2022.03.30-13.03.45:207][  0]LogInit: Initializing FReadOnlyCVARCache
+[2022.03.30-13.03.45:247][  0]LogAIModule: Creating AISystem for world Untitled
+[2022.03.30-13.03.45:247][  0]LogAISub: UAISubsystem::UAISubsystem EnvQueryManager (00000192EC256600), frame # 0
+[2022.03.30-13.03.45:247][  0]LogAISub: UAISubsystem::UAISubsystem AIPerceptionSystem (00000192EC24FB00), frame # 0
+[2022.03.30-13.03.45:260][  0]LogAudioMixer: Display: Audio Mixer Platform Settings:
+[2022.03.30-13.03.45:260][  0]LogAudioMixer: Display: 	Sample Rate:						  48000
+[2022.03.30-13.03.45:260][  0]LogAudioMixer: Display: 	Callback Buffer Frame Size Requested: 1024
+[2022.03.30-13.03.45:260][  0]LogAudioMixer: Display: 	Callback Buffer Frame Size To Use:	  1024
+[2022.03.30-13.03.45:260][  0]LogAudioMixer: Display: 	Number of buffers to queue:			  2
+[2022.03.30-13.03.45:260][  0]LogAudioMixer: Display: 	Max Channels (voices):				  32
+[2022.03.30-13.03.45:260][  0]LogAudioMixer: Display: 	Number of Async Source Workers:		  0
+[2022.03.30-13.03.45:260][  0]LogAudio: Display: AudioDevice MaxSources: 32
+[2022.03.30-13.03.45:261][  0]LogAudio: Display: Using built-in audio occlusion.
+[2022.03.30-13.03.45:261][  0]LogAudioMixer: Display: Initializing audio mixer.
+[2022.03.30-13.03.45:287][  0]LogAudioMixer: Display: 0: FrontLeft
+[2022.03.30-13.03.45:287][  0]LogAudioMixer: Display: 1: FrontRight
+[2022.03.30-13.03.45:287][  0]LogAudioMixer: Display: 2: FrontCenter
+[2022.03.30-13.03.45:287][  0]LogAudioMixer: Display: 3: LowFrequency
+[2022.03.30-13.03.45:287][  0]LogAudioMixer: Display: 4: BackLeft
+[2022.03.30-13.03.45:287][  0]LogAudioMixer: Display: 5: BackRight
+[2022.03.30-13.03.45:287][  0]LogAudioMixer: Display: 6: SideLeft
+[2022.03.30-13.03.45:287][  0]LogAudioMixer: Display: 7: SideRight
+[2022.03.30-13.03.45:338][  0]LogAudioMixer: Display: Using Audio Device Speakers (3- USB Audio Device)
+[2022.03.30-13.03.45:340][  0]LogAudioMixer: Display: Initializing Sound Submixes...
+[2022.03.30-13.03.45:364][  0]LogAudioMixer: Display: Creating Master Submix 'MasterSubmixDefault'
+[2022.03.30-13.03.45:364][  0]LogAudioMixer: Display: Creating Master Submix 'MasterReverbSubmixDefault'
+[2022.03.30-13.03.45:366][  0]LogAudioMixer: Display: Creating Master Submix 'MasterEQSubmixDefault'
+[2022.03.30-13.03.45:367][  0]LogInit: FAudioDevice initialized.
+[2022.03.30-13.03.45:368][  0]LogNetVersion: Set ProjectVersion to 1.0.0.0. Version Checksum will be recalculated on next use.
+[2022.03.30-13.03.45:448][  0]LogDerivedDataCache: Saved boot cache 0.08s 78MB C:/Users/DNJACK/AppData/Local/UnrealEngine/4.25/DerivedDataCache/Boot.ddc.
+[2022.03.30-13.03.45:449][  0]LogInit: Texture streaming: Enabled
+[2022.03.30-13.03.45:478][  0]LogEngineSessionManager: EngineSessionManager initialized
+[2022.03.30-13.03.45:478][  0]LogEditorSessionSummary: Verbose: Initializing EditorSessionSummaryWriter for editor session tracking
+[2022.03.30-13.03.45:480][  0]LogEditorSessionSummary: EditorSessionSummaryWriter initialized
+[2022.03.30-13.03.45:725][  0]LogInit: Transaction tracking system initialized
+[2022.03.30-13.03.45:796][  0]BlueprintLog: New page: Editor Load
+[2022.03.30-13.03.46:033][  0]LocalizationService: Localization service is disabled
+[2022.03.30-13.03.46:801][  0]LogCook: Display: Max memory allowance for cook 16384mb min free memory 0mb
+[2022.03.30-13.03.46:802][  0]LogCook: Display: Mobile HDR setting 1
+[2022.03.30-13.03.46:860][  0]LogFileCache: Scanning file cache for directory 'C:/Users/DNJACK/Desktop/labs/log8235-tp3/Content/' took 0.01s
+[2022.03.30-13.03.47:483][  0]SourceControl: Source control is disabled
+[2022.03.30-13.03.47:483][  0]LogUnrealEdMisc: Loading editor; pre map load, took 24.554
+[2022.03.30-13.03.47:485][  0]Cmd: MAP LOAD FILE="../../../../../../Users/DNJACK/Desktop/labs/log8235-tp3/Content/TopDown/Maps/TopDownExampleMap.umap" TEMPLATE=0 SHOWPROGRESS=1 FEATURELEVEL=3
+[2022.03.30-13.03.47:493][  0]LightingResults: New page: Lighting Build
+[2022.03.30-13.03.47:499][  0]LogWorld: UWorld::CleanupWorld for Untitled, bSessionEnded=true, bCleanupResources=true
+[2022.03.30-13.03.47:499][  0]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2022.03.30-13.03.47:500][  0]MapCheck: New page: Map Check
+[2022.03.30-13.03.47:500][  0]LightingResults: New page: Lighting Build
+[2022.03.30-13.03.47:522][  0]LogAISub: UAISubsystem::~UAISubsystem EnvQueryManager (00000192EC256600), frame # 0
+[2022.03.30-13.03.47:522][  0]LogAISub: UAISubsystem::~UAISubsystem AIPerceptionSystem (00000192EC24FB00), frame # 0
+[2022.03.30-13.03.47:523][  0]LogUObjectHash: Compacting FUObjectHashTables data took   1.26ms
+[2022.03.30-13.03.48:892][  0]LogAIModule: Creating AISystem for world TopDownExampleMap
+[2022.03.30-13.03.48:893][  0]LogAISub: UAISubsystem::UAISubsystem EnvQueryManager (00000192DEB41A00), frame # 0
+[2022.03.30-13.03.48:893][  0]LogAISub: UAISubsystem::UAISubsystem AIPerceptionSystem (00000192DEA59940), frame # 0
+[2022.03.30-13.03.48:936][  0]LogMaterial: Display: Material /Game/StarterContent/Materials/M_Tech_Hex_Tile.M_Tech_Hex_Tile needed to have new flag set bUsedWithSkeletalMesh !
+[2022.03.30-13.03.48:938][  0]LogMaterial: Display: Missing cached shader map for material M_Tech_Hex_Tile, compiling. 
+[2022.03.30-13.03.49:063][  0]MapCheck: Warning: M_Tech_Hex_Tile Material /Game/StarterContent/Materials/M_Tech_Hex_Tile.M_Tech_Hex_Tile was missing the usage flag bUsedWithSkeletalMesh. If the material asset is not re-saved, it may not render correctly when run outside the editor. Fix
+[2022.03.30-13.03.49:160][  0]LogShaderCompilers: Display: Worker (1/9): shaders left to compile 48
+[2022.03.30-13.03.49:160][  0]LogShaderCompilers: Display: Worker (2/9): shaders left to compile 42
+[2022.03.30-13.03.49:160][  0]LogShaderCompilers: Display: Worker (3/9): shaders left to compile 36
+[2022.03.30-13.03.49:160][  0]LogShaderCompilers: Display: Worker (4/9): shaders left to compile 30
+[2022.03.30-13.03.49:160][  0]LogShaderCompilers: Display: Worker (5/9): shaders left to compile 24
+[2022.03.30-13.03.49:160][  0]LogShaderCompilers: Display: Worker (6/9): shaders left to compile 18
+[2022.03.30-13.03.49:160][  0]LogShaderCompilers: Display: Worker (7/9): shaders left to compile 12
+[2022.03.30-13.03.49:160][  0]LogShaderCompilers: Display: Worker (8/9): shaders left to compile 6
+[2022.03.30-13.03.49:165][  0]LogEditorServer: Finished looking for orphan Actors (0.000 secs)
+[2022.03.30-13.03.49:174][  0]LogNavigationDataBuild: Display:    Building NavData:  Name Default class /Script/NavigationSystem.RecastNavMesh agent radius 35.0.
+[2022.03.30-13.03.49:208][  0]LogUObjectHash: Compacting FUObjectHashTables data took   1.47ms
+[2022.03.30-13.03.49:208][  0]Cmd: MAP CHECKDEP NOCLEARLOG
+[2022.03.30-13.03.49:209][  0]MapCheck: Map check complete: 0 Error(s), 1 Warning(s), took 0.501ms to complete.
+[2022.03.30-13.03.49:224][  0]LogFileHelpers: Loading map 'TopDownExampleMap' took 1.740
+[2022.03.30-13.03.49:257][  0]LogUnrealEdMisc: Total Editor Startup Time, took 26.328
+[2022.03.30-13.03.49:437][  0]LogSlate: Updating window title bar state: overlay mode, drag disabled, window buttons hidden, title bar hidden
+[2022.03.30-13.03.49:450][  0]LogSlate: Updating window title bar state: overlay mode, drag disabled, window buttons hidden, title bar hidden
+[2022.03.30-13.03.49:463][  0]LogSlate: Updating window title bar state: overlay mode, drag disabled, window buttons hidden, title bar hidden
+[2022.03.30-13.03.49:477][  0]LogSlate: Updating window title bar state: overlay mode, drag disabled, window buttons hidden, title bar hidden
+[2022.03.30-13.03.49:498][  0]LogCollectionManager: Loaded 0 collections in 0.004291 seconds
+[2022.03.30-13.03.49:550][  0]LogFileCache: Scanning file cache for directory 'C:/Users/DNJACK/Desktop/labs/log8235-tp3/Saved/Collections/' took 0.00s
+[2022.03.30-13.03.49:550][  0]LogFileCache: Scanning file cache for directory 'C:/Users/DNJACK/Desktop/labs/log8235-tp3/Content/Developers/DNJACK/Collections/' took 0.00s
+[2022.03.30-13.03.49:550][  0]LogFileCache: Scanning file cache for directory 'C:/Users/DNJACK/Desktop/labs/log8235-tp3/Content/Collections/' took 0.00s
+[2022.03.30-13.03.49:550][  0]LogContentBrowser: Native class hierarchy populated in 0.0182 seconds. Added 3449 classes and 823 folders.
+[2022.03.30-13.03.49:564][  0]LogContentBrowser: Native class hierarchy updated for 'WidgetCarousel' in 0.0006 seconds. Added 0 classes and 0 folders.
+[2022.03.30-13.03.50:144][  0]LogContentBrowser: Native class hierarchy updated for 'AddContentDialog' in 0.0007 seconds. Added 0 classes and 0 folders.
+[2022.03.30-13.03.50:153][  0]LogContentBrowser: Native class hierarchy updated for 'SceneOutliner' in 0.0008 seconds. Added 2 classes and 0 folders.
+[2022.03.30-13.03.50:280][  0]LogSlate: Took 0.008812 seconds to synchronously load lazily loaded font '../../../Engine/Content/Slate/Fonts/Roboto-Regular.ttf' (155K)
+[2022.03.30-13.03.50:293][  0]LogSlate: Took 0.008808 seconds to synchronously load lazily loaded font '../../../Engine/Content/Slate/Fonts/Roboto-Bold.ttf' (160K)
+[2022.03.30-13.03.50:312][  0]LogSlate: Took 0.010211 seconds to synchronously load lazily loaded font '../../../Engine/Content/Editor/Slate/Fonts/FontAwesome.ttf' (139K)
+[2022.03.30-13.03.50:531][  0]LogRenderer: Reallocating scene render targets to support 2388x1304 Format 10 NumSamples 1 (Frame:1).
+[2022.03.30-13.03.51:090][  0]LogContentBrowser: Native class hierarchy updated for 'HierarchicalLODOutliner' in 0.0008 seconds. Added 0 classes and 0 folders.
+[2022.03.30-13.03.51:090][  0]LogLoad: (Engine Initialization) Total time: 28.16 seconds
+[2022.03.30-13.03.51:090][  0]LogLoad: (Engine Initialization) Total Blueprint compile time: 0.00 seconds
+[2022.03.30-13.03.51:156][  0]LogContentStreaming: Texture pool size now 1000 MB
+[2022.03.30-13.03.51:275][  1]LogAssetRegistry: Asset discovery search completed in 12.1145 seconds
+[2022.03.30-13.03.51:282][  1]LogCollectionManager: Fixed up redirectors for 0 collections in 0.000003 seconds (updated 0 objects)
+[2022.03.30-13.04.36:515][343]LogSlate: Took 0.005755 seconds to synchronously load lazily loaded font '../../../Engine/Content/Slate/Fonts/Roboto-Light.ttf' (167K)
+[2022.03.30-13.04.36:525][343]LogAssetEditorSubsystem: Opening Asset editor for BehaviorTree /Game/Blueprint/AiController.AiController
+[2022.03.30-13.04.36:683][343]LogSlate: Took 0.006547 seconds to synchronously load lazily loaded font '../../../Engine/Content/Slate/Fonts/Roboto-BoldCondensed.ttf' (158K)
+[2022.03.30-13.05.06:347][336]LogSlate: Window 'AiController' being destroyed
+[2022.03.30-13.05.06:351][336]LogSlate: Window 'AiController' being destroyed
+[2022.03.30-13.07.58:450][238]LogAssetEditorSubsystem: Opening Asset editor for BehaviorTree /Game/Blueprint/AiController.AiController
