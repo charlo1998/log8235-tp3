@@ -98,4 +98,5 @@ protected:
     FTimerHandle m_PlayerInteractionNoLosTimer;
     PlayerInteractionBehavior m_PlayerInteractionBehavior;
     AActor* m_GroupManager;
+    PlayerInteractionBehavior m_previousState;
 };

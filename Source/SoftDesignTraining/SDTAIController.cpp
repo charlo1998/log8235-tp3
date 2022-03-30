@@ -16,6 +16,7 @@ ASDTAIController::ASDTAIController(const FObjectInitializer& ObjectInitializer)
     : Super(ObjectInitializer.SetDefaultSubobjectClass<USDTPathFollowingComponent>(TEXT("PathFollowingComponent")))
 {
     m_PlayerInteractionBehavior = PlayerInteractionBehavior_Collect;
+    m_previousState = m_PlayerInteractionBehavior;
     m_behaviorTreeComponent = CreateDefaultSubobject<UBehaviorTreeComponent>(TEXT("BehaviorTreeComponent"));
     m_blackboardComponent = CreateDefaultSubobject<UBlackboardComponent>(TEXT("BlackboardComponent"));
 }
@@ -26,10 +27,12 @@ void ASDTAIController::BeginPlay()
     Super::BeginPlay();
     m_blackboardComponent->InitializeBlackboard(*behaviorTree->BlackboardAsset);
     m_behaviorTreeComponent->StartTree(*behaviorTree);
+    FindGroupManager();
 }
 
 void ASDTAIController::GoToBestTarget(float deltaTime)
 {
+
     switch (m_PlayerInteractionBehavior)
     {
     case PlayerInteractionBehavior_Collect:
@@ -263,6 +266,15 @@ void ASDTAIController::UpdatePlayerInteraction(float deltaTime)
         m_ReachedTarget = true;
     }
 
+    if (m_GroupManager && m_previousState != m_PlayerInteractionBehavior)
+    {
+        if (m_PlayerInteractionBehavior == PlayerInteractionBehavior_Chase)
+            dynamic_cast<AGroupManager*>(m_GroupManager)->AddCharacterToGroup(GetPawn());
+        else
+            dynamic_cast<AGroupManager*>(m_GroupManager)->RemoveCharacterFromGroup(GetPawn());
+        m_previousState = m_PlayerInteractionBehavior;
+    }
+
     FString debugString = "";
     
     switch (m_PlayerInteractionBehavior)
@@ -359,16 +371,10 @@ void ASDTAIController::UpdatePlayerInteractionBehavior(const FHitResult& detecti
 {
     /*
     PlayerInteractionBehavior currentBehavior = GetCurrentPlayerInteractionBehavior(detectionHit);
-    if (m_GroupManager == NULL)
-        FindGroupManager();
+
 
     if (currentBehavior != m_PlayerInteractionBehavior)
     {
-        if (m_GroupManager && currentBehavior == PlayerInteractionBehavior_Chase)
-            dynamic_cast<AGroupManager*>(m_GroupManager)->AddCharacterToGroup(GetPawn());
-        else if (m_GroupManager && currentBehavior != PlayerInteractionBehavior_Chase)
-            dynamic_cast<AGroupManager*>(m_GroupManager)->RemoveCharacterFromGroup(GetPawn());
-
         m_PlayerInteractionBehavior = currentBehavior;
         AIStateInterrupted();
     }
