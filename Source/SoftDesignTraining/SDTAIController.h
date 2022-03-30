@@ -4,6 +4,9 @@
 
 #include "CoreMinimal.h"
 #include "SDTBaseAIController.h"
+#include "BehaviorTree/BehaviorTree.h"
+#include "BehaviorTree/BehaviorTreeComponent.h"
+#include "BehaviorTree/BlackboardComponent.h"
 #include "SDTAIController.generated.h"
 
 /**
@@ -46,6 +49,8 @@ public:
 
     UPROPERTY(EditAnywhere, Category = AI)
     UBehaviorTree* behaviorTree;
+    UBehaviorTreeComponent* m_behaviorTreeComponent;
+    UBlackboardComponent* m_blackboardComponent;
 
 protected:
 
@@ -58,13 +63,14 @@ protected:
 
     void GetHightestPriorityDetectionHit(const TArray<FHitResult>& hits, FHitResult& outDetectionHit);
     void UpdatePlayerInteractionBehavior(const FHitResult& detectionHit, float deltaTime);
-    PlayerInteractionBehavior GetCurrentPlayerInteractionBehavior(const FHitResult& hit);
+    //PlayerInteractionBehavior GetCurrentPlayerInteractionBehavior(const FHitResult& hit);
     bool HasLoSOnHit(const FHitResult& hit);
     void PlayerInteractionLoSUpdate();
     void OnPlayerInteractionNoLosDone();
     void OnMoveToTarget();
 
 public:
+    virtual void BeginPlay() override;
     //behaviour tree tasks interface
     void MoveToPlayer();
     void MoveToRandomCollectible();
