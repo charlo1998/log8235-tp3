@@ -33,14 +33,14 @@ void AGroupManager::AddCharacterToGroup(AActor* character)
 
 void AGroupManager::RemoveCharacterFromGroup(AActor* character)
 {
-	//for (int i = 0; i < m_pursuingCharacters.size(); i++)
-	//{
-	//	if (character == m_pursuingCharacters[i])
-	//	{
-	//		m_pursuingCharacters.erase(m_pursuingCharacters.begin()+i); //this makes the game crash :(
-	//		break;
-	//	}
-	//}
+	for (int i = 0; i < m_pursuingCharacters.size(); i++)
+	{
+		if (character == m_pursuingCharacters[i])
+		{
+			m_pursuingCharacters.erase(m_pursuingCharacters.begin()+i); //this makes the game crash :(
+			break;
+		}
+	}
 	
 }
 
