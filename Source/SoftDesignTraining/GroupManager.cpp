@@ -26,20 +26,27 @@ void AGroupManager::Tick(float DeltaTime)
 	DrawDebug();
 }
 
-int AGroupManager::AddCharacterToGroup(AActor* character)
+void AGroupManager::AddCharacterToGroup(AActor* character)
 {
 	m_pursuingCharacters.push_back(character);
-	return m_pursuingCharacters.size() - 1;
 }
 
 void AGroupManager::RemoveCharacterFromGroup(AActor* character)
 {
-	m_pursuingCharacters.remove(character);
+	for (int i = 0; i < m_pursuingCharacters.size(); i++)
+	{
+		if (character == m_pursuingCharacters[i])
+		{
+			m_pursuingCharacters.erase(m_pursuingCharacters.begin()+i); //this makes the game crash :(
+			break;
+		}
+	}
+	
 }
 
 void AGroupManager::DrawDebug()
 {
-	for (std::list<AActor*>::iterator iter = m_pursuingCharacters.begin(), end = this->m_pursuingCharacters.end();
+	for (std::vector<AActor*>::iterator iter = m_pursuingCharacters.begin(), end = this->m_pursuingCharacters.end();
 		iter != end;
 		++iter)
 	{
