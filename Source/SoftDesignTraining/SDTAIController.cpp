@@ -94,8 +94,54 @@ void ASDTAIController::MoveToPlayer()
     if (!playerCharacter)
         return;
 
-    MoveToActor(playerCharacter, 0.5f, false, true, true, NULL, false);
-    OnMoveToTarget();
+    FVector selfPosition = GetPawn()->GetActorLocation();
+    FVector playerPosition = playerCharacter->GetActorLocation();
+
+    if ((selfPosition - playerPosition).Size() >= 150.f) //far from player
+    {
+        //instead of moving straigth into the player, assign a position around him as a function of the position of the AI in the pursuit group
+        std::vector<AActor*> group = dynamic_cast<AGroupManager*>(m_GroupManager)->GetPursuingCharacters();
+        
+        for (size_t i = 0; i < group.size(); i++)
+        {
+            if (GetPawn() == group[i]) //found my index
+            {
+                //retrieve position of agent in group and assign location in a circle. repeat if no places left.
+                FVector offSet(0.f,0.f,0.f);
+                int modulo = i % 6;
+                switch (modulo)
+                {
+                case 0:
+                    offSet = FVector(1.f, 0.f, 0.f);
+                    break;
+                case 1:
+                    offSet = FVector(0.5f, 0.866f, 0.f);
+                    break;
+                case 2:
+                    offSet = FVector(-0.5f, 0.866f, 0.f);
+                    break;
+                case 3:
+                    offSet = FVector(-1.f, 0.f, 0.f);
+                    break;
+                case 4:
+                    offSet = FVector(-0.5f, -0.866f, 0.f);
+                    break;
+                case 5:
+                    offSet = FVector(0.5f, -0.866f, 0.f);
+                    break;
+                }
+                MoveToLocation(playerPosition + offSet*145.f , 0.5f, false, true, true, NULL, false);
+                OnMoveToTarget();
+                break;
+            }
+            
+        }        
+    }
+    else //close enough to player, go straight to him
+    {
+        MoveToActor(playerCharacter, 0.5f, false, true, true, NULL, false);
+    }
+    
 }
 
 void ASDTAIController::PlayerInteractionLoSUpdate()

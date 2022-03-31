@@ -17,15 +17,15 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
-	int AddCharacterToGroup(AActor* character);
+	void AddCharacterToGroup(AActor* character);
 	void RemoveCharacterFromGroup(AActor* character);
-	std::list<AActor*> GetPursuingCharacters() { return m_pursuingCharacters; };
+	std::vector<AActor*> GetPursuingCharacters() { return m_pursuingCharacters; };
 
 protected:
 	//Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
 private:
-	std::list<AActor*> m_pursuingCharacters;
+	std::vector<AActor*> m_pursuingCharacters;
 	void DrawDebug();
 };
