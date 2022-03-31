@@ -26,9 +26,10 @@ void AGroupManager::Tick(float DeltaTime)
 	DrawDebug();
 }
 
-void AGroupManager::AddCharacterToGroup(AActor* character)
+int AGroupManager::AddCharacterToGroup(AActor* character)
 {
 	m_pursuingCharacters.push_back(character);
+	return m_pursuingCharacters.size() - 1;
 }
 
 void AGroupManager::RemoveCharacterFromGroup(AActor* character)

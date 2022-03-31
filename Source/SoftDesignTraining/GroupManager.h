@@ -17,7 +17,7 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
-	void AddCharacterToGroup(AActor* character);
+	int AddCharacterToGroup(AActor* character);
 	void RemoveCharacterFromGroup(AActor* character);
 	std::list<AActor*> GetPursuingCharacters() { return m_pursuingCharacters; };
 
