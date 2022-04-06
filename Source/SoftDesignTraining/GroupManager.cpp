@@ -37,7 +37,7 @@ void AGroupManager::RemoveCharacterFromGroup(AActor* character)
 	{
 		if (character == m_pursuingCharacters[i])
 		{
-			m_pursuingCharacters.RemoveAt(i); //this makes the game crash :(
+			m_pursuingCharacters.RemoveAt(i);
 			break;
 		}
 	}

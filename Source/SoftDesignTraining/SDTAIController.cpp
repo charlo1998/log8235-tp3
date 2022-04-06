@@ -28,7 +28,8 @@ void ASDTAIController::BeginPlay()
 {
     Super::BeginPlay();
     m_blackboardComponent->InitializeBlackboard(*behaviorTree->BlackboardAsset);
-    m_behaviorTreeComponent->StartTree(*behaviorTree);
+    //this line runs the agents for one tick
+    m_behaviorTreeComponent->StartTree(*behaviorTree, EBTExecutionMode::SingleRun); //par défault en looped changé pour singleRun, et il faut caller le behavior tree des agents selon le budget 
     FindGroupManager();
 
 
@@ -68,7 +69,7 @@ void ASDTAIController::Tick(float deltaTime)
 
 
         double totalTimeStart = FPlatformTime::Seconds() * 1000000;
-        Super::Tick(deltaTime + skippedDeltaTime);
+        //Super::Tick(deltaTime + skippedDeltaTime); do not call this, this enters in conflict with the behavior tree, call the tree from another class instead
 
         double totalTimeEnd = FPlatformTime::Seconds() * 1000000;
 
@@ -208,7 +209,7 @@ void ASDTAIController::MoveToPlayer()
         //instead of moving straigth into the player, assign a position around him as a function of the position of the AI in the pursuit group
         TArray<AActor*> group = dynamic_cast<AGroupManager*>(m_GroupManager)->GetPursuingCharacters();
         
-        for (size_t i = 0; i < group.Num(); i++)
+        for (size_t i = 0; i < group.Num(); i++) //idea: instead of looping here each tick, use the group manager to loop each tick and write the position for each agent to its created member variable
         {
             if (GetPawn() == group[i]) //found my index
             {
