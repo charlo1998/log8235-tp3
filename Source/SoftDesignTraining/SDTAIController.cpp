@@ -1,4 +1,4 @@
-﻿// Fill out your copyright notice in the Description page of Project Settings.
+// Fill out your copyright notice in the Description page of Project Settings.
 
 #include "SDTAIController.h"
 #include "SoftDesignTraining.h"
@@ -12,111 +12,27 @@
 #include "SDTUtils.h"
 #include "EngineUtils.h"
 
-int ASDTAIController::aiCount = 0;
-int ASDTAIController::counter = 0;
-int ASDTAIController::lastUpdated = 0;
-
-double  ASDTAIController::chooseFleeTime = 0.0;
-double  ASDTAIController::updateTime = 0.0;
-double  ASDTAIController::detectionTime = 0.0;
-double  ASDTAIController::collectibleTime = 0.0;
-
-double  ASDTAIController::elapsedTime = 0.0;
-
 ASDTAIController::ASDTAIController(const FObjectInitializer& ObjectInitializer)
     : Super(ObjectInitializer.SetDefaultSubobjectClass<USDTPathFollowingComponent>(TEXT("PathFollowingComponent")))
 {
     m_PlayerInteractionBehavior = PlayerInteractionBehavior_Collect;
+    m_previousState = m_PlayerInteractionBehavior;
+    m_behaviorTreeComponent = CreateDefaultSubobject<UBehaviorTreeComponent>(TEXT("BehaviorTreeComponent"));
+    m_blackboardComponent = CreateDefaultSubobject<UBlackboardComponent>(TEXT("BlackboardComponent"));
 }
 
-
+// Called when the game starts or when spawned
 void ASDTAIController::BeginPlay()
 {
     Super::BeginPlay();
-
-    // Get the number of AI
-    TArray<AActor*> FoundActors;
-    UGameplayStatics::GetAllActorsOfClass(GetWorld(), GetPawn()->GetClass(), FoundActors);
-    aiCount = FoundActors.Num();
-
-    skippedDeltaTime = 0.0;
+    m_blackboardComponent->InitializeBlackboard(*behaviorTree->BlackboardAsset);
+    m_behaviorTreeComponent->StartTree(*behaviorTree);
+    FindGroupManager();
 }
-
-
-void ASDTAIController::Tick(float deltaTime)
-{
-    // TO-DO
-    // Here, the actors are always called in the same order, so the same actors are always updated and the others never are.
-    // Change for a queueing system where, once updated, an actor is queued (so that the other, further dequeued, actors are updated too).
-
-    // Keeps track of the number of AI we called up here.
-    counter++;
-    //GEngine->AddOnScreenDebugMessage(123, 50, FColor::Cyan, "lastUpdated  : " + FString::SanitizeFloat(lastUpdated));// / (double)aiCount));
-    // If the elapsed time until now is in our time budget, we do update the current AI.
-    if (elapsedTime < timeBudget && counter > lastUpdated) {
-
-        lastUpdated++;
-
-
-        double totalTimeStart = FPlatformTime::Seconds() * 1000000;
-        Super::Tick(deltaTime + skippedDeltaTime);
-
-        double totalTimeEnd = FPlatformTime::Seconds() * 1000000;
-
-        elapsedTime += totalTimeEnd - totalTimeStart;
-
-        skippedDeltaTime = 0.0;
-    }
-    // Else, we save the deltaTime skipped for when the AI will finally be updated.
-    else {
-        skippedDeltaTime += deltaTime;
-    }
-    PrintCPUTime();
-    if (lastUpdated >= aiCount)
-        lastUpdated = 0;
-    // When we are done going through all the AI (i.e. the current AI instance is the last AI to be called), we print the CPU time values.
-    if (counter >= aiCount) {
-        elapsedTime = 0.0;
-        counter = 0;
-    }
-}
-
-//void ASDTAIController::PrintCPUTime(bool resetValue)
-//{
-//    GEngine->AddOnScreenDebugMessage(20, 50, FColor::Cyan, "Elasped time  : " + FString::SanitizeFloat(elapsedTime));// / (double)aiCount));
-//    GEngine->AddOnScreenDebugMessage(4, -1, FColor::Green, "CPU time for choosing fleeing position : " + FString::SanitizeFloat(chooseFleeTime * 1000000));// / (double)aiCount));
-//    GEngine->AddOnScreenDebugMessage(3, -1, FColor::Purple, "CPU time for detection                 : " + FString::SanitizeFloat(detectionTime * 1000000));// / (double)aiCount));
-//    GEngine->AddOnScreenDebugMessage(2, -1, FColor::Yellow, "CPU time for choosing the collectible  : " + FString::SanitizeFloat(collectibleTime * 1000000));// / (double)aiCount));
-//    GEngine->AddOnScreenDebugMessage(1, -1, FColor::Red, "CPU time for update                    : " + FString::SanitizeFloat(updateTime * 1000000));// / (double)aiCount));
-//
-//    if (updateTime != 0.0) GEngine->AddOnScreenDebugMessage(5, 60, FColor::Red, "Last non null CPU time for update                    : " + FString::SanitizeFloat(updateTime * 1000000));
-//    if (detectionTime != 0.0) GEngine->AddOnScreenDebugMessage(6, 60, FColor::Purple, "Last non null CPU time for detection                 : " + FString::SanitizeFloat(detectionTime * 1000000));
-//    if (chooseFleeTime != 0.0) GEngine->AddOnScreenDebugMessage(7, 60, FColor::Green, "Last non null CPU time for choosing fleeing position : " + FString::SanitizeFloat(chooseFleeTime * 1000000));
-//    if (collectibleTime != 0.0) GEngine->AddOnScreenDebugMessage(8, 60, FColor::Yellow, "Last non null CPU time for choosing the collectible  : " + FString::SanitizeFloat(collectibleTime * 1000000));
-//
-//    if (resetValue)
-//    {
-//        chooseFleeTime = 0.0;
-//        updateTime = 0.0;
-//        detectionTime = 0.0;
-//        collectibleTime = 0.0;
-//    }
-//}
-
-void ASDTAIController::PrintCPUTime() {
-    DrawDebugString(GetWorld(), FVector(0.f, 0.f, 700.f), FString::SanitizeFloat(updateTime * 1000000), GetPawn(), FColor::Yellow, 0.01f, false);
-    DrawDebugString(GetWorld(), FVector(0.f, 0.f, 500.f), FString::SanitizeFloat(collectibleTime * 1000000), GetPawn(), FColor::Green, 0.005f, false);
-    DrawDebugString(GetWorld(), FVector(0.f, 0.f, 300.f), FString::SanitizeFloat(detectionTime * 1000000), GetPawn(), FColor::Blue, 0.003f, false);
-    DrawDebugString(GetWorld(), FVector(0.f, 0.f, 100.f), FString::SanitizeFloat(chooseFleeTime * 1000000), GetPawn(), FColor::Purple, 0.001f, false);
-    chooseFleeTime = 0.0;
-    updateTime = 0.0;
-    detectionTime = 0.0;
-    collectibleTime = 0.0;
-}
-
 
 void ASDTAIController::GoToBestTarget(float deltaTime)
 {
+
     switch (m_PlayerInteractionBehavior)
     {
     case PlayerInteractionBehavior_Collect:
@@ -141,6 +57,9 @@ void ASDTAIController::GoToBestTarget(float deltaTime)
 
 void ASDTAIController::MoveToRandomCollectible()
 {
+    m_PlayerInteractionBehavior = PlayerInteractionBehavior_Collect;
+    if (!m_ReachedTarget)
+        return;
     float closestSqrCollectibleDistance = 18446744073709551610.f;
     ASDTCollectible* closestCollectible = nullptr;
 
@@ -170,67 +89,69 @@ void ASDTAIController::MoveToRandomCollectible()
 
 void ASDTAIController::MoveToPlayer()
 {
-    ACharacter * playerCharacter = UGameplayStatics::GetPlayerCharacter(GetWorld(), 0);
+    m_PlayerInteractionBehavior = PlayerInteractionBehavior_Chase;
+    ACharacter* playerCharacter = UGameplayStatics::GetPlayerCharacter(GetWorld(), 0);
     if (!playerCharacter)
         return;
 
-    MoveToActor(playerCharacter, 0.5f, false, true, true, NULL, false);
-    OnMoveToTarget();
+    FVector selfPosition = GetPawn()->GetActorLocation();
+    FVector playerPosition = playerCharacter->GetActorLocation();
+
+    if ((selfPosition - playerPosition).Size() >= 150.f) //far from player
+    {
+        //instead of moving straigth into the player, assign a position around him as a function of the position of the AI in the pursuit group
+        std::vector<AActor*> group = dynamic_cast<AGroupManager*>(m_GroupManager)->GetPursuingCharacters();
+
+        for (size_t i = 0; i < group.size(); i++)
+        {
+            if (GetPawn() == group[i]) //found my index
+            {
+                //retrieve position of agent in group and assign location in a circle. repeat if no places left.
+                FVector offSet(0.f, 0.f, 0.f);
+                int modulo = i % 6;
+                switch (modulo)
+                {
+                case 0:
+                    offSet = FVector(1.f, 0.f, 0.f);
+                    break;
+                case 1:
+                    offSet = FVector(0.5f, 0.866f, 0.f);
+                    break;
+                case 2:
+                    offSet = FVector(-0.5f, 0.866f, 0.f);
+                    break;
+                case 3:
+                    offSet = FVector(-1.f, 0.f, 0.f);
+                    break;
+                case 4:
+                    offSet = FVector(-0.5f, -0.866f, 0.f);
+                    break;
+                case 5:
+                    offSet = FVector(0.5f, -0.866f, 0.f);
+                    break;
+                }
+                MoveToLocation(playerPosition + offSet * 145.f, 0.5f, false, true, true, NULL, false);
+                OnMoveToTarget();
+                break;
+            }
+
+        }
+    }
+    else //close enough to player, go straight to him
+    {
+        MoveToActor(playerCharacter, 0.5f, false, true, true, NULL, false);
+    }
+
 }
 
 void ASDTAIController::PlayerInteractionLoSUpdate()
 {
-    ACharacter * playerCharacter = UGameplayStatics::GetPlayerCharacter(GetWorld(), 0);
-    if (!playerCharacter)
-        return;
 
-    TArray<TEnumAsByte<EObjectTypeQuery>> TraceObjectTypes;
-    TraceObjectTypes.Add(UEngineTypes::ConvertToObjectType(ECollisionChannel::ECC_WorldStatic));
-    TraceObjectTypes.Add(UEngineTypes::ConvertToObjectType(COLLISION_PLAYER));
-
-    FHitResult losHit;
-    GetWorld()->LineTraceSingleByObjectType(losHit, GetPawn()->GetActorLocation(), playerCharacter->GetActorLocation(), TraceObjectTypes);
-
-    bool hasLosOnPlayer = false;
-
-    if (losHit.GetComponent())
-    {
-        if (losHit.GetComponent()->GetCollisionObjectType() == COLLISION_PLAYER)
-        {
-            hasLosOnPlayer = true;
-        }
-    }
-
-    if (hasLosOnPlayer)
-    {
-        if (GetWorld()->GetTimerManager().IsTimerActive(m_PlayerInteractionNoLosTimer))
-        {
-            GetWorld()->GetTimerManager().ClearTimer(m_PlayerInteractionNoLosTimer);
-            m_PlayerInteractionNoLosTimer.Invalidate();
-            DrawDebugString(GetWorld(), FVector(0.f, 0.f, 10.f), "Got LoS", GetPawn(), FColor::Red, 5.f, false);
-        }
-    }
-    else
-    {
-        if (!GetWorld()->GetTimerManager().IsTimerActive(m_PlayerInteractionNoLosTimer))
-        {
-            GetWorld()->GetTimerManager().SetTimer(m_PlayerInteractionNoLosTimer, this, &ASDTAIController::OnPlayerInteractionNoLosDone, 3.f, false);
-            DrawDebugString(GetWorld(), FVector(0.f, 0.f, 10.f), "Lost LoS", GetPawn(), FColor::Red, 5.f, false);
-        }
-    }
-    
 }
 
 void ASDTAIController::OnPlayerInteractionNoLosDone()
 {
-    GetWorld()->GetTimerManager().ClearTimer(m_PlayerInteractionNoLosTimer);
-    DrawDebugString(GetWorld(), FVector(0.f, 0.f, 10.f), "TIMER DONE", GetPawn(), FColor::Red, 5.f, false);
 
-    if (!AtJumpSegment)
-    {
-        AIStateInterrupted();
-        m_PlayerInteractionBehavior = PlayerInteractionBehavior_Collect;
-    }
 }
 
 bool ASDTAIController::playerPoweredUp()
@@ -265,6 +186,7 @@ bool ASDTAIController::HasLos()
 
 void ASDTAIController::MoveToBestFleeLocation()
 {
+    m_PlayerInteractionBehavior = PlayerInteractionBehavior_Flee;
     float bestLocationScore = 0.f;
     ASDTFleeLocation* bestFleeLocation = nullptr;
 
@@ -370,7 +292,7 @@ void ASDTAIController::UpdatePlayerInteraction(float deltaTime)
     ACharacter* playerCharacter = UGameplayStatics::GetPlayerCharacter(GetWorld(), 0);
     if (!playerCharacter)
         return;
-
+    /*
     FVector detectionStartLocation = selfPawn->GetActorLocation() + selfPawn->GetActorForwardVector() * m_DetectionCapsuleForwardStartingOffset;
     FVector detectionEndLocation = detectionStartLocation + selfPawn->GetActorForwardVector() * m_DetectionCapsuleHalfLength * 2;
 
@@ -384,10 +306,19 @@ void ASDTAIController::UpdatePlayerInteraction(float deltaTime)
     GetHightestPriorityDetectionHit(allDetectionHits, detectionHit);
 
     UpdatePlayerInteractionBehavior(detectionHit, deltaTime);
-
+    */
     if (GetMoveStatus() == EPathFollowingStatus::Idle)
     {
         m_ReachedTarget = true;
+    }
+
+    if (m_GroupManager && m_previousState != m_PlayerInteractionBehavior)
+    {
+        if (m_PlayerInteractionBehavior == PlayerInteractionBehavior_Chase)
+            dynamic_cast<AGroupManager*>(m_GroupManager)->AddCharacterToGroup(GetPawn());
+        else
+            dynamic_cast<AGroupManager*>(m_GroupManager)->RemoveCharacterFromGroup(GetPawn());
+        m_previousState = m_PlayerInteractionBehavior;
     }
 
     FString debugString = "";
@@ -406,8 +337,9 @@ void ASDTAIController::UpdatePlayerInteraction(float deltaTime)
     }
 
     DrawDebugString(GetWorld(), FVector(0.f, 0.f, 5.f), debugString, GetPawn(), FColor::Orange, 0.f, false);
-
+    /*
     DrawDebugCapsule(GetWorld(), detectionStartLocation + m_DetectionCapsuleHalfLength * selfPawn->GetActorForwardVector(), m_DetectionCapsuleHalfLength, m_DetectionCapsuleRadius, selfPawn->GetActorQuat() * selfPawn->GetActorUpVector().ToOrientationQuat(), FColor::Blue);
+    */
 }
 
 bool ASDTAIController::HasLoSOnHit(const FHitResult& hit)
@@ -435,9 +367,10 @@ void ASDTAIController::AIStateInterrupted()
     StopMovement();
     m_ReachedTarget = true;
 }
-
+/*
 ASDTAIController::PlayerInteractionBehavior ASDTAIController::GetCurrentPlayerInteractionBehavior(const FHitResult& hit)
 {
+
     if (m_PlayerInteractionBehavior == PlayerInteractionBehavior_Collect)
     {
         if (!hit.GetComponent())
@@ -457,8 +390,9 @@ ASDTAIController::PlayerInteractionBehavior ASDTAIController::GetCurrentPlayerIn
 
         return SDTUtils::IsPlayerPoweredUp(GetWorld()) ? PlayerInteractionBehavior_Flee : PlayerInteractionBehavior_Chase;
     }
-}
 
+}
+*/
 void ASDTAIController::GetHightestPriorityDetectionHit(const TArray<FHitResult>& hits, FHitResult& outDetectionHit)
 {
     for (const FHitResult& hit : hits)
@@ -471,7 +405,7 @@ void ASDTAIController::GetHightestPriorityDetectionHit(const TArray<FHitResult>&
                 outDetectionHit = hit;
                 return;
             }
-            else if(component->GetCollisionObjectType() == COLLISION_COLLECTIBLE)
+            else if (component->GetCollisionObjectType() == COLLISION_COLLECTIBLE)
             {
                 outDetectionHit = hit;
             }
@@ -481,20 +415,16 @@ void ASDTAIController::GetHightestPriorityDetectionHit(const TArray<FHitResult>&
 
 void ASDTAIController::UpdatePlayerInteractionBehavior(const FHitResult& detectionHit, float deltaTime)
 {
+    /*
     PlayerInteractionBehavior currentBehavior = GetCurrentPlayerInteractionBehavior(detectionHit);
-    if (m_GroupManager == NULL)
-        FindGroupManager();
+
 
     if (currentBehavior != m_PlayerInteractionBehavior)
     {
-        if (m_GroupManager && currentBehavior == PlayerInteractionBehavior_Chase)
-            dynamic_cast<AGroupManager*>(m_GroupManager)->AddCharacterToGroup(GetPawn());
-        else if (m_GroupManager && currentBehavior != PlayerInteractionBehavior_Chase)
-            dynamic_cast<AGroupManager*>(m_GroupManager)->RemoveCharacterFromGroup(GetPawn());
-
         m_PlayerInteractionBehavior = currentBehavior;
         AIStateInterrupted();
     }
+    */
 }
 
 void ASDTAIController::FindGroupManager()
@@ -507,4 +437,3 @@ void ASDTAIController::FindGroupManager()
         }
     }
 }
-
