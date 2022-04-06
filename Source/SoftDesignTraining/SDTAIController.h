@@ -4,9 +4,6 @@
 
 #include "CoreMinimal.h"
 #include "SDTBaseAIController.h"
-#include "BehaviorTree/BehaviorTree.h"
-#include "BehaviorTree/BehaviorTreeComponent.h"
-#include "BehaviorTree/BlackboardComponent.h"
 #include "SDTAIController.generated.h"
 
 /**
@@ -49,8 +46,6 @@ public:
 
     UPROPERTY(EditAnywhere, Category = AI)
     UBehaviorTree* behaviorTree;
-    UBehaviorTreeComponent* m_behaviorTreeComponent;
-    UBlackboardComponent* m_blackboardComponent;
 
 protected:
 
@@ -63,14 +58,14 @@ protected:
 
     void GetHightestPriorityDetectionHit(const TArray<FHitResult>& hits, FHitResult& outDetectionHit);
     void UpdatePlayerInteractionBehavior(const FHitResult& detectionHit, float deltaTime);
-    //PlayerInteractionBehavior GetCurrentPlayerInteractionBehavior(const FHitResult& hit);
+    PlayerInteractionBehavior GetCurrentPlayerInteractionBehavior(const FHitResult& hit);
     bool HasLoSOnHit(const FHitResult& hit);
     void PlayerInteractionLoSUpdate();
     void OnPlayerInteractionNoLosDone();
     void OnMoveToTarget();
+    void PrintCPUTime();
 
 public:
-    virtual void BeginPlay() override;
     //behaviour tree tasks interface
     void MoveToPlayer();
     void MoveToRandomCollectible();
@@ -85,11 +80,28 @@ public:
     void SetActorLocation(const FVector& targetLocation);
     void AIStateInterrupted();
 
+    virtual void BeginPlay() override;
+    virtual void Tick(float deltaTime) override;
+
 private:
     virtual void GoToBestTarget(float deltaTime) override;
     virtual void UpdatePlayerInteraction(float deltaTime) override;
     virtual void ShowNavigationPath() override;
     void FindGroupManager();
+
+    static int aiCount;
+    static int counter;
+    static int lastUpdated;
+
+    static double chooseFleeTime;
+    static double updateTime;
+    static double detectionTime;
+    static double collectibleTime;
+
+    static const int timeBudget = 400; // in microseconds
+    static double elapsedTime;
+
+    float skippedDeltaTime;
 
 
 protected:
@@ -98,5 +110,4 @@ protected:
     FTimerHandle m_PlayerInteractionNoLosTimer;
     PlayerInteractionBehavior m_PlayerInteractionBehavior;
     AActor* m_GroupManager;
-    PlayerInteractionBehavior m_previousState;
 };
