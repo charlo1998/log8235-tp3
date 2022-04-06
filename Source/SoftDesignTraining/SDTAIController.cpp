@@ -24,9 +24,13 @@ double  ASDTAIController::collectibleTime = 0.0;
 
 double  ASDTAIController::elapsedTime = 0.0;
 
-+void ASDTAIController::BeginPlay()
+void ASDTAIController::BeginPlay()
 {
     Super::BeginPlay();
+    m_blackboardComponent->InitializeBlackboard(*behaviorTree->BlackboardAsset);
+    m_behaviorTreeComponent->StartTree(*behaviorTree);
+    FindGroupManager();
+
 
     // Get the number of AI
     TArray<AActor*> FoundActors;
@@ -34,7 +38,18 @@ double  ASDTAIController::elapsedTime = 0.0;
     aiCount = FoundActors.Num();
 
     skippedDeltaTime = 0.0;
+
+    
 }
+
+//// Called when the game starts or when spawned
+//void ASDTAIController::BeginPlay()
+//{
+//    Super::BeginPlay();
+//    m_blackboardComponent->InitializeBlackboard(*behaviorTree->BlackboardAsset);
+//    m_behaviorTreeComponent->StartTree(*behaviorTree);
+//    FindGroupManager();
+//}
 
 
 void ASDTAIController::Tick(float deltaTime)
@@ -119,14 +134,7 @@ ASDTAIController::ASDTAIController(const FObjectInitializer& ObjectInitializer)
     m_blackboardComponent = CreateDefaultSubobject<UBlackboardComponent>(TEXT("BlackboardComponent"));
 }
 
-// Called when the game starts or when spawned
-void ASDTAIController::BeginPlay()
-{
-    Super::BeginPlay();
-    m_blackboardComponent->InitializeBlackboard(*behaviorTree->BlackboardAsset);
-    m_behaviorTreeComponent->StartTree(*behaviorTree);
-    FindGroupManager();
-}
+
 
 void ASDTAIController::GoToBestTarget(float deltaTime)
 {

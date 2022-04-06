@@ -81,6 +81,7 @@ public:
     bool HasLos();
 
     virtual void Tick(float deltaTime) override;
+    void PrintCPUTime();
 
     virtual void OnMoveCompleted(FAIRequestID RequestID, const FPathFollowingResult& Result) override;
     void RotateTowards(const FVector& targetLocation);
