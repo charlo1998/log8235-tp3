@@ -80,6 +80,8 @@ public:
     bool playerPoweredUp();
     bool HasLos();
 
+    virtual void Tick(float deltaTime) override;
+
     virtual void OnMoveCompleted(FAIRequestID RequestID, const FPathFollowingResult& Result) override;
     void RotateTowards(const FVector& targetLocation);
     void SetActorLocation(const FVector& targetLocation);
@@ -90,6 +92,19 @@ private:
     virtual void UpdatePlayerInteraction(float deltaTime) override;
     virtual void ShowNavigationPath() override;
     void FindGroupManager();
+    static int aiCount;
+    static int counter;
+    static int lastUpdated;
+
+    static double chooseFleeTime;
+    static double updateTime;
+    static double detectionTime;
+    static double collectibleTime;
+
+    static const int timeBudget = 400; // in microseconds
+    static double elapsedTime;
+
+    float skippedDeltaTime;
 
 
 protected:

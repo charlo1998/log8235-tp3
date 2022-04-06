@@ -12,6 +12,104 @@
 #include "SDTUtils.h"
 #include "EngineUtils.h"
 
+
+int ASDTAIController::aiCount = 0;
+int ASDTAIController::counter = 0;
+int ASDTAIController::lastUpdated = 0;
+
+double  ASDTAIController::chooseFleeTime = 0.0;
+double  ASDTAIController::updateTime = 0.0;
+double  ASDTAIController::detectionTime = 0.0;
+double  ASDTAIController::collectibleTime = 0.0;
+
+double  ASDTAIController::elapsedTime = 0.0;
+
++void ASDTAIController::BeginPlay()
+{
+    Super::BeginPlay();
+
+    // Get the number of AI
+    TArray<AActor*> FoundActors;
+    UGameplayStatics::GetAllActorsOfClass(GetWorld(), GetPawn()->GetClass(), FoundActors);
+    aiCount = FoundActors.Num();
+
+    skippedDeltaTime = 0.0;
+}
+
+
+void ASDTAIController::Tick(float deltaTime)
+{
+    // TO-DO
+    // Here, the actors are always called in the same order, so the same actors are always updated and the others never are.
+    // Change for a queueing system where, once updated, an actor is queued (so that the other, further dequeued, actors are updated too).
+
+    // Keeps track of the number of AI we called up here.
+    counter++;
+    //GEngine->AddOnScreenDebugMessage(123, 50, FColor::Cyan, "lastUpdated  : " + FString::SanitizeFloat(lastUpdated));// / (double)aiCount));
+    // If the elapsed time until now is in our time budget, we do update the current AI.
+    if (elapsedTime < timeBudget && counter > lastUpdated) {
+
+        lastUpdated++;
+
+
+        double totalTimeStart = FPlatformTime::Seconds() * 1000000;
+        Super::Tick(deltaTime + skippedDeltaTime);
+
+        double totalTimeEnd = FPlatformTime::Seconds() * 1000000;
+
+        elapsedTime += totalTimeEnd - totalTimeStart;
+
+        skippedDeltaTime = 0.0;
+    }
+    // Else, we save the deltaTime skipped for when the AI will finally be updated.
+    else {
+        skippedDeltaTime += deltaTime;
+    }
+    PrintCPUTime();
+    if (lastUpdated >= aiCount)
+        lastUpdated = 0;
+    // When we are done going through all the AI (i.e. the current AI instance is the last AI to be called), we print the CPU time values.
+    if (counter >= aiCount) {
+        elapsedTime = 0.0;
+        counter = 0;
+    }
+}
+
+//void ASDTAIController::PrintCPUTime(bool resetValue)
+//{
+//    GEngine->AddOnScreenDebugMessage(20, 50, FColor::Cyan, "Elasped time  : " + FString::SanitizeFloat(elapsedTime));// / (double)aiCount));
+//    GEngine->AddOnScreenDebugMessage(4, -1, FColor::Green, "CPU time for choosing fleeing position : " + FString::SanitizeFloat(chooseFleeTime * 1000000));// / (double)aiCount));
+//    GEngine->AddOnScreenDebugMessage(3, -1, FColor::Purple, "CPU time for detection                 : " + FString::SanitizeFloat(detectionTime * 1000000));// / (double)aiCount));
+//    GEngine->AddOnScreenDebugMessage(2, -1, FColor::Yellow, "CPU time for choosing the collectible  : " + FString::SanitizeFloat(collectibleTime * 1000000));// / (double)aiCount));
+//    GEngine->AddOnScreenDebugMessage(1, -1, FColor::Red, "CPU time for update                    : " + FString::SanitizeFloat(updateTime * 1000000));// / (double)aiCount));
+//
+//    if (updateTime != 0.0) GEngine->AddOnScreenDebugMessage(5, 60, FColor::Red, "Last non null CPU time for update                    : " + FString::SanitizeFloat(updateTime * 1000000));
+//    if (detectionTime != 0.0) GEngine->AddOnScreenDebugMessage(6, 60, FColor::Purple, "Last non null CPU time for detection                 : " + FString::SanitizeFloat(detectionTime * 1000000));
+//    if (chooseFleeTime != 0.0) GEngine->AddOnScreenDebugMessage(7, 60, FColor::Green, "Last non null CPU time for choosing fleeing position : " + FString::SanitizeFloat(chooseFleeTime * 1000000));
+//    if (collectibleTime != 0.0) GEngine->AddOnScreenDebugMessage(8, 60, FColor::Yellow, "Last non null CPU time for choosing the collectible  : " + FString::SanitizeFloat(collectibleTime * 1000000));
+//
+//    if (resetValue)
+//    {
+//        chooseFleeTime = 0.0;
+//        updateTime = 0.0;
+//        detectionTime = 0.0;
+//        collectibleTime = 0.0;
+//    }
+//}
+
+void ASDTAIController::PrintCPUTime() {
+    DrawDebugString(GetWorld(), FVector(0.f, 0.f, 700.f), FString::SanitizeFloat(updateTime * 1000000), GetPawn(), FColor::Yellow, 0.01f, false);
+    DrawDebugString(GetWorld(), FVector(0.f, 0.f, 500.f), FString::SanitizeFloat(collectibleTime * 1000000), GetPawn(), FColor::Green, 0.005f, false);
+    DrawDebugString(GetWorld(), FVector(0.f, 0.f, 300.f), FString::SanitizeFloat(detectionTime * 1000000), GetPawn(), FColor::Blue, 0.003f, false);
+    DrawDebugString(GetWorld(), FVector(0.f, 0.f, 100.f), FString::SanitizeFloat(chooseFleeTime * 1000000), GetPawn(), FColor::Purple, 0.001f, false);
+    chooseFleeTime = 0.0;
+    updateTime = 0.0;
+    detectionTime = 0.0;
+    collectibleTime = 0.0;
+}
+
+
+
 ASDTAIController::ASDTAIController(const FObjectInitializer& ObjectInitializer)
     : Super(ObjectInitializer.SetDefaultSubobjectClass<USDTPathFollowingComponent>(TEXT("PathFollowingComponent")))
 {
