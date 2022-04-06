@@ -203,7 +203,7 @@ void ASDTAIController::MoveToPlayer()
     FVector selfPosition = GetPawn()->GetActorLocation();
     FVector playerPosition = playerCharacter->GetActorLocation();
 
-    if ((selfPosition - playerPosition).Size() >= 150.f) //far from player
+    if (m_GroupManager && (selfPosition - playerPosition).Size() >= 150.f) //far from player
     {
         //instead of moving straigth into the player, assign a position around him as a function of the position of the AI in the pursuit group
         TArray<AActor*> group = dynamic_cast<AGroupManager*>(m_GroupManager)->GetPursuingCharacters();
