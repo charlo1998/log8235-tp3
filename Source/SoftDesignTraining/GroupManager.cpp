@@ -28,16 +28,16 @@ void AGroupManager::Tick(float DeltaTime)
 
 void AGroupManager::AddCharacterToGroup(AActor* character)
 {
-	m_pursuingCharacters.push_back(character);
+	m_pursuingCharacters.Add(character);
 }
 
 void AGroupManager::RemoveCharacterFromGroup(AActor* character)
 {
-	for (int i = 0; i < m_pursuingCharacters.size(); i++)
+	for (int i = 0; i < m_pursuingCharacters.Num(); i++)
 	{
 		if (character == m_pursuingCharacters[i])
 		{
-			m_pursuingCharacters.erase(m_pursuingCharacters.begin()+i); //this makes the game crash :(
+			m_pursuingCharacters.RemoveAt(i); //this makes the game crash :(
 			break;
 		}
 	}
@@ -46,11 +46,9 @@ void AGroupManager::RemoveCharacterFromGroup(AActor* character)
 
 void AGroupManager::DrawDebug()
 {
-	for (std::vector<AActor*>::iterator iter = m_pursuingCharacters.begin(), end = this->m_pursuingCharacters.end();
-		iter != end;
-		++iter)
+	for (size_t i = 0; i < m_pursuingCharacters.Num(); i++)
 	{
-		FVector loc = (*iter)->GetActorLocation() + FVector(0.0f, 0.0f, 75.0f);
+		FVector loc = m_pursuingCharacters[i]->GetActorLocation() + FVector(0.0f, 0.0f, 75.0f);
 		DrawDebugSphere(GetWorld(), loc, 25.0f, 100, FColor::Purple);
 	}
 }

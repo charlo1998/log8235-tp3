@@ -19,13 +19,14 @@ public:
 
 	void AddCharacterToGroup(AActor* character);
 	void RemoveCharacterFromGroup(AActor* character);
-	std::vector<AActor*> GetPursuingCharacters() { return m_pursuingCharacters; };
+	TArray<AActor*> GetPursuingCharacters() { return m_pursuingCharacters; };
 
 protected:
 	//Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
 private:
-	std::vector<AActor*> m_pursuingCharacters;
+	TArray<AActor*> m_pursuingCharacters;
+
 	void DrawDebug();
 };
