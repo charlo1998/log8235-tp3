@@ -100,9 +100,9 @@ void ASDTAIController::MoveToPlayer()
     if ((selfPosition - playerPosition).Size() >= 150.f) //far from player
     {
         //instead of moving straigth into the player, assign a position around him as a function of the position of the AI in the pursuit group
-        std::vector<AActor*> group = dynamic_cast<AGroupManager*>(m_GroupManager)->GetPursuingCharacters();
+        TArray<AActor*> group = dynamic_cast<AGroupManager*>(m_GroupManager)->GetPursuingCharacters();
         
-        for (size_t i = 0; i < group.size(); i++)
+        for (size_t i = 0; i < group.Num(); i++)
         {
             if (GetPawn() == group[i]) //found my index
             {
