@@ -24,12 +24,21 @@ double  ASDTAIController::collectibleTime = 0.0;
 
 double  ASDTAIController::elapsedTime = 0.0;
 
+ASDTAIController::ASDTAIController(const FObjectInitializer& ObjectInitializer)
+    : Super(ObjectInitializer.SetDefaultSubobjectClass<USDTPathFollowingComponent>(TEXT("PathFollowingComponent")))
+{
+    m_PlayerInteractionBehavior = PlayerInteractionBehavior_Collect;
+    m_previousState = m_PlayerInteractionBehavior;
+    m_behaviorTreeComponent = CreateDefaultSubobject<UBehaviorTreeComponent>(TEXT("BehaviorTreeComponent"));
+    m_blackboardComponent = CreateDefaultSubobject<UBlackboardComponent>(TEXT("BlackboardComponent"));
+}
+
 void ASDTAIController::BeginPlay()
 {
     Super::BeginPlay();
     m_blackboardComponent->InitializeBlackboard(*behaviorTree->BlackboardAsset);
     //this line runs the agents for one tick
-    m_behaviorTreeComponent->StartTree(*behaviorTree, EBTExecutionMode::SingleRun); //par défault en looped changé pour singleRun, et il faut caller le behavior tree des agents selon le budget 
+    m_behaviorTreeComponent->StartTree(*behaviorTree, EBTExecutionMode::Looped); //par défault en looped, changer pour singleRun, et il faut caller le behavior tree des agents selon le budget 
     FindGroupManager();
 
 
@@ -43,22 +52,9 @@ void ASDTAIController::BeginPlay()
     
 }
 
-//// Called when the game starts or when spawned
-//void ASDTAIController::BeginPlay()
-//{
-//    Super::BeginPlay();
-//    m_blackboardComponent->InitializeBlackboard(*behaviorTree->BlackboardAsset);
-//    m_behaviorTreeComponent->StartTree(*behaviorTree);
-//    FindGroupManager();
-//}
-
 
 void ASDTAIController::Tick(float deltaTime)
 {
-    // TO-DO
-    // Here, the actors are always called in the same order, so the same actors are always updated and the others never are.
-    // Change for a queueing system where, once updated, an actor is queued (so that the other, further dequeued, actors are updated too).
-
     // Keeps track of the number of AI we called up here.
     counter++;
     //GEngine->AddOnScreenDebugMessage(123, 50, FColor::Cyan, "lastUpdated  : " + FString::SanitizeFloat(lastUpdated));// / (double)aiCount));
@@ -69,7 +65,7 @@ void ASDTAIController::Tick(float deltaTime)
 
 
         double totalTimeStart = FPlatformTime::Seconds() * 1000000;
-        //Super::Tick(deltaTime + skippedDeltaTime); do not call this, this enters in conflict with the behavior tree, call the tree from another class instead
+        Super::Tick(deltaTime + skippedDeltaTime); //do not call this, this enters in conflict with the behavior tree, call the tree from another class instead
 
         double totalTimeEnd = FPlatformTime::Seconds() * 1000000;
 
@@ -125,15 +121,6 @@ void ASDTAIController::PrintCPUTime() {
 }
 
 
-
-ASDTAIController::ASDTAIController(const FObjectInitializer& ObjectInitializer)
-    : Super(ObjectInitializer.SetDefaultSubobjectClass<USDTPathFollowingComponent>(TEXT("PathFollowingComponent")))
-{
-    m_PlayerInteractionBehavior = PlayerInteractionBehavior_Collect;
-    m_previousState = m_PlayerInteractionBehavior;
-    m_behaviorTreeComponent = CreateDefaultSubobject<UBehaviorTreeComponent>(TEXT("BehaviorTreeComponent"));
-    m_blackboardComponent = CreateDefaultSubobject<UBlackboardComponent>(TEXT("BlackboardComponent"));
-}
 
 
 
@@ -247,6 +234,7 @@ void ASDTAIController::MoveToPlayer()
     else //close enough to player, go straight to him
     {
         MoveToActor(playerCharacter, 0.5f, false, true, true, NULL, false);
+        OnMoveToTarget();
     }
 
 }
