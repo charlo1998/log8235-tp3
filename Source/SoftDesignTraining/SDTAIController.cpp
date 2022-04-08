@@ -24,13 +24,22 @@ double  ASDTAIController::collectibleTime = 0.0;
 
 //double  ASDTAIController::elapsedTime = 0.0;
 
+ASDTAIController::ASDTAIController(const FObjectInitializer& ObjectInitializer)
+    : Super(ObjectInitializer.SetDefaultSubobjectClass<USDTPathFollowingComponent>(TEXT("PathFollowingComponent")))
+{
+    m_PlayerInteractionBehavior = PlayerInteractionBehavior_Collect;
+    m_previousState = m_PlayerInteractionBehavior;
+    m_behaviorTreeComponent = CreateDefaultSubobject<UBehaviorTreeComponent>(TEXT("BehaviorTreeComponent"));
+    m_blackboardComponent = CreateDefaultSubobject<UBlackboardComponent>(TEXT("BlackboardComponent"));
+}
+
 void ASDTAIController::BeginPlay()
 {
     Super::BeginPlay();
 
     m_blackboardComponent->InitializeBlackboard(*behaviorTree->BlackboardAsset);
     //this line runs the agents for one tick
-    
+
     StartTree();
 
     FindGroupManager();
@@ -45,12 +54,12 @@ void ASDTAIController::BeginPlay()
 }
 
 void ASDTAIController::StartTree() {
-    m_behaviorTreeComponent->StartTree(*behaviorTree, EBTExecutionMode::SingleRun); //par défault en looped changé pour singleRun, et il faut caller le behavior tree des agents selon le budget 
+    m_behaviorTreeComponent->StartTree(*behaviorTree, EBTExecutionMode::SingleRun); //par dï¿½fault en looped changï¿½ pour singleRun, et il faut caller le behavior tree des agents selon le budget
 }
 
 void ASDTAIController::Tick(float deltaTime)
 {
-    Super::Tick(deltaTime);   
+    Super::Tick(deltaTime);
 
     PrintCPUTime();
 
@@ -185,7 +194,7 @@ void ASDTAIController::MoveToPlayer()
     {
         //instead of moving straigth into the player, assign a position around him as a function of the position of the AI in the pursuit group
         TArray<AActor*> group = dynamic_cast<AGroupManager*>(m_GroupManager)->GetPursuingCharacters();
-        
+
         for (size_t i = 0; i < group.Num(); i++) //idea: instead of looping here each tick, use the group manager to loop each tick and write the position for each agent to its created member variable
         {
             if (GetPawn() == group[i]) //found my index
@@ -224,6 +233,7 @@ void ASDTAIController::MoveToPlayer()
     else //close enough to player, go straight to him
     {
         MoveToActor(playerCharacter, 0.5f, false, true, true, NULL, false);
+        OnMoveToTarget();
     }
 
     double endDetection = FPlatformTime::Seconds();
