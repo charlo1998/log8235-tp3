@@ -14,11 +14,26 @@
 
 EBTNodeResult::Type UUBTTask_IsTargetPoweredUp::ExecuteTask(UBehaviorTreeComponent& OwnerComp, uint8* NodeMemory)
 {
-
-    if (OwnerComp.GetBlackboardComponent()->GetValue<UBlackboardKeyType_Bool>("TargetPoweredUp"))
+    if (ASDTAIController* aiController = Cast<ASDTAIController>(OwnerComp.GetAIOwner()))
     {
-        return EBTNodeResult::Succeeded;
+
+
+        if (aiController->playerPoweredUp())
+            return EBTNodeResult::Succeeded;
+        //{
+        //    //write to bb that the player is seen
+        //    OwnerComp.GetBlackboardComponent()->SetValue<UBlackboardKeyType_Bool>(OwnerComp.GetBlackboardComponent()->GetKeyID("TargetPoweredUp"), true);
+        //}
+        //else {
+        //    //write to bb that the player is not seen
+        //    OwnerComp.GetBlackboardComponent()->SetValue<UBlackboardKeyType_Bool>(OwnerComp.GetBlackboardComponent()->GetKeyID("TargetPoweredUp"), false);
+        //}
+
     }
+    //if (OwnerComp.GetBlackboardComponent()->GetValue<UBlackboardKeyType_Bool>("TargetPoweredUp"))
+    //{
+    //    return EBTNodeResult::Succeeded;
+    //}
 
     return EBTNodeResult::Failed;
 }

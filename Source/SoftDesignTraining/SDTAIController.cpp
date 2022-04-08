@@ -22,14 +22,17 @@ double  ASDTAIController::updateTime = 0.0;
 double  ASDTAIController::detectionTime = 0.0;
 double  ASDTAIController::collectibleTime = 0.0;
 
-double  ASDTAIController::elapsedTime = 0.0;
+//double  ASDTAIController::elapsedTime = 0.0;
 
 void ASDTAIController::BeginPlay()
 {
     Super::BeginPlay();
+
     m_blackboardComponent->InitializeBlackboard(*behaviorTree->BlackboardAsset);
     //this line runs the agents for one tick
-    m_behaviorTreeComponent->StartTree(*behaviorTree, EBTExecutionMode::SingleRun); //par défault en looped changé pour singleRun, et il faut caller le behavior tree des agents selon le budget 
+    
+    StartTree();
+
     FindGroupManager();
 
 
@@ -39,56 +42,18 @@ void ASDTAIController::BeginPlay()
     aiCount = FoundActors.Num();
 
     skippedDeltaTime = 0.0;
-
-    
 }
 
-//// Called when the game starts or when spawned
-//void ASDTAIController::BeginPlay()
-//{
-//    Super::BeginPlay();
-//    m_blackboardComponent->InitializeBlackboard(*behaviorTree->BlackboardAsset);
-//    m_behaviorTreeComponent->StartTree(*behaviorTree);
-//    FindGroupManager();
-//}
-
+void ASDTAIController::StartTree() {
+    m_behaviorTreeComponent->StartTree(*behaviorTree, EBTExecutionMode::SingleRun); //par défault en looped changé pour singleRun, et il faut caller le behavior tree des agents selon le budget 
+}
 
 void ASDTAIController::Tick(float deltaTime)
 {
-    // TO-DO
-    // Here, the actors are always called in the same order, so the same actors are always updated and the others never are.
-    // Change for a queueing system where, once updated, an actor is queued (so that the other, further dequeued, actors are updated too).
+    Super::Tick(deltaTime);   
 
-    // Keeps track of the number of AI we called up here.
-    counter++;
-    //GEngine->AddOnScreenDebugMessage(123, 50, FColor::Cyan, "lastUpdated  : " + FString::SanitizeFloat(lastUpdated));// / (double)aiCount));
-    // If the elapsed time until now is in our time budget, we do update the current AI.
-    if (elapsedTime < timeBudget && counter > lastUpdated) {
-
-        lastUpdated++;
-
-
-        double totalTimeStart = FPlatformTime::Seconds() * 1000000;
-        //Super::Tick(deltaTime + skippedDeltaTime); do not call this, this enters in conflict with the behavior tree, call the tree from another class instead
-
-        double totalTimeEnd = FPlatformTime::Seconds() * 1000000;
-
-        elapsedTime += totalTimeEnd - totalTimeStart;
-
-        skippedDeltaTime = 0.0;
-    }
-    // Else, we save the deltaTime skipped for when the AI will finally be updated.
-    else {
-        skippedDeltaTime += deltaTime;
-    }
     PrintCPUTime();
-    if (lastUpdated >= aiCount)
-        lastUpdated = 0;
-    // When we are done going through all the AI (i.e. the current AI instance is the last AI to be called), we print the CPU time values.
-    if (counter >= aiCount) {
-        elapsedTime = 0.0;
-        counter = 0;
-    }
+
 }
 
 //void ASDTAIController::PrintCPUTime(bool resetValue)
@@ -124,8 +89,6 @@ void ASDTAIController::PrintCPUTime() {
     collectibleTime = 0.0;
 }
 
-
-
 ASDTAIController::ASDTAIController(const FObjectInitializer& ObjectInitializer)
     : Super(ObjectInitializer.SetDefaultSubobjectClass<USDTPathFollowingComponent>(TEXT("PathFollowingComponent")))
 {
@@ -134,8 +97,6 @@ ASDTAIController::ASDTAIController(const FObjectInitializer& ObjectInitializer)
     m_behaviorTreeComponent = CreateDefaultSubobject<UBehaviorTreeComponent>(TEXT("BehaviorTreeComponent"));
     m_blackboardComponent = CreateDefaultSubobject<UBlackboardComponent>(TEXT("BlackboardComponent"));
 }
-
-
 
 void ASDTAIController::GoToBestTarget(float deltaTime)
 {
@@ -164,9 +125,15 @@ void ASDTAIController::GoToBestTarget(float deltaTime)
 
 void ASDTAIController::MoveToRandomCollectible()
 {
+    double startCollectible = FPlatformTime::Seconds();
+
     m_PlayerInteractionBehavior = PlayerInteractionBehavior_Collect;
-    if (!m_ReachedTarget)
+    if (!m_ReachedTarget) {
+        double endCollectible = FPlatformTime::Seconds();
+        collectibleTime += endCollectible - startCollectible;
         return;
+    }
+
     float closestSqrCollectibleDistance = 18446744073709551610.f;
     ASDTCollectible* closestCollectible = nullptr;
 
@@ -178,13 +145,18 @@ void ASDTAIController::MoveToRandomCollectible()
         int index = FMath::RandRange(0, foundCollectibles.Num() - 1);
 
         ASDTCollectible* collectibleActor = Cast<ASDTCollectible>(foundCollectibles[index]);
-        if (!collectibleActor)
+        if (!collectibleActor) {
+            double endCollectible = FPlatformTime::Seconds();
+            collectibleTime += endCollectible - startCollectible;
             return;
+        }
 
         if (!collectibleActor->IsOnCooldown())
         {
             MoveToLocation(foundCollectibles[index]->GetActorLocation(), 0.5f, false, true, true, NULL, false);
             OnMoveToTarget();
+            double endCollectible = FPlatformTime::Seconds();
+            collectibleTime += endCollectible - startCollectible;
             return;
         }
         else
@@ -196,10 +168,15 @@ void ASDTAIController::MoveToRandomCollectible()
 
 void ASDTAIController::MoveToPlayer()
 {
+    double startDetection = FPlatformTime::Seconds();
+
     m_PlayerInteractionBehavior = PlayerInteractionBehavior_Chase;
     ACharacter* playerCharacter = UGameplayStatics::GetPlayerCharacter(GetWorld(), 0);
-    if (!playerCharacter)
+    if (!playerCharacter) {
+        double endDetection = FPlatformTime::Seconds();
+        detectionTime += endDetection - startDetection;
         return;
+    }
 
     FVector selfPosition = GetPawn()->GetActorLocation();
     FVector playerPosition = playerCharacter->GetActorLocation();
@@ -249,6 +226,8 @@ void ASDTAIController::MoveToPlayer()
         MoveToActor(playerCharacter, 0.5f, false, true, true, NULL, false);
     }
 
+    double endDetection = FPlatformTime::Seconds();
+    detectionTime += endDetection - startDetection;
 }
 
 void ASDTAIController::PlayerInteractionLoSUpdate()
@@ -293,13 +272,18 @@ bool ASDTAIController::HasLos()
 
 void ASDTAIController::MoveToBestFleeLocation()
 {
+    double startFleeChoice = FPlatformTime::Seconds();
+
     m_PlayerInteractionBehavior = PlayerInteractionBehavior_Flee;
     float bestLocationScore = 0.f;
     ASDTFleeLocation* bestFleeLocation = nullptr;
 
     ACharacter* playerCharacter = UGameplayStatics::GetPlayerCharacter(GetWorld(), 0);
-    if (!playerCharacter)
+    if (!playerCharacter) {
+        double endFleeChoice = FPlatformTime::Seconds();
+        chooseFleeTime += endFleeChoice - startFleeChoice;
         return;
+    }
 
     for (TActorIterator<ASDTFleeLocation> actorIterator(GetWorld(), ASDTFleeLocation::StaticClass()); actorIterator; ++actorIterator)
     {
@@ -332,6 +316,8 @@ void ASDTAIController::MoveToBestFleeLocation()
         MoveToLocation(bestFleeLocation->GetActorLocation(), 0.5f, false, true, false, NULL, false);
         OnMoveToTarget();
     }
+    double endFleeChoice = FPlatformTime::Seconds();
+    chooseFleeTime += endFleeChoice - startFleeChoice;
 }
 
 void ASDTAIController::OnMoveToTarget()
@@ -388,6 +374,8 @@ void ASDTAIController::ShowNavigationPath()
 
 void ASDTAIController::UpdatePlayerInteraction(float deltaTime)
 {
+    double startUpdate = FPlatformTime::Seconds();
+
     //finish jump before updating AI state
     if (AtJumpSegment)
         return;
@@ -447,6 +435,9 @@ void ASDTAIController::UpdatePlayerInteraction(float deltaTime)
     /*
     DrawDebugCapsule(GetWorld(), detectionStartLocation + m_DetectionCapsuleHalfLength * selfPawn->GetActorForwardVector(), m_DetectionCapsuleHalfLength, m_DetectionCapsuleRadius, selfPawn->GetActorQuat() * selfPawn->GetActorUpVector().ToOrientationQuat(), FColor::Blue);
     */
+
+    double endUpdate = FPlatformTime::Seconds();
+    updateTime += endUpdate - startUpdate;
 }
 
 bool ASDTAIController::HasLoSOnHit(const FHitResult& hit)

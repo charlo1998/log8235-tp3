@@ -17,6 +17,7 @@ EBTNodeResult::Type UUBTTask_MoveFlee::ExecuteTask(UBehaviorTreeComponent& Owner
     if (ASDTAIController* aiController = Cast<ASDTAIController>(OwnerComp.GetAIOwner()))
     {
         aiController->MoveToBestFleeLocation();
+        //GEngine->AddOnScreenDebugMessage(1, -1, FColor::Cyan, "Fleeing");// / (double)aiCount));
         return EBTNodeResult::Succeeded;
     }
     return EBTNodeResult::Failed;

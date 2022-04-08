@@ -14,11 +14,19 @@
 
 EBTNodeResult::Type UUBTTask_IsTargetSeen::ExecuteTask(UBehaviorTreeComponent& OwnerComp, uint8* NodeMemory)
 {
-
-    if (OwnerComp.GetBlackboardComponent()->GetValue<UBlackboardKeyType_Bool>("TargetIsSeen"))
+    if (ASDTAIController* aiController = Cast<ASDTAIController>(OwnerComp.GetAIOwner()))
     {
-        return EBTNodeResult::Succeeded;
+        if (aiController->HasLos())
+            return EBTNodeResult::Succeeded;
+
     }
 
     return EBTNodeResult::Failed;
+
+    //if (OwnerComp.GetBlackboardComponent()->GetValue<UBlackboardKeyType_Bool>("TargetIsSeen"))
+    //{
+    //    return EBTNodeResult::Succeeded;
+    //}
+
+    //return EBTNodeResult::Failed;
 }

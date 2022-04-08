@@ -75,6 +75,7 @@ public:
     void MoveToPlayer();
     void MoveToRandomCollectible();
     void MoveToBestFleeLocation();
+    void StartTree();
 
     //behaviour tree service interface
     bool playerPoweredUp();
@@ -87,6 +88,8 @@ public:
     void RotateTowards(const FVector& targetLocation);
     void SetActorLocation(const FVector& targetLocation);
     void AIStateInterrupted();
+    int m_positionInGroup;
+    float skippedDeltaTime;
 
 private:
     virtual void GoToBestTarget(float deltaTime) override;
@@ -102,10 +105,7 @@ private:
     static double detectionTime;
     static double collectibleTime;
 
-    static const int timeBudget = 400; // in microseconds
-    static double elapsedTime;
 
-    float skippedDeltaTime;
 
 
 protected:

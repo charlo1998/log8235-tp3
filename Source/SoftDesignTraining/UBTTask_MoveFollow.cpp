@@ -17,6 +17,7 @@ EBTNodeResult::Type UUBTTask_MoveFollow::ExecuteTask(UBehaviorTreeComponent& Own
     if (ASDTAIController* aiController = Cast<ASDTAIController>(OwnerComp.GetAIOwner()))
     {
         aiController->MoveToPlayer();
+        //GEngine->AddOnScreenDebugMessage(2, -1, FColor::Yellow, "Pursue");
         return EBTNodeResult::Succeeded;
     }
      return EBTNodeResult::Failed;

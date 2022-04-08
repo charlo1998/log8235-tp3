@@ -4,6 +4,10 @@
 #include "SoftDesignTraining.h"
 #include "SoftDesignTrainingPlayerController.h"
 #include "SoftDesignTrainingCharacter.h"
+#include "SDTAIController.h"
+#include <chrono>
+
+
 
 ASoftDesignTrainingGameMode::ASoftDesignTrainingGameMode()
 {
@@ -21,6 +25,49 @@ ASoftDesignTrainingGameMode::ASoftDesignTrainingGameMode()
 void ASoftDesignTrainingGameMode::StartPlay()
 {
     Super::StartPlay();
+	UWorld* world = GetWorld();
+	world->Exec(world, TEXT("stat fps"));
 
-    GetWorld()->Exec(GetWorld(), TEXT("stat fps"));
+	PrimaryActorTick.bCanEverTick = true;
+
+
+	TArray<AActor*> actors = world->GetCurrentLevel()->Actors;
+	for (AActor* actor : actors) {
+		if (actor != NULL) {
+			APawn* Pawn = Cast<APawn>(actor);
+			if (actor->GetFName().ToString().Find("BP_SDTAICharacter") != std::string::npos) {
+				AIactors.push(Cast<ASDTAIController>(Pawn->GetController()));
+			}
+		}
+	}
+
+}
+
+
+void ASoftDesignTrainingGameMode::Tick(float DeltaSeconds) {
+
+	//int i = 1234324;
+	elapsedTime = 0;
+	std::queue<ASDTAIController*> tempQueue;
+	while (!AIactors.empty() && elapsedTime< timeBudget)
+	{
+		std::chrono::steady_clock::time_point begin = std::chrono::steady_clock::now();
+
+		ASDTAIController* controller = AIactors.front();
+		AIactors.pop();
+
+		//GEngine->AddOnScreenDebugMessage(i, 50, FColor::Cyan, controller->GetFName().ToString());
+		//i++;
+
+		controller->StartTree();
+		tempQueue.push(controller);
+
+		std::chrono::steady_clock::time_point end = std::chrono::steady_clock::now();
+		elapsedTime += std::chrono::duration_cast<std::chrono::microseconds>(end - begin).count();
+	}
+	while (!tempQueue.empty()) {
+		ASDTAIController* controller = tempQueue.front();
+		tempQueue.pop();
+		AIactors.push(controller);
+	}
 }

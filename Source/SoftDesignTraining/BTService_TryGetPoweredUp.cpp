@@ -19,6 +19,8 @@ void UBTService_TryGetPoweredUp::TickNode(UBehaviorTreeComponent& OwnerComp, uin
 {
     if (ASDTAIController* aiController = Cast<ASDTAIController>(OwnerComp.GetAIOwner()))
     {
+
+
         if (aiController->playerPoweredUp())
         {
             //write to bb that the player is seen
