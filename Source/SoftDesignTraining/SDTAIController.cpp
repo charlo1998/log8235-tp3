@@ -98,14 +98,6 @@ void ASDTAIController::PrintCPUTime() {
     collectibleTime = 0.0;
 }
 
-ASDTAIController::ASDTAIController(const FObjectInitializer& ObjectInitializer)
-    : Super(ObjectInitializer.SetDefaultSubobjectClass<USDTPathFollowingComponent>(TEXT("PathFollowingComponent")))
-{
-    m_PlayerInteractionBehavior = PlayerInteractionBehavior_Collect;
-    m_previousState = m_PlayerInteractionBehavior;
-    m_behaviorTreeComponent = CreateDefaultSubobject<UBehaviorTreeComponent>(TEXT("BehaviorTreeComponent"));
-    m_blackboardComponent = CreateDefaultSubobject<UBlackboardComponent>(TEXT("BlackboardComponent"));
-}
 
 void ASDTAIController::GoToBestTarget(float deltaTime)
 {
