@@ -3,6 +3,7 @@
 
 #include "GroupManager.h"
 #include "DrawDebugHelpers.h"
+#include "SDTAIController.h"
 
 // Sets default values
 AGroupManager::AGroupManager()
@@ -24,6 +25,16 @@ void AGroupManager::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 	DrawDebug();
+
+	//send their position in the pursuing group to the ais
+	for (int i = 0; i < m_pursuingCharacters.Num(); i++)
+	{
+		APawn* Pawn = Cast<APawn>(m_pursuingCharacters[i]);
+		if (ASDTAIController* Controller = Cast<ASDTAIController>(Pawn->GetController()))
+		{
+			Controller->m_positionInGroup = i;
+		}
+	}
 }
 
 void AGroupManager::AddCharacterToGroup(AActor* character)

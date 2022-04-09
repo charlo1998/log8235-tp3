@@ -58,7 +58,7 @@ void ASDTAIController::StartTree() {
 
 void ASDTAIController::Tick(float deltaTime)
 {
-    Super::Tick(deltaTime);
+    //Super::Tick(deltaTime);
 
     PrintCPUTime();
 
@@ -185,43 +185,34 @@ void ASDTAIController::MoveToPlayer()
 
     if (m_GroupManager && (selfPosition - playerPosition).Size() >= 150.f) //far from player
     {
-        //instead of moving straigth into the player, assign a position around him as a function of the position of the AI in the pursuit group
-        TArray<AActor*> group = dynamic_cast<AGroupManager*>(m_GroupManager)->GetPursuingCharacters();
 
-        for (size_t i = 0; i < group.Num(); i++) //idea: instead of looping here each tick, use the group manager to loop each tick and write the position for each agent to its created member variable
+        //retrieve position of agent in group and assign location in a circle. repeat if no places left.
+        FVector offSet(0.f, 0.f, 0.f);
+        int modulo = m_positionInGroup % 6;
+        switch (modulo)
         {
-            if (GetPawn() == group[i]) //found my index
-            {
-                //retrieve position of agent in group and assign location in a circle. repeat if no places left.
-                FVector offSet(0.f, 0.f, 0.f);
-                int modulo = i % 6;
-                switch (modulo)
-                {
-                case 0:
-                    offSet = FVector(1.f, 0.f, 0.f);
-                    break;
-                case 1:
-                    offSet = FVector(0.5f, 0.866f, 0.f);
-                    break;
-                case 2:
-                    offSet = FVector(-0.5f, 0.866f, 0.f);
-                    break;
-                case 3:
-                    offSet = FVector(-1.f, 0.f, 0.f);
-                    break;
-                case 4:
-                    offSet = FVector(-0.5f, -0.866f, 0.f);
-                    break;
-                case 5:
-                    offSet = FVector(0.5f, -0.866f, 0.f);
-                    break;
-                }
-                MoveToLocation(playerPosition + offSet * 145.f, 0.5f, false, true, true, NULL, false);
-                OnMoveToTarget();
-                break;
-            }
-
+        case 0:
+            offSet = FVector(1.f, 0.f, 0.f);
+            break;
+        case 1:
+            offSet = FVector(0.5f, 0.866f, 0.f);
+            break;
+        case 2:
+            offSet = FVector(-0.5f, 0.866f, 0.f);
+            break;
+        case 3:
+            offSet = FVector(-1.f, 0.f, 0.f);
+            break;
+        case 4:
+            offSet = FVector(-0.5f, -0.866f, 0.f);
+            break;
+        case 5:
+            offSet = FVector(0.5f, -0.866f, 0.f);
+            break;
         }
+        MoveToLocation(playerPosition + offSet * 145.f, 0.5f, false, true, true, NULL, false);
+        OnMoveToTarget();
+
     }
     else //close enough to player, go straight to him
     {

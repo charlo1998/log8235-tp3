@@ -88,7 +88,7 @@ public:
     void RotateTowards(const FVector& targetLocation);
     void SetActorLocation(const FVector& targetLocation);
     void AIStateInterrupted();
-    int m_positionInGroup;
+    int m_positionInGroup=0;
     float skippedDeltaTime;
 
 private:
