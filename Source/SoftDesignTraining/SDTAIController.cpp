@@ -44,7 +44,6 @@ void ASDTAIController::BeginPlay()
 
     FindGroupManager();
 
-
     // Get the number of AI
     TArray<AActor*> FoundActors;
     UGameplayStatics::GetAllActorsOfClass(GetWorld(), GetPawn()->GetClass(), FoundActors);
@@ -129,6 +128,7 @@ void ASDTAIController::MoveToRandomCollectible()
     double startCollectible = FPlatformTime::Seconds();
 
     m_PlayerInteractionBehavior = PlayerInteractionBehavior_Collect;
+    ShouldBeInChasingGroup();
     if (!m_ReachedTarget) {
         double endCollectible = FPlatformTime::Seconds();
         collectibleTime += endCollectible - startCollectible;
@@ -172,6 +172,7 @@ void ASDTAIController::MoveToPlayer()
     double startDetection = FPlatformTime::Seconds();
 
     m_PlayerInteractionBehavior = PlayerInteractionBehavior_Chase;
+    ShouldBeInChasingGroup();
     ACharacter* playerCharacter = UGameplayStatics::GetPlayerCharacter(GetWorld(), 0);
     if (!playerCharacter) {
         double endDetection = FPlatformTime::Seconds();
@@ -277,6 +278,7 @@ void ASDTAIController::MoveToBestFleeLocation()
     double startFleeChoice = FPlatformTime::Seconds();
 
     m_PlayerInteractionBehavior = PlayerInteractionBehavior_Flee;
+    ShouldBeInChasingGroup();
     float bestLocationScore = 0.f;
     ASDTFleeLocation* bestFleeLocation = nullptr;
 
@@ -409,15 +411,6 @@ void ASDTAIController::UpdatePlayerInteraction(float deltaTime)
         m_ReachedTarget = true;
     }
 
-    if (m_GroupManager && m_previousState != m_PlayerInteractionBehavior)
-    {
-        if (m_PlayerInteractionBehavior == PlayerInteractionBehavior_Chase)
-            dynamic_cast<AGroupManager*>(m_GroupManager)->AddCharacterToGroup(GetPawn());
-        else
-            dynamic_cast<AGroupManager*>(m_GroupManager)->RemoveCharacterFromGroup(GetPawn());
-        m_previousState = m_PlayerInteractionBehavior;
-    }
-
     FString debugString = "";
 
     switch (m_PlayerInteractionBehavior)
@@ -535,5 +528,17 @@ void ASDTAIController::FindGroupManager()
         {
             m_GroupManager = groupManager;
         }
+    }
+}
+
+void ASDTAIController::ShouldBeInChasingGroup()
+{
+    if (m_GroupManager && m_previousState != m_PlayerInteractionBehavior)
+    {
+        if (m_PlayerInteractionBehavior == PlayerInteractionBehavior_Chase)
+            dynamic_cast<AGroupManager*>(m_GroupManager)->AddCharacterToGroup(GetPawn());
+        else
+            dynamic_cast<AGroupManager*>(m_GroupManager)->RemoveCharacterFromGroup(GetPawn());
+        m_previousState = m_PlayerInteractionBehavior;
     }
 }

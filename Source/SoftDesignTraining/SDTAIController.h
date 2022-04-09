@@ -96,6 +96,7 @@ private:
     virtual void UpdatePlayerInteraction(float deltaTime) override;
     virtual void ShowNavigationPath() override;
     void FindGroupManager();
+    void ShouldBeInChasingGroup();
     static int aiCount;
     static int counter;
     static int lastUpdated;
@@ -104,9 +105,6 @@ private:
     static double updateTime;
     static double detectionTime;
     static double collectibleTime;
-
-
-
 
 protected:
     FVector m_JumpTarget;
