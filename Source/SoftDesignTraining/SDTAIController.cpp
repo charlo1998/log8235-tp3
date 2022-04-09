@@ -38,6 +38,7 @@ void ASDTAIController::BeginPlay()
     //this line runs the agents for one tick
     StartTree();
 
+    //Find the groupManager at launch of the game
     FindGroupManager();
 
     // Get the number of AI
@@ -429,6 +430,7 @@ void ASDTAIController::UpdatePlayerInteractionBehavior(const FHitResult& detecti
 
 }
 
+//Find the groupManager at launch of the game
 void ASDTAIController::FindGroupManager()
 {
     for (TActorIterator<AActor> actor(GetWorld()); actor; ++actor)
@@ -440,12 +442,16 @@ void ASDTAIController::FindGroupManager()
     }
 }
 
+//Checks if the AI should be added or removed from the group
 void ASDTAIController::ShouldBeInChasingGroup()
 {
+    //Checks if the state of the AI changed
     if (m_GroupManager && m_previousState != m_PlayerInteractionBehavior)
     {
+        //Add if chasing
         if (m_PlayerInteractionBehavior == PlayerInteractionBehavior_Chase)
             dynamic_cast<AGroupManager*>(m_GroupManager)->AddCharacterToGroup(GetPawn());
+        //remove otherwise
         else
             dynamic_cast<AGroupManager*>(m_GroupManager)->RemoveCharacterFromGroup(GetPawn());
         m_previousState = m_PlayerInteractionBehavior;

@@ -46,7 +46,6 @@ void ASoftDesignTrainingGameMode::StartPlay()
 
 void ASoftDesignTrainingGameMode::Tick(float DeltaSeconds) {
 
-	//int i = 1234324;
 	elapsedTime = 0;
 	std::queue<ASDTAIController*> tempQueue;
 	while (!AIactors.empty() && elapsedTime< timeBudget)
