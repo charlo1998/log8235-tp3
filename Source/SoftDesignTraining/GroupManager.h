@@ -27,6 +27,5 @@ protected:
 
 private:
 	TArray<AActor*> m_pursuingCharacters;
-
-	void DrawDebug();
+	const FVector purpleMarkerLocation = FVector(0.0f, 0.0f, 75.0f);
 };

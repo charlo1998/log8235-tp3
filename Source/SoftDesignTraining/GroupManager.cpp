@@ -24,14 +24,15 @@ void AGroupManager::BeginPlay()
 void AGroupManager::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-	//DrawDebug();
 
-	//send their position in the pursuing group to the ais
+	//send their position in the pursuing group to the AIs
 	for (int i = 0; i < m_pursuingCharacters.Num(); i++)
 	{
-		FVector loc = m_pursuingCharacters[i]->GetActorLocation() + FVector(0.0f, 0.0f, 75.0f);
-		DrawDebugSphere(GetWorld(), loc, 25.0f, 5, FColor::Purple);
+		//Draw purple sphere on top of the AIs in the group
+		FVector loc = m_pursuingCharacters[i]->GetActorLocation() + purpleMarkerLocation;
+		DrawDebugSphere(GetWorld(), loc, 20.0f, 5, FColor::Purple);
 
+		//Assign position to each AI to circle the player
 		APawn* Pawn = Cast<APawn>(m_pursuingCharacters[i]);
 		if (ASDTAIController* Controller = Cast<ASDTAIController>(Pawn->GetController()))
 		{
@@ -54,14 +55,5 @@ void AGroupManager::RemoveCharacterFromGroup(AActor* character)
 			m_pursuingCharacters.RemoveAt(i);
 			break;
 		}
-	}
-	
-}
-
-void AGroupManager::DrawDebug()
-{
-	for (size_t i = 0; i < m_pursuingCharacters.Num(); i++)
-	{
-		
 	}
 }
