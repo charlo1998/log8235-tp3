@@ -18,7 +18,7 @@ int ASDTAIController::counter = 0;
 int ASDTAIController::lastUpdated = 0;
 
 double  ASDTAIController::chooseFleeTime = 0.0;
-double  ASDTAIController::updateTime = 0.0;
+//double  ASDTAIController::updateTime = 0.0; not needed anymore
 double  ASDTAIController::detectionTime = 0.0;
 double  ASDTAIController::collectibleTime = 0.0;
 
@@ -87,12 +87,12 @@ void ASDTAIController::Tick(float deltaTime)
 //}
 
 void ASDTAIController::PrintCPUTime() {
-    DrawDebugString(GetWorld(), FVector(0.f, 0.f, 700.f), FString::SanitizeFloat(updateTime * 1000000), GetPawn(), FColor::Yellow, 0.01f, false);
+    //DrawDebugString(GetWorld(), FVector(0.f, 0.f, 700.f), FString::SanitizeFloat(updateTime * 1000000), GetPawn(), FColor::Yellow, 0.01f, false);
     DrawDebugString(GetWorld(), FVector(0.f, 0.f, 500.f), FString::SanitizeFloat(collectibleTime * 1000000), GetPawn(), FColor::Green, 0.005f, false);
     DrawDebugString(GetWorld(), FVector(0.f, 0.f, 300.f), FString::SanitizeFloat(detectionTime * 1000000), GetPawn(), FColor::Blue, 0.003f, false);
     DrawDebugString(GetWorld(), FVector(0.f, 0.f, 100.f), FString::SanitizeFloat(chooseFleeTime * 1000000), GetPawn(), FColor::Purple, 0.001f, false);
     chooseFleeTime = 0.0;
-    updateTime = 0.0;
+    //updateTime = 0.0;
     detectionTime = 0.0;
     collectibleTime = 0.0;
 }
@@ -378,7 +378,7 @@ void ASDTAIController::ShowNavigationPath()
 
 void ASDTAIController::UpdatePlayerInteraction(float deltaTime)
 {
-    double startUpdate = FPlatformTime::Seconds();
+    //double startUpdate = FPlatformTime::Seconds();
 
     //finish jump before updating AI state
     if (AtJumpSegment)
@@ -431,8 +431,8 @@ void ASDTAIController::UpdatePlayerInteraction(float deltaTime)
     DrawDebugCapsule(GetWorld(), detectionStartLocation + m_DetectionCapsuleHalfLength * selfPawn->GetActorForwardVector(), m_DetectionCapsuleHalfLength, m_DetectionCapsuleRadius, selfPawn->GetActorQuat() * selfPawn->GetActorUpVector().ToOrientationQuat(), FColor::Blue);
     */
 
-    double endUpdate = FPlatformTime::Seconds();
-    updateTime += endUpdate - startUpdate;
+    //double endUpdate = FPlatformTime::Seconds();
+    //updateTime += endUpdate - startUpdate;
 }
 
 bool ASDTAIController::HasLoSOnHit(const FHitResult& hit)

@@ -16,15 +16,16 @@ void ASDTBaseAIController::Tick(float deltaTime)
     Super::Tick(deltaTime);
 
     //GEngine->AddOnScreenDebugMessage(11, -1, FColor::Red, "tick");
-    UpdatePlayerInteraction(deltaTime);
+    //UpdatePlayerInteraction(deltaTime);
     if (m_ReachedTarget)
     {
-        GoToBestTarget(deltaTime);
+        //GoToBestTarget(deltaTime);
     }
     else
     {
         ShowNavigationPath();
     }
+    
 }
 
 

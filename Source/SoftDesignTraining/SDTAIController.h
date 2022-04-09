@@ -102,7 +102,7 @@ private:
     static int lastUpdated;
 
     static double chooseFleeTime;
-    static double updateTime;
+    //static double updateTime;
     static double detectionTime;
     static double collectibleTime;
 
