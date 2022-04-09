@@ -65,6 +65,7 @@ void ASoftDesignTrainingGameMode::Tick(float DeltaSeconds) {
 		std::chrono::steady_clock::time_point end = std::chrono::steady_clock::now();
 		elapsedTime += std::chrono::duration_cast<std::chrono::microseconds>(end - begin).count();
 	}
+	UE_LOG(LogTemp, Warning, TEXT("%d"),tempQueue.size());
 	while (!tempQueue.empty()) {
 		ASDTAIController* controller = tempQueue.front();
 		tempQueue.pop();

@@ -59,7 +59,7 @@ void ASDTAIController::StartTree() {
 void ASDTAIController::Tick(float deltaTime)
 {
     //Super::Tick(deltaTime);
-
+    ShowNavigationPath();
     PrintCPUTime();
 
 }
